@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Test Scenario Validation</fullName>
+                <default>false</default>
+                <label>Test Scenario Validation</label>
+            </value>
+            <value>
+                <fullName>Developer Testing</fullName>
+                <default>false</default>
+                <label>Developer Testing</label>
+            </value>
+            <value>
+                <fullName>QA</fullName>
+                <default>false</default>
+                <label>QA</label>
+            </value>
+            <value>
+                <fullName>Regression</fullName>
+                <default>false</default>
+                <label>Regression</label>
+            </value>
+            <value>
+                <fullName>UAT</fullName>
+                <default>false</default>
+                <label>UAT</label>
+            </value>
+            <value>
+                <fullName>Smoke/sanity</fullName>
+                <default>false</default>
+                <label>Smoke/sanity</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

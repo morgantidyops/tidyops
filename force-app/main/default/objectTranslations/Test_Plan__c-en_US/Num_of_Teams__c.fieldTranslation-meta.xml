@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- How many distinct teams are there? This will equal the number of distinct combinations of list views different groups of users should see. --></help>
+        <label><!-- # of Teams --></label>
+        <name>Num_of_Teams__c</name>
+    </CustomFieldTranslation>

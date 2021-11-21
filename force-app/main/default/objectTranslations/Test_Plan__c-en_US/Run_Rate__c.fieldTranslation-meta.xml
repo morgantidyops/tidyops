@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- What is the mandatory run rate in order to call the testing complete? --></help>
+        <label><!-- Run Rate --></label>
+        <name>Run_Rate__c</name>
+    </CustomFieldTranslation>

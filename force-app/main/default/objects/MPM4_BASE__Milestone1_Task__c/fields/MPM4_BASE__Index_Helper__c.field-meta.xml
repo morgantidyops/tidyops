@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPM4_BASE__Index_Helper__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <formula>IF( ISNULL(MPM4_BASE__Resource__r.MPM4_BASE__User__c) , 
+MPM4_BASE__Resource__r.MPM4_BASE__Contact__r.FirstName &amp; &#39; &#39; &amp; MPM4_BASE__Resource__r.MPM4_BASE__Contact__r.LastName &amp; &#39; &#39; &amp; MPM4_BASE__Project_Milestone__r.MPM4_BASE__Project__r.Name &amp; &#39; &#39; &amp; MPM4_BASE__Project_Milestone__r.Name &amp; &#39; complete:&#39; &amp; IF(MPM4_BASE__Complete__c, &#39;yes&#39;, &#39;no&#39;) &amp; &#39; &#39; &amp; Name 
+, 
+MPM4_BASE__Resource__r.MPM4_BASE__User__r.FirstName &amp; &#39; &#39; &amp; MPM4_BASE__Resource__r.MPM4_BASE__User__r.LastName &amp; &#39; &#39; &amp; MPM4_BASE__Project_Milestone__r.MPM4_BASE__Project__r.Name &amp; &#39; &#39; &amp; MPM4_BASE__Project_Milestone__r.Name &amp; &#39; complete:&#39; &amp; IF(MPM4_BASE__Complete__c, &#39;yes&#39;, &#39;no&#39;) &amp; &#39; &#39; &amp; Name
+)</formula>
+    <label>Index Helper</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Est_Total_num_of_Test_Runs__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+  AND(
+    ISNULL(Num_of_Passes__c),
+    ISNULL(Num_of_Roles__c),
+    ISNULL(Num_of_Teams__c)
+  ), 0,
+  1
+)
+
+*
+
+IF(
+  NOT(ISNULL(Num_of_Passes__c)),
+  Num_of_Passes__c,
+  1
+)
+
+* 
+
+IF(
+  NOT(ISNULL(Num_of_Roles__c)),
+  Num_of_Roles__c,
+  1
+)
+
+* 
+
+IF(
+  NOT(ISNULL(Num_of_Teams__c)),
+  Num_of_Teams__c,
+  1
+)
+
+* 
+
+IF(
+  NOT(ISNULL(Num_of_Test_Cases__c)),
+  Num_of_Test_Cases__c,
+  1
+)</formula>
+    <inlineHelpText>Calculated field of the number of test runs per test case based on the number of roles, passes and teams for this test plan.</inlineHelpText>
+    <label>Est. Total # of Test Runs</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

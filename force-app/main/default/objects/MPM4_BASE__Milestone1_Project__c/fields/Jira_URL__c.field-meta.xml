@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Jira_URL__c</fullName>
+    <description>Include protocol and domain only (e.g. https://salesforce.atlassian.net)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Include protocol and domain only (e.g. https://salesforce.atlassian.net)</inlineHelpText>
+    <label>Jira URL</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Url</type>
+</CustomField>

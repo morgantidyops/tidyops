@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Line_Start_Month_vs_Plan_Start_Month</fullName>
+    <active>true</active>
+    <errorConditionFormula>MONTH(Start_Date__c) !=  MONTH(Revenue_Plan__r.Start_Date__c)</errorConditionFormula>
+    <errorMessage>Start Date month must be the same as the Revenue Plan Start Date month.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CHANNEL_ORDERS__COA_Product_View</fullName>
+    <columns>NAME</columns>
+    <columns>CHANNEL_ORDERS__Unit_Price_Formula__c</columns>
+    <columns>CHANNEL_ORDERS__Pricing_Unit__c</columns>
+    <columns>CHANNEL_ORDERS__Partner_Product_Name__c</columns>
+    <columns>CHANNEL_ORDERS__Partner_Price_Book_Entry_Id__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>COA Product View</label>
+</ListView>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CHANNEL_ORDERS__Fixed_Price_should_be_blank</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( ISPICKVAL(CHANNEL_ORDERS__Pricing_Type__c ,&quot;PNR&quot;),not(ISNULL( CHANNEL_ORDERS__Fixed_Price__c) ))</errorConditionFormula>
+    <errorDisplayField>CHANNEL_ORDERS__Fixed_Price__c</errorDisplayField>
+    <errorMessage>Fixed Price must be blank if Pricing Type = PNR</errorMessage>
+</ValidationRule>

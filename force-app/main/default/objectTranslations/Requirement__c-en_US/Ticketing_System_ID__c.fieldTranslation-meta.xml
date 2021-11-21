@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- JIRA Issue number, Asana Task name or other ticketing system ID if applicable (e.g. ZS-525) --></help>
+        <label><!-- Ticketing System ID --></label>
+        <name>Ticketing_System_ID__c</name>
+    </CustomFieldTranslation>

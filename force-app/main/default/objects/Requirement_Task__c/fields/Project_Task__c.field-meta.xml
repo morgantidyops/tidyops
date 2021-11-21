@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Project_Task__c</fullName>
+    <externalId>false</externalId>
+    <label>Project Task</label>
+    <referenceTo>MPM4_BASE__Milestone1_Task__c</referenceTo>
+    <relationshipLabel>Related Requirements</relationshipLabel>
+    <relationshipName>Requirement_Tasks</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

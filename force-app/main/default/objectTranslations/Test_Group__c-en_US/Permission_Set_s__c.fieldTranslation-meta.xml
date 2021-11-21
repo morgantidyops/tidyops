@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Which permission sets are assigned to users in this test group? --></help>
+        <label><!-- Permission Set(s) --></label>
+        <name>Permission_Set_s__c</name>
+    </CustomFieldTranslation>

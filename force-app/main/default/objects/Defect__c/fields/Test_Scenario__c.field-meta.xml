@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Test_Scenario__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <inlineHelpText>If there is a Test Scenario that can be used for the Reproduction Steps, indicate that here.</inlineHelpText>
+    <label>Test Scenario</label>
+    <referenceTo>Test_Scenario__c</referenceTo>
+    <relationshipLabel>Defects</relationshipLabel>
+    <relationshipName>Defects</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

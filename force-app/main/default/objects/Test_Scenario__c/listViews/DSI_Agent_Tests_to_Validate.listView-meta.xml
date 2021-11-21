@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DSI_Agent_Tests_to_Validate</fullName>
+    <columns>NAME</columns>
+    <columns>Environment__c</columns>
+    <columns>Test_Group__c</columns>
+    <columns>Test_Cycle__c</columns>
+    <columns>Browser__c</columns>
+    <columns>Test_Scenario_Status__c</columns>
+    <columns>Assigned_To__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Test_Cycle_Type__c</field>
+        <operation>equals</operation>
+        <value>Test Scenario Validation</value>
+    </filters>
+    <filters>
+        <field>Runs_Executed__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Assigned_To__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>Test_Scenario_Status__c</field>
+        <operation>equals</operation>
+        <value>Ready For Validation,Testing</value>
+    </filters>
+    <filters>
+        <field>Test_Group__c</field>
+        <operation>contains</operation>
+        <value>DSI Agent</value>
+    </filters>
+    <label>DSI Agent Tests to Validate</label>
+</ListView>

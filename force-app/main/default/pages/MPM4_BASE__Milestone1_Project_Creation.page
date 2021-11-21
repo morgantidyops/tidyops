@@ -1,0 +1,403 @@
+<apex:page showHeader="true" sidebar="false" controller="MPM4_BASE.Milestone1_Project_Creation_Controller" title="MPM+ Project Creation">
+	<apex:slds />
+
+	<style>
+		.dateFormat {
+            display:none;
+        }
+	</style>
+
+	<script>
+		var hasLoadedCache = false;
+		window.onload = function(){
+            document.getElementById('projCreationPage').onclick = function(e){
+            	if(!e.target.id.endsWith('Menu')){
+                  	elements = document.getElementsByClassName("slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open");
+				    for (var i = 0; i < elements.length; i++) {
+				        elements[i].className = "slds-dropdown-trigger slds-dropdown-trigger_click slds-is-closed";
+				    }
+                }
+			};
+        };
+
+		function toggleDropdown(menuID){
+			var currentClass = document.getElementById(menuID).className;
+			if(currentClass.endsWith("slds-is-closed")){
+				document.getElementById(menuID).className = "slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open";
+			}else{
+				document.getElementById(menuID).className = "slds-dropdown-trigger slds-dropdown-trigger_click slds-is-closed";
+			}
+
+			hideOtherDropdowns(menuID);
+		}
+
+		function hideOtherDropdowns(menuID){
+			elements = document.getElementsByClassName("slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open");
+		    for (var i = 0; i < elements.length; i++) {
+		    	if(elements[i].id != menuID){
+		        	elements[i].className = "slds-dropdown-trigger slds-dropdown-trigger_click slds-is-closed";
+		    	}
+		    }
+		}
+
+		function loading(val) {
+            if(val){
+                document.getElementById('loadingIcon').style.display = 'block';
+            }else{
+                document.getElementById('loadingIcon').style.display = 'none';
+            }
+		}
+		
+		function saveProgress(projData, msData, tskData){
+			localStorage.setItem('MPMProject', projData);
+			localStorage.setItem('MPMMilestones', msData);
+			localStorage.setItem('MPMTasks', tskData);
+		}
+
+		function clearSavedProjInfo(){
+			localStorage.removeItem('MPMProject');
+			localStorage.removeItem('MPMMilestones');
+			localStorage.removeItem('MPMTasks');
+		}
+
+		function toggleInputFocus(menuToFocus) {
+			if (document.activeElement.tagName.toLowerCase() == 'input') {
+				document.activeElement.blur();
+				document.getElementById(menuToFocus).focus();
+			}
+		}
+
+	</script>
+
+	<apex:form >
+		<apex:outputPanel id="mpmActionFunctions">
+			<apex:actionFunction name="beginSavingProgress" reRender="storeProgress"/>
+
+			<apex:actionFunction name="toggleMPMCache" reRender="mpmActionFunctions, cachePoller" oncomplete="{!IF(!cacheData,'clearSavedProjInfo();','beginSavingProgress();')}">
+				<apex:param name="sortingCache" value="{!!cacheData}" assignTo="{!cacheData}"/>
+			</apex:actionFunction>
+
+			<apex:actionFunction name="getCachedData" action="{!loadCachedData}" reRender="mpmActionFunctions, projItems, cachePoller">
+				<apex:param name="projInfo" value="" assignTo="{!cachedProjInfo}"/>
+				<apex:param name="msInfo" value="" assignTo="{!cachedMSInfo}"/>
+				<apex:param name="tskInfo" value="" assignTo="{!cachedTskInfo}"/>
+			</apex:actionFunction>
+		</apex:outputPanel>
+
+		<apex:actionStatus id="loading" onstart="loading(true)" onstop="loading(false)" />
+		<div id="projCreationPage">
+        <div id="loadingIcon" style="display:none; z-index:90000;">
+		  <center>
+          <div aria-hidden="false" role="dialog" class="slds-modal slds-fade-in-open" style="z-index:90000;">
+            <div class="slds-modal__container" style="width: 50px; z-index:90000;">
+              <div class="slds-modal__content slds-p-around_small" style="z-index:90000;">
+              <div class="slds-spinner_large" background="#16325c">
+                  <img src="/apexpages/slds/latest/assets/images/spinners/slds_spinner_brand.gif" alt="Loading..." />
+              </div>
+              </div>
+            </div>
+          </div>
+		  <div class="slds-backdrop slds-backdrop_open"></div>
+		  </center>
+        </div>
+        <div class="slds-card">
+	        <header class="slds-card__header slds-text-heading_small slds-theme_alt-inverse">
+    			<h1 class="slds-text-heading_large">Milestones PM+ Project Creation</h1>
+    		</header>
+      	</div>
+
+		<apex:outputPanel id="projItems">
+			<center><apex:outputText styleClass="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_warning" style="display:block;" id="error" escape="false" value="{!pageError}" rendered="{!pageError != ''}"/></center>
+			<br/><br/>
+			<div class="slds-grid" align="right">
+				<div class="slds-col">
+					<b>Automatically Backup Progress:</b>
+					<a onmouseover="document.getElementById('autoSave').style.display = 'block';" onmouseout="document.getElementById('autoSave').style.display = 'none';"> 
+						<img  class="slds-icon slds-icon--x-small" style="size:80%;" src="/apexpages/slds/latest/assets/icons/utility/info_60.png"/>                 
+					</a> 
+					<div style="max-height:0px;overflow:visible;overflow-y:visible;position:relative;">
+						<div class="slds-popover slds-theme--info" id='autoSave' style="display:none !important;">                       
+							<div class="slds-popover__body">
+								<div align="left">
+								When checked the progress you make on this page will be backed up locally every 30 seconds. It is recommened to check this when creating large projects because if connection is lost or if your session resets, your progress will not be lost.<br/><br/>
+								Please Note: when checked the Project, Milestones, and Tasks will not be saved to Salesforce until the create project button is pressed.
+								</div>
+							</div>
+						</div>    
+					</div> 
+				</div>
+				<div class="slds-col" style="max-width:20px;padding-top:5px;padding-left:1px;">
+					<apex:inputCheckbox styleClass="slds-checkbox" value="{!cacheData}" onclick="toggleMPMCache();">
+						<apex:actionSupport event="onchange" reRender="cachePoller" status="loading"/>
+					</apex:inputCheckbox>
+				</div>
+			</div>
+			<center>
+			<table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered">
+				<thead>
+					<tr class="slds-line-height_reset">
+						<th width="362px;">{!DefaultProjFieldLabels[0]}</th>
+						<th>{!DefaultProjFieldLabels[1]}</th>
+						<th>{!DefaultProjFieldLabels[2]}</th>
+						<th>{!DefaultProjFieldLabels[3]}</th>
+						<apex:repeat value="{!OrderedProjFields}" var="field">
+							<th>{!projFields[field]}</th>
+						</apex:repeat>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+						<tr>
+						<td>
+							<apex:inputText maxlength="80" value="{!project.name}" style="min-width:280px;"/>
+						</td>
+						<td>
+							<apex:inputField value="{!project.MPM4_BASE__Kickoff__c}" style="{!IF(CONTAINS(invalidDateFields, 'Proj:Dates'), 'border-color:red;border-style:solid;border-width:2px;', '')}min-width: 110px;">
+								<apex:actionSupport event="onchange" rerender="projItems" action="{!validateProjectDates}"/>
+							</apex:inputField>
+						</td>
+						<td>
+							<apex:inputField value="{!project.MPM4_BASE__Deadline__c}" style="{!IF(CONTAINS(invalidDateFields, 'Proj:Dates'), 'border-color:red;border-style:solid;border-width:2px;', '')}min-width: 110px;">
+								<apex:actionSupport event="onchange" rerender="projItems" action="{!validateProjectDates}"/>
+							</apex:inputField>
+						</td>
+						<td>
+							<apex:inputField value="{!project.MPM4_BASE__Status__c}" style="min-width:280px;"/>
+						</td>
+						
+						<apex:repeat value="{!OrderedProjFields}" var="fld">
+							<td>
+								<apex:inputField value="{!project[fld]}"/>
+							</td>
+						</apex:repeat>
+
+						<td>
+							<div id="ProjMenu" class="slds-dropdown-trigger slds-dropdown-trigger_click slds-is-closed" onmouseover="toggleInputFocus('ProjMenu');" onclick="toggleDropdown('ProjMenu');return false;">
+							  <button id="ProjButtonMenu" class="slds-button slds-button_icon slds-button_icon-border-filled" aria-haspopup="true" title="Show More">
+							  	<img id="ProjDownMenu" src="/apexpages/slds/latest/assets/icons/utility/down_60.png" style="padding:5px;"/>
+							    <span class="slds-assistive-text">Show More</span>
+							  </button>
+							  <div class="slds-dropdown slds-dropdown_left">
+							    <ul class="slds-dropdown__list" role="menu" aria-label="Show More">
+							    	<li class="slds-dropdown__item" role="presentation">
+										<apex:commandLink value="Add Milestone" action="{!addNewMilestone}" reRender="projItems" status="loading">
+											<apex:param value="" assignTo="{!selectedMS}"/>
+										</apex:commandLink>
+									</li>
+									<li class="slds-dropdown__item" role="presentation" style="{!IF(milestones.size > 0, '', 'display:none;')}">
+										<apex:commandLink value="Add Task" action="{!addNewTask}" reRender="projItems" status="loading">
+											<apex:param value="" assignTo="{!selectedTask}"/>
+										</apex:commandLink>
+									</li>
+								</ul>
+							  </div>
+							</div>
+						</td>
+						</tr>
+				</tbody>
+			</table>
+			<apex:repeat value="{!milestones}" var="ms" id="msItems">
+				<table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered" style="padding-left:25px;background-color: #DDF6FF;">
+					<thead>
+						<tr class="slds-line-height_reset">
+							<th width="337px;">{!DefaultMSFieldLabels[0]}</th>
+							<th>{!DefaultMSFieldLabels[1]}</th>
+							<th>{!DefaultMSFieldLabels[2]}</th>
+							<th>{!DefaultMSFieldLabels[3]}</th>
+							<apex:repeat value="{!OrderedMSFields}" var="field">
+								<th>{!milestoneFields[field]}</th>
+							</apex:repeat>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<apex:inputText maxlength="80" value="{!ms.name}" style="{!IF(CONTAINS(invalidNameFields, '<' + ms.MPM4_BASE__ImportID__c + '>'), 'border-color:red;border-style:solid;border-width:2px;', '')}min-width:280px;">
+									<apex:actionSupport event="onchange" rerender="projItems" action="{!updateRecordIdentifiers}"/>
+									<apex:actionSupport event="onblur" rerender="projItems" status="loading"/>
+								</apex:inputText>
+							</td>
+							<td>
+								<apex:inputField value="{!ms.MPM4_BASE__Kickoff__c}" style="{!IF(CONTAINS(invalidDateFields, '<' + ms.MPM4_BASE__ImportID__c + 'Kickoff' + '>'), 'border-color:red;border-style:solid;border-width:2px;', '')}min-width: 110px;">
+									<apex:actionSupport event="onchange" rerender="projItems" action="{!validateAllMSDateFields}"/>
+								</apex:inputField>
+							</td>
+							<td>
+								<apex:inputField value="{!ms.MPM4_BASE__Deadline__c}" style="{!IF(CONTAINS(invalidDateFields, '<' + ms.MPM4_BASE__ImportID__c + 'Deadline' + '>'), 'border-color:red;border-style:solid;border-width:2px;', '')}min-width: 110px;">
+									<apex:actionSupport event="onchange" rerender="projItems" action="{!validateAllMSDateFields}"/>
+								</apex:inputField>
+							</td>
+							<td>
+								<apex:inputText maxlength="80" value="{!ms.MPM4_BASE__Predecessor_Milestone_Import_Id__c}" style="min-width:280px;">
+									<apex:actionSupport event="onchange" rerender="projItems" action="{!validateAllMSDateFields}"/>
+									<apex:actionSupport event="onblur" rerender="projItems" status="loading"/>
+								</apex:inputText>
+							</td>
+
+							<apex:repeat value="{!OrderedMSFields}" var="fld">
+								<td>
+									<apex:inputField value="{!ms[fld]}"/>
+								</td>
+							</apex:repeat>
+
+							<td>
+								<div id="{!ms.MPM4_BASE__ImportID__c}Menu" class="slds-dropdown-trigger slds-dropdown-trigger_click slds-is-closed" onmouseover="toggleInputFocus('{!ms.MPM4_BASE__ImportID__c}Menu');" onclick="toggleDropdown('{!ms.MPM4_BASE__ImportID__c}Menu');return false;">
+								  <button id="{!ms.MPM4_BASE__ImportID__c}ButtonMenu" class="slds-button slds-button_icon slds-button_icon-border-filled" aria-haspopup="true" title="Show More">
+								  	<img id="{!ms.MPM4_BASE__ImportID__c}DownMenu" src="/apexpages/slds/latest/assets/icons/utility/down_60.png" style="padding:5px;"/>
+								    <span class="slds-assistive-text">Show More</span>
+								  </button>
+								  <div class="slds-dropdown slds-dropdown_left">
+								    <ul class="slds-dropdown__list" role="menu" aria-label="Show More">
+								    	<li class="slds-dropdown__item" role="presentation">
+											<apex:commandLink value="Add Successor Milestone" action="{!addNewMilestone}" reRender="projItems" status="loading">
+												<apex:param name="predMs" value="{!ms.MPM4_BASE__ImportID__c}" assignTo="{!selectedMS}"/>
+												<apex:param name="blankTsk" value="" assignTo="{!selectedTask}"/>
+												<apex:param name="ignoreMsSuc1" value="false" assignTo="{!ignoreSuccessor}"/>
+											</apex:commandLink>
+										</li>
+										<li class="slds-dropdown__item" role="presentation">
+											<apex:commandLink value="Add Milestone Below" action="{!addNewMilestone}" reRender="projItems" status="loading">
+												<apex:param name="predMs" value="{!ms.MPM4_BASE__ImportID__c}" assignTo="{!selectedMS}"/>
+												<apex:param name="blankTsk" value="" assignTo="{!selectedTask}"/>
+												<apex:param name="ignoreMsSuc2" value="true" assignTo="{!ignoreSuccessor}"/>
+											</apex:commandLink>
+										</li>
+										<li class="slds-dropdown__item" role="presentation">
+											<apex:commandLink value="Add Task" action="{!addNewTask}" reRender="projItems" status="loading">
+												<apex:param name="tasksMs" value="{!ms.MPM4_BASE__ImportID__c}" assignTo="{!selectedMS}"/>
+												<apex:param name="blankTsk" value="" assignTo="{!selectedTask}"/>
+											</apex:commandLink>
+										</li>
+										<li class="slds-dropdown__item" role="presentation">
+											<apex:commandLink value="Remove Milestone" action="{!removeMilestone}" reRender="projItems" status="loading">
+												<apex:param name="deleteMs" value="{!ms.MPM4_BASE__ImportID__c}" assignTo="{!selectedMS}"/>
+											</apex:commandLink>
+										</li>
+									</ul>
+								  </div>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<apex:outputPanel id="taskList">
+				<table id="{!ms.MPM4_BASE__ImportID__c}Tasks" class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered" style="{!IF(CONTAINS(MilestonesThatHaveTasks, ms.ImportId__c), '', 'display:none;')}padding-left:50px;background-color: #FFFDD3;">
+					<thead>
+						<tr class="slds-line-height_reset">
+							<th width="290px;">{!DefaultTaskFieldLabels[0]}</th>
+							<th>{!DefaultTaskFieldLabels[1]}</th>
+							<th>{!DefaultTaskFieldLabels[2]}</th>
+							<th>{!DefaultTaskFieldLabels[3]}</th>
+							<apex:repeat value="{!OrderedTaskFields}" var="field">
+								<th>{!taskFields[field]}</th>
+							</apex:repeat>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<apex:repeat value="{!tasks}" var="tsk" id="tskItems">
+							<tr style="{!IF(tsk.MPM4_BASE__Index__c == ms.MPM4_BASE__ImportID__c, '', 'display:none;')}">
+								<td>
+								<apex:inputText maxlength="80" value="{!tsk.name}" style="{!IF(CONTAINS(invalidNameFields, '<'+tsk.MPM4_BASE__Index__c + ':' + tsk.MPM4_BASE__ImportID__c+'>'), 'border-color:red;border-style:solid;border-width:2px;', '')}min-width:280px;" rendered="{!tsk.MPM4_BASE__Index__c == ms.MPM4_BASE__ImportID__c}">
+									<apex:actionSupport event="onchange" rerender="projItems" action="{!updateRecordIdentifiers}"/>
+									<apex:actionSupport event="onblur" rerender="projItems" status="loading"/>
+								</apex:inputText>
+								</td>
+								<td>
+									<apex:inputField id="tskStartdate" value="{!tsk.MPM4_BASE__Start_Date__c}" style="{!IF(CONTAINS(invalidDateFields, '<' + tsk.MPM4_BASE__ImportID__c + 'StartDate' + '>'), 'border-color:red;border-style:solid;border-width:2px;', '')}min-width: 110px;" rendered="{!tsk.MPM4_BASE__Index__c == ms.MPM4_BASE__ImportID__c}">
+										<apex:actionSupport event="onchange" rerender="projItems" action="{!validateAllTSKDateFields}"/>
+									</apex:inputField>
+								</td>
+								<td>
+									<apex:inputField value="{!tsk.MPM4_BASE__Due_Date__c}" style="{!IF(CONTAINS(invalidDateFields, '<' + tsk.MPM4_BASE__ImportID__c + 'DueDate' + '>'), 'border-color:red;border-style:solid;border-width:2px;', '')}min-width: 110px;" rendered="{!tsk.MPM4_BASE__Index__c == ms.MPM4_BASE__ImportID__c}">
+										<apex:actionSupport event="onchange" rerender="projItems" action="{!validateAllTSKDateFields}"/>
+									</apex:inputField>
+								</td>
+								<td>
+									<apex:inputText maxlength="80" value="{!tsk.MPM4_BASE__Predecessor_Task_Import_Id__c}" style="min-width:280px;" rendered="{!tsk.MPM4_BASE__Index__c == ms.MPM4_BASE__ImportID__c}">
+										<apex:actionSupport event="onchange" rerender="projItems" action="{!validateAllTSKDateFields}"/>
+										<apex:actionSupport event="onblur" rerender="projItems" status="loading"/>
+									</apex:inputText>
+								</td>
+								
+								<apex:repeat value="{!OrderedTaskFields}" var="fld">
+									<td>
+										<apex:inputField value="{!tsk[fld]}"/>
+									</td>
+								</apex:repeat>
+								
+								<td>
+								<div id="{!IF(tsk.Index__c == ms.ImportId__c, ms.ImportId__c + tsk.ImportId__c + 'Menu','')}" class="slds-dropdown-trigger slds-dropdown-trigger_click slds-is-closed" onmouseover="toggleInputFocus('{!IF(tsk.Index__c == ms.ImportId__c, ms.ImportId__c + tsk.ImportId__c + 'Menu','')}');" onclick="toggleDropdown('{!ms.MPM4_BASE__ImportID__c}{!tsk.ImportId__c}Menu');return false;">
+								  <button id="{!tsk.ImportId__c}ButtonMenu" class="slds-button slds-button_icon slds-button_icon-border-filled" aria-haspopup="true" title="Show More">
+								  	<img id="{!tsk.ImportId__c}DownMenu" src="/apexpages/slds/latest/assets/icons/utility/down_60.png" style="padding:5px;"/>
+								    <span class="slds-assistive-text">Show More</span>
+								  </button>
+								  <div class="slds-dropdown slds-dropdown_left">
+								    <ul class="slds-dropdown__list" role="menu" aria-label="Show More">
+								    	<li class="slds-dropdown__item" role="presentation">
+											<apex:commandLink value="Add Successor Task" action="{!addNewTask}" reRender="projItems" status="loading">
+												<apex:param name="predTsk" value="{!tsk.MPM4_BASE__ImportID__c}" assignTo="{!selectedTask}"/>
+												<apex:param name="tskMS" value="{!ms.MPM4_BASE__ImportID__c}" assignTo="{!selectedMS}"/>
+												<apex:param name="ignoreTskSuc1" value="false" assignTo="{!ignoreSuccessor}"/>
+											</apex:commandLink>
+										</li>
+										<li class="slds-dropdown__item" role="presentation">
+											<apex:commandLink value="Add Task Below" action="{!addNewTask}" reRender="projItems" status="loading">
+												<apex:param name="predTsk" value="{!tsk.MPM4_BASE__ImportID__c}" assignTo="{!selectedTask}"/>
+												<apex:param name="tskMS" value="{!ms.MPM4_BASE__ImportID__c}" assignTo="{!selectedMS}"/>
+												<apex:param name="ignoreTskSuc2" value="true" assignTo="{!ignoreSuccessor}"/>
+											</apex:commandLink>
+										</li>
+										<li class="slds-dropdown__item" role="presentation">
+											<apex:commandLink value="Remove Task" action="{!removeTask}" reRender="projItems" status="loading">
+												<apex:param name="removeTsk" value="{!tsk.MPM4_BASE__ImportID__c}" assignTo="{!selectedTask}"/>
+											</apex:commandLink>
+										</li>
+									</ul>
+								  </div>
+								</div>
+								</td>
+							</tr>
+						</apex:repeat>
+					</tbody>
+				</table>
+				</apex:outputPanel>
+			</apex:repeat>
+
+			<br/><br/>
+			<apex:outputPanel id="actionButtons">
+				<apex:commandButton styleClass="slds-button slds-button_neutral" action="{!addNewMilestone}" value="Add New Milestone" reRender="projItems" status="loading">
+					<apex:param value="" assignTo="{!selectedMS}"/>
+				</apex:commandButton>&nbsp;&nbsp;
+				<apex:commandButton styleClass="slds-button slds-button_neutral" action="{!addNewTask}" value="Add New Task" reRender="projItems" rendered="{!milestones.size > 0}" status="loading">
+					<apex:param value="" assignTo="{!selectedTask}"/>
+					<apex:param value="" assignTo="{!selectedMS}"/>
+				</apex:commandButton>
+				<br/><br/>
+				<apex:commandLink styleClass="slds-button slds-button_neutral" action="{!createProject}" onclick="clearSavedProjInfo();" value="Create Project" rendered="{!OR(pageError == '', CONTAINS(pageError, 'exception'))}" status="loading"/>
+				<br/><br/>
+			</apex:outputPanel>
+			</center>
+		</apex:outputPanel>
+		</div>
+
+		<apex:outputPanel id="cachePoller">
+			<apex:actionPoller interval="30" reRender="storeProgress" rendered="{!cacheData}"/>
+		</apex:outputPanel>
+		
+	</apex:form>
+	<apex:outputPanel id="storeProgress">
+		<script>
+			if(hasLoadedCache){
+				saveProgress('{!CachedProjectInfo}', '{!CachedMilestoneInfo}', '{!CachedTaskInfo}');
+			}else{
+				hasLoadedCache = true;
+			}
+		</script>
+	</apex:outputPanel>
+	<script>
+		getCachedData(localStorage.getItem('MPMProject'), localStorage.getItem('MPMMilestones'), localStorage.getItem('MPMTasks'));
+	</script>
+</apex:page>

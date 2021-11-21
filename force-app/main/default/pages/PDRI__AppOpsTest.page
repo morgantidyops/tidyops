@@ -1,0 +1,21 @@
+<apex:page sidebar="{! IF( NOT ISNULL( $CurrentPage.parameters.showheadersidebar), $CurrentPage.parameters.showheadersidebar, 'true' ) }" 
+    showHeader="{! IF( NOT ISNULL( $CurrentPage.parameters.showheadersidebar), $CurrentPage.parameters.showheadersidebar, 'true' ) }">
+    <apex:includeScript value="/lightning/lightning.out.js" />
+    
+    <apex:includeLightning />
+    
+    <div id="lightning" />
+
+    <script>
+        var isLightning = (typeof sforce != 'undefined') && (sforce != null) && (sforce.one != null);
+        var appName = "PDRI:AppOpsTestApp";
+        
+        $Lightning.use(appName, function() {
+            $Lightning.createComponent("PDRI:AppOpsTest",
+                { },
+                "lightning",
+                function(cmp) {
+            });
+        });
+    </script>
+</apex:page>

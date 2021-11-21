@@ -1,0 +1,30 @@
+<apex:page sidebar="{! IF( NOT ISNULL( $CurrentPage.parameters.showheadersidebar), $CurrentPage.parameters.showheadersidebar, 'true' ) }" 
+    showHeader="{! IF( NOT ISNULL( $CurrentPage.parameters.showheadersidebar), $CurrentPage.parameters.showheadersidebar, 'true' ) }">
+    <apex:includeScript value="/lightning/lightning.out.js" />
+    
+    <apex:includeLightning />
+    
+    <div id="lightning" />
+
+    <script>
+        var isLightning = (typeof sforce != 'undefined') && (sforce != null) && (sforce.one != null);
+        var appName = "PDRI:AppOpsReleaseApp";
+        
+        $Lightning.use(appName, function() {
+            $Lightning.createComponent("PDRI:AppOpsRelease",
+                { "error" : "{! JSENCODE($CurrentPage.parameters.error) }",
+                  "state" : "{! JSENCODE($CurrentPage.parameters.state) }",
+                  "githubCode" : "{! JSENCODE($CurrentPage.parameters.PDRI__githubCode) }",
+                  "azureCode" : "{! JSENCODE($CurrentPage.parameters.PDRI__azureCode) }",
+                  "azureOrg" : "{! JSENCODE($CurrentPage.parameters.PDRI__azureOrg) }",
+                  "bitbucketCode" : "{! JSENCODE($CurrentPage.parameters.PDRI__bitbucketCode) }",
+                  "bitbucketWorkspace" : "{! JSENCODE($CurrentPage.parameters.PDRI__bitbucketWorkspace) }",
+                  "action" : "{! JSENCODE($CurrentPage.parameters.action) }",
+                  "did" : "{! JSENCODE($CurrentPage.parameters.did) }",
+                  "pid" : "{! JSENCODE($CurrentPage.parameters.pid) }" },
+                "lightning",
+                function(cmp) {
+            });
+        });
+    </script>
+</apex:page>

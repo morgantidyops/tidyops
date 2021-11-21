@@ -1,0 +1,642 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Component_Type__c</fullName>
+    <description>The metadata type of the Component</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The metadata type of the Component</inlineHelpText>
+    <label>Component Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Account Criteria Based Sharing Rule</fullName>
+                <default>false</default>
+                <label>Account Criteria Based Sharing Rule</label>
+            </value>
+            <value>
+                <fullName>Account Owner Sharing Rule</fullName>
+                <default>false</default>
+                <label>Account Owner Sharing Rule</label>
+            </value>
+            <value>
+                <fullName>Account Territory Owner Sharing Rule</fullName>
+                <default>false</default>
+                <label>Account Territory Owner Sharing Rule</label>
+            </value>
+            <value>
+                <fullName>Action (includes object-oriented quick actions and global quick actions)</fullName>
+                <default>false</default>
+                <label>Action (includes object-oriented quick actions and global quick actions)</label>
+            </value>
+            <value>
+                <fullName>Action Link Group Template</fullName>
+                <default>false</default>
+                <label>Action Link Group Template</label>
+            </value>
+            <value>
+                <fullName>Apex Class</fullName>
+                <default>false</default>
+                <label>Apex Class</label>
+            </value>
+            <value>
+                <fullName>Apex Sharing Reason</fullName>
+                <default>false</default>
+                <label>Apex Sharing Reason</label>
+            </value>
+            <value>
+                <fullName>Apex Trigger</fullName>
+                <default>false</default>
+                <label>Apex Trigger</label>
+            </value>
+            <value>
+                <fullName>App</fullName>
+                <default>false</default>
+                <label>App</label>
+            </value>
+            <value>
+                <fullName>Assignment Rule</fullName>
+                <default>false</default>
+                <label>Assignment Rule</label>
+            </value>
+            <value>
+                <fullName>Assignment Rule Entry</fullName>
+                <default>false</default>
+                <label>Assignment Rule Entry</label>
+            </value>
+            <value>
+                <fullName>Auth. Provider</fullName>
+                <default>false</default>
+                <label>Auth. Provider</label>
+            </value>
+            <value>
+                <fullName>Auto-Response Rule</fullName>
+                <default>false</default>
+                <label>Auto-Response Rule</label>
+            </value>
+            <value>
+                <fullName>Auto-Response Rule Entry</fullName>
+                <default>false</default>
+                <label>Auto-Response Rule Entry</label>
+            </value>
+            <value>
+                <fullName>Button</fullName>
+                <default>false</default>
+                <label>Button</label>
+            </value>
+            <value>
+                <fullName>Call Center</fullName>
+                <default>false</default>
+                <label>Call Center</label>
+            </value>
+            <value>
+                <fullName>Campaign Criteria Based Sharing Rule</fullName>
+                <default>false</default>
+                <label>Campaign Criteria Based Sharing Rule</label>
+            </value>
+            <value>
+                <fullName>Campaign Owner Sharing Rule</fullName>
+                <default>false</default>
+                <label>Campaign Owner Sharing Rule</label>
+            </value>
+            <value>
+                <fullName>Case Assignment Rule</fullName>
+                <default>false</default>
+                <label>Case Assignment Rule</label>
+            </value>
+            <value>
+                <fullName>Case Auto-Response</fullName>
+                <default>false</default>
+                <label>Case Auto-Response</label>
+            </value>
+            <value>
+                <fullName>Case Criteria Based Sharing Rule</fullName>
+                <default>false</default>
+                <label>Case Criteria Based Sharing Rule</label>
+            </value>
+            <value>
+                <fullName>Case Owner Sharing Rule</fullName>
+                <default>false</default>
+                <label>Case Owner Sharing Rule</label>
+            </value>
+            <value>
+                <fullName>Communities (Zones)</fullName>
+                <default>false</default>
+                <label>Communities (Zones)</label>
+            </value>
+            <value>
+                <fullName>Compact Layout</fullName>
+                <default>false</default>
+                <label>Compact Layout</label>
+            </value>
+            <value>
+                <fullName>Console App</fullName>
+                <default>false</default>
+                <label>Console App</label>
+            </value>
+            <value>
+                <fullName>Contact Criteria Based Sharing Rule</fullName>
+                <default>false</default>
+                <label>Contact Criteria Based Sharing Rule</label>
+            </value>
+            <value>
+                <fullName>Contact Owner Sharing Rule</fullName>
+                <default>false</default>
+                <label>Contact Owner Sharing Rule</label>
+            </value>
+            <value>
+                <fullName>CORS Whitelist Origin</fullName>
+                <default>false</default>
+                <label>CORS Whitelist Origin</label>
+            </value>
+            <value>
+                <fullName>Country/Territory Changelist Entry</fullName>
+                <default>false</default>
+                <label>Country/Territory Changelist Entry</label>
+            </value>
+            <value>
+                <fullName>Country/Territory Picklist</fullName>
+                <default>false</default>
+                <label>Country/Territory Picklist</label>
+            </value>
+            <value>
+                <fullName>Custom Console Component</fullName>
+                <default>false</default>
+                <label>Custom Console Component</label>
+            </value>
+            <value>
+                <fullName>Custom Data Type</fullName>
+                <default>false</default>
+                <label>Custom Data Type</label>
+            </value>
+            <value>
+                <fullName>Custom Label</fullName>
+                <default>false</default>
+                <label>Custom Label</label>
+            </value>
+            <value>
+                <fullName>Custom Object Criteria Sharing Rule</fullName>
+                <default>false</default>
+                <label>Custom Object Criteria Sharing Rule</label>
+            </value>
+            <value>
+                <fullName>Custom Object Owner Sharing Rule</fullName>
+                <default>false</default>
+                <label>Custom Object Owner Sharing Rule</label>
+            </value>
+            <value>
+                <fullName>Custom Permission</fullName>
+                <default>false</default>
+                <label>Custom Permission</label>
+            </value>
+            <value>
+                <fullName>Custom Report Type</fullName>
+                <default>false</default>
+                <label>Custom Report Type</label>
+            </value>
+            <value>
+                <fullName>Custom Setting</fullName>
+                <default>false</default>
+                <label>Custom Setting</label>
+            </value>
+            <value>
+                <fullName>Dashboard</fullName>
+                <default>false</default>
+                <label>Dashboard</label>
+            </value>
+            <value>
+                <fullName>Document</fullName>
+                <default>false</default>
+                <label>Document</label>
+            </value>
+            <value>
+                <fullName>Duplicate Rule</fullName>
+                <default>false</default>
+                <label>Duplicate Rule</label>
+            </value>
+            <value>
+                <fullName>Einstein Bot</fullName>
+                <default>false</default>
+                <label>Einstein Bot</label>
+            </value>
+            <value>
+                <fullName>Email Folder</fullName>
+                <default>false</default>
+                <label>Email Folder</label>
+            </value>
+            <value>
+                <fullName>Email Template</fullName>
+                <default>false</default>
+                <label>Email Template</label>
+            </value>
+            <value>
+                <fullName>Email-to-case Routing Address</fullName>
+                <default>false</default>
+                <label>Email-to-case Routing Address</label>
+            </value>
+            <value>
+                <fullName>Entitlement Process</fullName>
+                <default>false</default>
+                <label>Entitlement Process</label>
+            </value>
+            <value>
+                <fullName>Entitlement Template</fullName>
+                <default>false</default>
+                <label>Entitlement Template</label>
+            </value>
+            <value>
+                <fullName>Escalation Rule</fullName>
+                <default>false</default>
+                <label>Escalation Rule</label>
+            </value>
+            <value>
+                <fullName>External Data Source</fullName>
+                <default>false</default>
+                <label>External Data Source</label>
+            </value>
+            <value>
+                <fullName>External - Mailbox</fullName>
+                <default>false</default>
+                <label>External - Mailbox</label>
+            </value>
+            <value>
+                <fullName>External - Website</fullName>
+                <default>false</default>
+                <label>External - Website</label>
+            </value>
+            <value>
+                <fullName>Field</fullName>
+                <default>false</default>
+                <label>Field</label>
+            </value>
+            <value>
+                <fullName>Field Set</fullName>
+                <default>false</default>
+                <label>Field Set</label>
+            </value>
+            <value>
+                <fullName>Flow</fullName>
+                <default>false</default>
+                <label>Flow</label>
+            </value>
+            <value>
+                <fullName>Folder</fullName>
+                <default>false</default>
+                <label>Folder</label>
+            </value>
+            <value>
+                <fullName>Global Value Set</fullName>
+                <default>false</default>
+                <label>Global Value Set</label>
+            </value>
+            <value>
+                <fullName>Group</fullName>
+                <default>false</default>
+                <label>Group</label>
+            </value>
+            <value>
+                <fullName>Home Page Component</fullName>
+                <default>false</default>
+                <label>Home Page Component</label>
+            </value>
+            <value>
+                <fullName>Home Page Layout</fullName>
+                <default>false</default>
+                <label>Home Page Layout</label>
+            </value>
+            <value>
+                <fullName>Knowledge Data Category</fullName>
+                <default>false</default>
+                <label>Knowledge Data Category</label>
+            </value>
+            <value>
+                <fullName>Knowledge Data Category Group</fullName>
+                <default>false</default>
+                <label>Knowledge Data Category Group</label>
+            </value>
+            <value>
+                <fullName>Language Translation</fullName>
+                <default>false</default>
+                <label>Language Translation</label>
+            </value>
+            <value>
+                <fullName>Lead Assignment Rule</fullName>
+                <default>false</default>
+                <label>Lead Assignment Rule</label>
+            </value>
+            <value>
+                <fullName>Lead Auto-Response</fullName>
+                <default>false</default>
+                <label>Lead Auto-Response</label>
+            </value>
+            <value>
+                <fullName>Lead Criteria Based Sharing Rule</fullName>
+                <default>false</default>
+                <label>Lead Criteria Based Sharing Rule</label>
+            </value>
+            <value>
+                <fullName>Lead Owner Sharing Rule</fullName>
+                <default>false</default>
+                <label>Lead Owner Sharing Rule</label>
+            </value>
+            <value>
+                <fullName>Letterhead</fullName>
+                <default>false</default>
+                <label>Letterhead</label>
+            </value>
+            <value>
+                <fullName>Lightning Page</fullName>
+                <default>false</default>
+                <label>Lightning Page</label>
+            </value>
+            <value>
+                <fullName>Link</fullName>
+                <default>false</default>
+                <label>Link</label>
+            </value>
+            <value>
+                <fullName>List View</fullName>
+                <default>false</default>
+                <label>List View</label>
+            </value>
+            <value>
+                <fullName>Live Agent Configuration</fullName>
+                <default>false</default>
+                <label>Live Agent Configuration</label>
+            </value>
+            <value>
+                <fullName>Live Chat Deployment</fullName>
+                <default>false</default>
+                <label>Live Chat Deployment</label>
+            </value>
+            <value>
+                <fullName>Live Chat Sensitive Data Rule</fullName>
+                <default>false</default>
+                <label>Live Chat Sensitive Data Rule</label>
+            </value>
+            <value>
+                <fullName>Macro</fullName>
+                <default>false</default>
+                <label>Macro</label>
+            </value>
+            <value>
+                <fullName>Matching Rule</fullName>
+                <default>false</default>
+                <label>Matching Rule</label>
+            </value>
+            <value>
+                <fullName>Milestone</fullName>
+                <default>false</default>
+                <label>Milestone</label>
+            </value>
+            <value>
+                <fullName>Named Credential</fullName>
+                <default>false</default>
+                <label>Named Credential</label>
+            </value>
+            <value>
+                <fullName>Object</fullName>
+                <default>false</default>
+                <label>Object</label>
+            </value>
+            <value>
+                <fullName>Opportunity Criteria Based Sharing Rule</fullName>
+                <default>false</default>
+                <label>Opportunity Criteria Based Sharing Rule</label>
+            </value>
+            <value>
+                <fullName>Opportunity Owner Sharing Rule</fullName>
+                <default>false</default>
+                <label>Opportunity Owner Sharing Rule</label>
+            </value>
+            <value>
+                <fullName>Organization-Wide Default</fullName>
+                <default>false</default>
+                <label>Organization-Wide Default</label>
+            </value>
+            <value>
+                <fullName>Organization-Wide Email</fullName>
+                <default>false</default>
+                <label>Organization-Wide Email</label>
+            </value>
+            <value>
+                <fullName>Page Layout</fullName>
+                <default>false</default>
+                <label>Page Layout</label>
+            </value>
+            <value>
+                <fullName>Permission Set</fullName>
+                <default>false</default>
+                <label>Permission Set</label>
+            </value>
+            <value>
+                <fullName>Platform Cache Partition</fullName>
+                <default>false</default>
+                <label>Platform Cache Partition</label>
+            </value>
+            <value>
+                <fullName>Post Templates for Approvals in Chatter</fullName>
+                <default>false</default>
+                <label>Post Templates for Approvals in Chatter</label>
+            </value>
+            <value>
+                <fullName>Presence Configuration</fullName>
+                <default>false</default>
+                <label>Presence Configuration</label>
+            </value>
+            <value>
+                <fullName>Presence Decline Reason</fullName>
+                <default>false</default>
+                <label>Presence Decline Reason</label>
+            </value>
+            <value>
+                <fullName>Presence Status</fullName>
+                <default>false</default>
+                <label>Presence Status</label>
+            </value>
+            <value>
+                <fullName>Process</fullName>
+                <default>false</default>
+                <label>Process</label>
+            </value>
+            <value>
+                <fullName>Profile</fullName>
+                <default>false</default>
+                <label>Profile</label>
+            </value>
+            <value>
+                <fullName>Queue</fullName>
+                <default>false</default>
+                <label>Queue</label>
+            </value>
+            <value>
+                <fullName>Quick Text</fullName>
+                <default>false</default>
+                <label>Quick Text</label>
+            </value>
+            <value>
+                <fullName>Record Type</fullName>
+                <default>false</default>
+                <label>Record Type</label>
+            </value>
+            <value>
+                <fullName>Remote Site</fullName>
+                <default>false</default>
+                <label>Remote Site</label>
+            </value>
+            <value>
+                <fullName>Report</fullName>
+                <default>false</default>
+                <label>Report</label>
+            </value>
+            <value>
+                <fullName>Report Folder</fullName>
+                <default>false</default>
+                <label>Report Folder</label>
+            </value>
+            <value>
+                <fullName>Role</fullName>
+                <default>false</default>
+                <label>Role</label>
+            </value>
+            <value>
+                <fullName>Routing Configuration</fullName>
+                <default>false</default>
+                <label>Routing Configuration</label>
+            </value>
+            <value>
+                <fullName>S-Control</fullName>
+                <default>false</default>
+                <label>S-Control</label>
+            </value>
+            <value>
+                <fullName>Send Action</fullName>
+                <default>false</default>
+                <label>Send Action</label>
+            </value>
+            <value>
+                <fullName>Service Channel</fullName>
+                <default>false</default>
+                <label>Service Channel</label>
+            </value>
+            <value>
+                <fullName>Sharing Set</fullName>
+                <default>false</default>
+                <label>Sharing Set</label>
+            </value>
+            <value>
+                <fullName>Site.com</fullName>
+                <default>false</default>
+                <label>Site.com</label>
+            </value>
+            <value>
+                <fullName>State and Country/Territory Picklist Configuration</fullName>
+                <default>false</default>
+                <label>State and Country/Territory Picklist Configuration</label>
+            </value>
+            <value>
+                <fullName>State Changelist Entry</fullName>
+                <default>false</default>
+                <label>State Changelist Entry</label>
+            </value>
+            <value>
+                <fullName>State Picklist</fullName>
+                <default>false</default>
+                <label>State Picklist</label>
+            </value>
+            <value>
+                <fullName>Static Resource</fullName>
+                <default>false</default>
+                <label>Static Resource</label>
+            </value>
+            <value>
+                <fullName>Supervisor Configuration</fullName>
+                <default>false</default>
+                <label>Supervisor Configuration</label>
+            </value>
+            <value>
+                <fullName>Support Process</fullName>
+                <default>false</default>
+                <label>Support Process</label>
+            </value>
+            <value>
+                <fullName>Tab</fullName>
+                <default>false</default>
+                <label>Tab</label>
+            </value>
+            <value>
+                <fullName>Territory</fullName>
+                <default>false</default>
+                <label>Territory</label>
+            </value>
+            <value>
+                <fullName>Transaction Security Policy</fullName>
+                <default>false</default>
+                <label>Transaction Security Policy</label>
+            </value>
+            <value>
+                <fullName>User Criteria Based Sharing Rule</fullName>
+                <default>false</default>
+                <label>User Criteria Based Sharing Rule</label>
+            </value>
+            <value>
+                <fullName>User Membership Based Sharing Rule</fullName>
+                <default>false</default>
+                <label>User Membership Based Sharing Rule</label>
+            </value>
+            <value>
+                <fullName>Validation Rule</fullName>
+                <default>false</default>
+                <label>Validation Rule</label>
+            </value>
+            <value>
+                <fullName>Visualforce Component</fullName>
+                <default>false</default>
+                <label>Visualforce Component</label>
+            </value>
+            <value>
+                <fullName>Visualforce Page</fullName>
+                <default>false</default>
+                <label>Visualforce Page</label>
+            </value>
+            <value>
+                <fullName>Workflow Email Alert</fullName>
+                <default>false</default>
+                <label>Workflow Email Alert</label>
+            </value>
+            <value>
+                <fullName>Workflow Field Update</fullName>
+                <default>false</default>
+                <label>Workflow Field Update</label>
+            </value>
+            <value>
+                <fullName>Workflow Outbound Message</fullName>
+                <default>false</default>
+                <label>Workflow Outbound Message</label>
+            </value>
+            <value>
+                <fullName>Workflow Rule</fullName>
+                <default>false</default>
+                <label>Workflow Rule</label>
+            </value>
+            <value>
+                <fullName>Workflow Task</fullName>
+                <default>false</default>
+                <label>Workflow Task</label>
+            </value>
+            <value>
+                <fullName>Workflow Time Trigger</fullName>
+                <default>false</default>
+                <label>Workflow Time Trigger</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

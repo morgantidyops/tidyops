@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Submitted to Engineering - default; 
+Evaluating - assigned to eng; 
+Development - fix in progress; 
+Submitted for Testing - sent to approver; 
+Fixed - approved by tester; 
+Withdrawn - canceled by submitter; 
+Duplicate - closed as a duplicate; 
+Blocked - Engineering is blocked;
+Rejected - not a defect; 
+Won&apos;t Fix - accepted, but no action taken; 
+Postponed - future release; 
+Failed Testing - rejected by approver; 
+Re-Opened --></help>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Blocked</masterLabel>
+            <translation><!-- Blocked --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Development</masterLabel>
+            <translation><!-- Development --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Duplicate</masterLabel>
+            <translation><!-- Duplicate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Evaluating</masterLabel>
+            <translation><!-- Evaluating --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Failed Testing</masterLabel>
+            <translation><!-- Failed Testing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fixed</masterLabel>
+            <translation><!-- Fixed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Postponed</masterLabel>
+            <translation><!-- Postponed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Re-Opened</masterLabel>
+            <translation><!-- Re-Opened --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Submitted for Testing</masterLabel>
+            <translation><!-- Submitted for Testing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Submitted to Engineering</masterLabel>
+            <translation><!-- Submitted to Engineering --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Withdrawn</masterLabel>
+            <translation><!-- Withdrawn --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Won&#39;t Fix</masterLabel>
+            <translation><!-- Won&apos;t Fix --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

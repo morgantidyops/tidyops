@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPM4_BASE__Predecessor_Project__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <label>Predecessor Project</label>
+    <lookupFilter>
+        <active>true</active>
+        <errorMessage>Predecessor project must be in the same program as this project.</errorMessage>
+        <filterItems>
+            <field>$Source.MPM4_BASE__Program__c</field>
+            <operation>equals</operation>
+            <valueField>MPM4_BASE__Milestone1_Project__c.MPM4_BASE__Program__c</valueField>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>MPM4_BASE__Milestone1_Project__c</referenceTo>
+    <relationshipLabel>Projects</relationshipLabel>
+    <relationshipName>Projects</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

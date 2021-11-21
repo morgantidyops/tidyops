@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Must Have</fullName>
+        <default>false</default>
+        <label>Must Have</label>
+    </customValue>
+    <customValue>
+        <fullName>Should Have</fullName>
+        <default>false</default>
+        <label>Should Have</label>
+    </customValue>
+    <customValue>
+        <fullName>Could Have</fullName>
+        <default>false</default>
+        <label>Could Have</label>
+    </customValue>
+    <customValue>
+        <fullName>Won&#39;t Have (This Time)</fullName>
+        <default>false</default>
+        <label>Won&#39;t Have (This Time)</label>
+    </customValue>
+    <masterLabel>MoSCoW method</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPM4_BASE__Sync_To__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <inlineHelpText>Setting this field to &#39;Salesforce Event&#39; and populating the Start Time will automatically create a Salesforce Event on your Salesforce Calendar as well as any calendars that you sync with Salesforce using third party apps.</inlineHelpText>
+    <label>Sync To</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Salesforce Event</fullName>
+                <default>false</default>
+                <label>Salesforce Event</label>
+            </value>
+            <value>
+                <fullName>Salesforce Task</fullName>
+                <default>true</default>
+                <label>Salesforce Task</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

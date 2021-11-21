@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <logo>requirement</logo>
+        <logoVersion>1</logoVersion>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>Use this app to track your project requirements. Ditch that Excel requirements matrix!</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>true</isNavPersonalizationDisabled>
+    <label>Requirements Management</label>
+    <navType>Standard</navType>
+    <setupExperience>all</setupExperience>
+    <tabs>standard-home</tabs>
+    <tabs>MPM4_BASE__Milestone1_Program__c</tabs>
+    <tabs>MPM4_BASE__Milestone1_Project__c</tabs>
+    <tabs>standard-Account</tabs>
+    <tabs>Requirement__c</tabs>
+    <tabs>Solution_Option__c</tabs>
+    <tabs>Component__c</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>standard-Feed</tabs>
+    <tabs>standard-File</tabs>
+    <tabs>standard-Event</tabs>
+    <tabs>Revenue_Plan__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Requirements_Management_UtilityBar</utilityBar>
+</CustomApplication>

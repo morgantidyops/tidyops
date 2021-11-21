@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldOverrides>
+        <field>Name</field>
+        <formula>&quot;[NAME] &quot; +
+TEXT(YEAR( Revenue_Plan__c.Start_Date__c))
++ &quot;-&quot; +
+IF(LEN(TEXT(MONTH( Revenue_Plan__c.Start_Date__c))) = 1,
+LPAD(TEXT(MONTH( Revenue_Plan__c.Start_Date__c)),2,&quot;0&quot;),
+TEXT(MONTH( Revenue_Plan__c.Start_Date__c)))</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Revenue_Plan__c</field>
+        <formula>Revenue_Plan__c.Id</formula>
+    </fieldOverrides>
+    <label>New Resource</label>
+    <optionsCreateFeedItem>true</optionsCreateFeedItem>
+    <quickActionLayout>
+        <layoutSectionStyle>TwoColumnsLeftToRight</layoutSectionStyle>
+        <quickActionLayoutColumns>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>Name</field>
+                <uiBehavior>Required</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>Resource__c</field>
+                <uiBehavior>Required</uiBehavior>
+            </quickActionLayoutItems>
+        </quickActionLayoutColumns>
+        <quickActionLayoutColumns>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>Revenue_Plan__c</field>
+                <uiBehavior>Required</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>Billable_Hours_Capacity__c</field>
+                <uiBehavior>Required</uiBehavior>
+            </quickActionLayoutItems>
+        </quickActionLayoutColumns>
+    </quickActionLayout>
+    <targetObject>Revenue_Plan_Resource__c</targetObject>
+    <targetParentField>Revenue_Plan__c</targetParentField>
+    <type>Create</type>
+</QuickAction>

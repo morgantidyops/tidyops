@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Custom_Domain__c</fullName>
+    <description>This URL data type field stores the location of the custom domain where the org has a custom domain defined (ex: https://domain.my.salesforce.com) using the My Domain Salesforce feature (https://help.salesforce.com/HTViewHelpDoc?id=domain_name_overview.htm). This is part of the SAML configuration.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>If MyDomain is configured, what is the custom domain?</inlineHelpText>
+    <label>Custom Domain</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Url</type>
+</CustomField>

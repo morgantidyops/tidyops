@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_Zip_Australia</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(
+  AND(
+    ISPICKVAL(MailingCountryCode, &#39;AU&#39;),
+    MailingPostalCode != &#39;&#39;
+  ), NOT(REGEX(MailingPostalCode, &quot;[0-9]{4}&quot;)),
+  FALSE
+)</errorConditionFormula>
+    <errorDisplayField>MailingPostalCode</errorDisplayField>
+    <errorMessage>Please enter a 4 digit zip code for Australian addresses.</errorMessage>
+</ValidationRule>

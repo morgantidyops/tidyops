@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Custom_Test_Scenario_Compact_Layout</fullName>
+    <fields>Test_Case__c</fields>
+    <fields>Runs_Executed__c</fields>
+    <fields>Times_Passed__c</fields>
+    <label>Custom Test Scenario Compact Layout</label>
+</CompactLayout>

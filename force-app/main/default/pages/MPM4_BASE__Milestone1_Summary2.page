@@ -1,0 +1,248 @@
+<!-- 
+Copyright (c) 2011, salesforce.com, Inc.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, 
+are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright notice, 
+    this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice, 
+    this list of conditions and the following disclaimer in the documentation 
+    and/or other materials provided with the distribution.
+    * Neither the name of the salesforce.com, Inc. nor the names of its contributors 
+    may be used to endorse or promote products derived from this software 
+    without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, 
+BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, 
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF 
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED 
+OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<apex:page controller="MPM4_BASE.Milestone1_Summary2" action="{!initialize}" standardStylesheets="false" sidebar="false" applyBodyTag="false" docType="html-5.0" showHeader="true" title="Milestones PM+ Summary">  
+<html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+	 <apex:includeScript value="{!URLFOR($Resource.MPM4_BASE__Milestone1_Charts, 'jquery-3.3.1.min.js')}"/>
+	<apex:includeScript value="{!URLFOR($Resource.MPM4_BASE__Milestone1_Charts, 'date.js')}"/>
+	<apex:includeScript value="{!URLFOR($Resource.MPM4_BASE__Milestone1_Charts, 'jquery-ui-1.8.7.custom.min.js')}"/>
+	<apex:includeScript value="{!URLFOR($Resource.MPM4_BASE__Milestone1_Charts, 'jquery.ganttView.js')}"/>
+	<apex:stylesheet value="{!URLFOR($Resource.MPM4_BASE__Milestone1_Charts, 'jquery-ui-1.8.4.css')}"/>
+	<apex:stylesheet value="{!URLFOR($Resource.MPM4_BASE__Milestone1_Charts, 'jquery.ganttView.css')}"/> 
+	<apex:stylesheet value="{!URLFOR($Resource.MPM4_BASE__SLDS070, '/assets/styles/salesforce-lightning-design-system-vf.min.css')}" />
+</head>
+
+<style type="text/css">
+
+.quickSearchText { 
+    background: none repeat scroll 0 0 white;
+    border: 2px solid #C3E5F7;
+    color: #666666;
+    font-size: 20px;
+    letter-spacing: 1px;
+    line-height: 20px;
+    margin: 10px 10px;
+    padding: 9px 0 9px 5px;
+    width: 615px;
+}
+
+.slds .slds-grid--frame {
+	height: inherit !important;
+}
+
+.slds table {
+    border-collapse: separate;
+}
+    
+.slds caption, .slds td, .slds th{
+    text-align: initial;
+}
+</style>
+
+<script type="text/javascript">
+
+var searchTargetId = '';
+var objectMap = [
+        <apex:repeat var="item" value="{!recentItems}">
+            {'label':'{!JSENCODE(item.key)}','value':'{!JSENCODE(item.value)}'},
+        </apex:repeat>
+];
+$.noConflict();
+jQuery(document).ready(function() {
+   var searchTextField = jQuery('input[name$="MileStoneSearchInput"]');
+   searchTextField.autocomplete({
+       source: objectMap,
+       minLength: 3,
+       select: function(event, ui) {
+           event.preventDefault();
+           this.value = ui.item.label;
+           document.location.href = '/' + ui.item.value;
+       },
+       focus: function(event, ui) {
+           event.preventDefault();
+           this.value = ui.item.label;
+       }
+       
+   });
+});
+</script>
+
+<apex:form >
+<div class="slds slds-p-around--xx-large slds-container--large slds-container--center slds-grid slds-grid--frame" role="main"> 
+<apex:outputPanel id="projectSummary_noProjects" rendered="{!projects.size == 0 && summaryPrograms == false}">
+
+    <h1>{!$Label.mpm4_base__milestone1_noprojects}</h1>
+     
+</apex:outputPanel>
+<apex:outputPanel id="projectSummary_noPrograms" rendered="{!programs.size == 0 && summaryPrograms == true}">
+
+    <h1>{!$Label.mpm4_base__milestone1_noprograms}</h1>
+     
+</apex:outputPanel>
+
+<apex:outputPanel rendered="{!isDeployed == false}">
+	<h1>Please deploy Milestones PM first.  See the Milestones PM+ Help tab for more information.</h1>
+</apex:outputPanel>
+
+<apex:outputPanel rendered="{!isDeployed}" >
+
+<apex:outputPanel id="mySearch">
+
+    <apex:pageBlock title="{!IF(summaryPrograms, $Label.mpm4_base__milestone1_quicksearchprograms , $Label.mpm4_base__milestone1_quicksearch)}" >
+        <apex:inputText value="{!searchText}" styleClass="quickSearchText" id="MileStoneSearchInput"/>
+        &nbsp;
+     <apex:actionStatus id="executeStatus">
+         <apex:facet name="start">
+             <apex:outputPanel id="executeStatusWorking" layout="none">
+                 <img src = "{!URLFOR($Resource.Milestone1_Resource_Bundle,'images/Milestone1_Load_Wheel_Img')}"/>
+             </apex:outputPanel>
+         </apex:facet>
+         <apex:facet name="stop"  >
+             <apex:outputPanel id="executeStatusNotworking" layout="none">
+                 <apex:commandButton value="{!$Label.mpm4_base__milestone1_summarysearch}" id="searchProjects" action="{!searchProjects}" styleClass="slds-button slds-button--brand" style="font-size: 20px;" status="executeStatus" rerender="searchResults" />
+             </apex:outputPanel>
+         </apex:facet>
+     </apex:actionStatus>
+    
+        <apex:outputPanel id="searchResults" >
+            <apex:pageBlockSection rendered="{!hasProgramResults && summaryPrograms}" title="Matching Programs" >
+            <apex:pageBlockTable value="{!programResults}" var="programRecord">
+                <apex:column headerValue="Program Name"> <apex:outputLink value="/{!programRecord.Id}"> {!programRecord.Name}</apex:outputLink>  </apex:column>
+                <apex:column value="{!programRecord.Owner.Name}" />
+                <apex:column value="{!programRecord.MPM4_BASE__Program_Health__c}" />
+            </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection rendered="{!hasProjectResults}" title="Matching Projects" >
+            <apex:pageBlockTable value="{!projectResults}" var="projectRecord">
+                <apex:column headerValue="Project Name"> <apex:outputLink value="/{!projectRecord.Id}"> {!projectRecord.Name}</apex:outputLink>  </apex:column>
+                <apex:column value="{!projectRecord.Owner.Name}" />
+                <apex:column value="{!projectRecord.MPM4_BASE__Status__c}" />
+            </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection rendered="{!hasMilestoneResults}" title="Matching Milestones">
+            <apex:pageBlockTable value="{!milestoneResults}" var="milestoneRecord">
+                <apex:column headerValue="Milestone Name"> <apex:outputLink value="/{!milestoneRecord.Id}"> {!milestoneRecord.Name}</apex:outputLink>  </apex:column>
+                <apex:column value="{!milestoneRecord.Project__r.Name}" />
+            </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection rendered="{!hasTaskResults}" title="Matching Tasks">
+            <apex:pageBlockTable value="{!taskResults}" var="taskRecord">
+                <apex:column headerValue="Task Name"> <apex:outputLink value="/{!taskRecord.Id}"> {!taskRecord.Name}</apex:outputLink>  </apex:column>
+                <apex:column value="{!taskRecord.Project_Milestone__r.Name}" />
+            </apex:pageBlockTable> 
+            </apex:pageBlockSection>
+            <apex:outputPanel id="searchResultsError" rendered="{!hasSearchResultsError}">
+                <apex:pageMessage summary="No results found" severity="error" strength="1" />
+            </apex:outputPanel>
+            <apex:outputPanel id="searchLengthError" rendered="{!hasSearchLengthError}">
+                <apex:pageMessage summary="Search Term must be longer than 1 character." severity="error" strength="1" />
+            </apex:outputPanel>
+        </apex:outputPanel>
+    </apex:pageBlock>
+
+</apex:outputPanel>
+
+<apex:outputPanel id="projectSummary" rendered="{!projects.size != 0 && summaryPrograms == false}" layout="none">
+    <apex:outputPanel rendered="{!OR(hasPrevious, hasNext)}">
+        <apex:outputText > &nbsp;Page {!pageNumber} of {!totalPages}&nbsp;</apex:outputText><br/>
+        <apex:commandLink action="{!previous}" rendered="{!hasPrevious}">&lt; Previous</apex:commandlink>
+        <apex:outputText rendered="{!!hasPrevious}">&lt; Previous</apex:outputText>
+        &nbsp;&nbsp;
+        <apex:commandLink action="{!next}" rendered="{!hasNext}">Next &gt;</apex:commandlink>
+        <apex:outputText rendered="{!!hasNext}">Next &gt;</apex:outputText>
+    </apex:outputPanel>
+
+<apex:repeat value="{!projects}" var="currentProject" id="projectList" rendered="{!summaryPrograms == false}">
+<div class="slds-container--fluid">
+<apex:pageBlock title="{!currentProject.name}">
+    <apex:commandLink action="{!view}" value="{!$Label.mpm4_base__milestone1_projectdetail}" >
+        <apex:param name="target" value="{!currentProject.id}" assignTo="{!targetProject}" />
+    </apex:commandLink>                             
+	<section class="slds-card__body slds-grid">
+    <table class="detailList" cellspacing="0" cellpadding="0" border="0" width="100%">
+
+	<tr><td colspan="4">
+		<c:Milestone2_Charts_GanttComponent options="hide" target="{!currentProject.Id}" size="month"/>
+	</td></tr>
+    </table>
+    </section>
+</apex:pageBlock>
+
+<br/>
+</div>
+</apex:repeat>
+</apex:outputPanel>
+
+<apex:outputPanel id="programSummary" rendered="{!programs.size != 0 && summaryPrograms}" layout="none">
+   <apex:outputPanel rendered="{!OR(hasPrevious, hasNext)}">
+        <apex:outputText > &nbsp;Page {!pageNumber} of {!totalPages}&nbsp;</apex:outputText><br/>
+        <apex:commandLink action="{!previous}" rendered="{!hasPrevious}">&lt; Previous</apex:commandlink>
+        <apex:outputText rendered="{!!hasPrevious}">&lt; Previous</apex:outputText>
+        &nbsp;&nbsp;
+        <apex:commandLink action="{!next}" rendered="{!hasNext}">Next &gt;</apex:commandlink>
+        <apex:outputText rendered="{!!hasNext}">Next &gt;</apex:outputText>
+    </apex:outputPanel>
+   
+<apex:repeat value="{!programs}" var="currentProgram" id="programList" rendered="{!summaryPrograms}">
+<div class="slds-container--fluid">
+<apex:pageBlock title="{!currentProgram.name}">
+    <apex:commandLink action="{!view}" value="{!$Label.mpm4_base__milestone1_programdetail}" >
+        <apex:param name="target" value="{!currentProgram.id}" assignTo="{!targetProject}" />
+    </apex:commandLink>                             
+	<section class="slds-card__body slds-grid">
+    <table class="detailList" cellspacing="0" cellpadding="0" border="0" width="100%">
+
+	<tr><td colspan="4">
+		<c:Milestone2_Charts_GanttComponent options="hide" target="{!currentProgram.Id}" size="month"/>
+	</td></tr>
+    </table>
+    </section>
+</apex:pageBlock>
+
+<br/>
+</div>
+</apex:repeat>
+</apex:outputPanel>
+
+<apex:outputPanel rendered="{!OR(hasPrevious, hasNext)}" >
+    <apex:outputText > &nbsp;Page {!pageNumber} of {!totalPages}&nbsp;</apex:outputText><br/>
+    <apex:commandLink action="{!previous}" rendered="{!hasPrevious}">&lt; Previous</apex:commandlink>
+    <apex:outputText rendered="{!!hasPrevious}">&lt; Previous</apex:outputText>
+    &nbsp;&nbsp;
+    <apex:commandLink action="{!next}" rendered="{!hasNext}">Next &gt;</apex:commandlink>
+    <apex:outputText rendered="{!!hasNext}">Next &gt;</apex:outputText>
+</apex:outputPanel>
+
+</apex:outputPanel>
+</div>
+</apex:form>
+</html>
+</apex:page>

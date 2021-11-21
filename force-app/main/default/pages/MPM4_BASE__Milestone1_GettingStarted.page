@@ -1,0 +1,178 @@
+<!--  
+Copyright (c) 2011, salesforce.com, inc.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, 
+are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright notice, 
+    this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice, 
+    this list of conditions and the following disclaimer in the documentation 
+    and/or other materials provided with the distribution.
+    * Neither the name of the salesforce.com, Inc. nor the names of its contributors 
+    may be used to endorse or promote products derived from this software 
+    without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, 
+BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, 
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF 
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED 
+OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<apex:page controller="MPM4_BASE.Milestone1_GettingStartedController" sidebar="false" applyBodyTag="false" docType="html-5.0" title="Milestones PM+ Help">  
+<html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+<head>
+    <apex:includeScript value="{!URLFOR($Resource.MPM4_BASE__Milestone1_Resource_Bundle, 'javascript/jquery-3.1.1.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.MPM4_BASE__Milestone1_Resource_Bundle, 'javascript/jquery-ui.min.js')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.MPM4_BASE__Milestone1_Resource_Bundle, 'stylesheets/jquery-ui.min.css')}"/>
+    <apex:slds /> 
+</head>
+
+    <script>    
+        var mpm = mpm || {};
+        mpm.j$ = jQuery.noConflict();
+    </script>
+    <body class="slds-scope">
+    <apex:form >  
+    <apex:pageBlock title="{!$Label.mpm4_base__welcometomilestonespm}" rendered="{!settingsReady == false}">
+    
+    <apex:outputPanel id="mainpanel"> 
+        <apex:outputPanel id="stepmain">    
+            <h2>{!$Label.NextSteps}</h2>
+
+            <p>{!$Label.YourNextFewSteps}</p>
+        
+            <p>1. {!$Label.InitializeYourConfiguration} &nbsp;
+            <apex:outputPanel id="step1panel">
+                <apex:outputPanel id="step1" rendered="{!settingsReady == false}">      
+                    <apex:actionStatus id="executeStatus" >
+                         <apex:facet name="start">
+                             <apex:outputPanel id="executeStatusWorking" layout="none">
+                                 <img src = "{!URLFOR($Resource.Milestone1_Resource_Bundle,'images/Milestone1_Load_Wheel_Img')}"/>
+                             </apex:outputPanel>
+                         </apex:facet>
+                         <apex:facet name="stop"  >
+                             <apex:outputPanel id="executeStatusNotworking" layout="none">
+                                 <apex:commandButton action="{!setupStandardSettings}" value="{!$Label.mpm4_base__clickheretoinitializethisapp}" status="executeStatus" styleClass="slds-button slds-button_neutral" rerender="step1panel,step2panel,mainpanel" />
+                             </apex:outputPanel>
+                         </apex:facet>
+                    </apex:actionStatus>
+                </apex:outputPanel>
+            </apex:outputPanel> 
+
+            </p>
+        
+            <p>2. {!$Label.mpm4_base__viewthegettingstartedproject}</p>
+            
+            <p>3. {!$Label.mpm4_base__startcreatingyourfirstproject}</p>
+        </apex:outputPanel> 
+    </apex:outputPanel>
+
+    <p>&nbsp;</p>
+    </apex:pageBlock>
+
+    <c:MPM4_Admin_Guide /> 
+
+    <apex:pageBlock title="Milestones PM+ Video Playlist">
+        <center>    
+            <div id="videos" style="max-width:680px;"> 
+            You may view more videos in the playlist by hovering your mouse over the video and clicking the icon in the top left corner. Or by <a href="https://www.youtube.com/watch?v=_5yF3ZDR7F4&list=PLfryc3zXHX0o10fbqZpGTurSNW4Q0zuDz" target="_blank">viewing the playlist on Youtube</a>.
+                <div>
+                    <apex:iframe width="672px" height="378px" src="https://www.youtube.com/embed/videoseries?list=PLfryc3zXHX0o10fbqZpGTurSNW4Q0zuDz&rel=0" frameborder="0" />
+                </div>
+            </div>
+        </center> 
+    </apex:pageBlock>
+
+    <apex:pageBlock title="Milestones PM+ Content">
+        <ul style="list-style-type: initial; padding: 10px;">
+                
+                <li>Content:
+                    <ul style="list-style-type: initial; padding: 10px;">      
+                        <!--MPM+ Overview-->
+                        <li><apex:outputText value="{!$Label.mpm4_base__basicfaq}" escape="false" /></li>  
+                        <!--MPM+ Admin Guide-->
+                        <li><apex:commandLink value="Milestones PM+ Admin Guide" onClick="document.getElementById('adminGuide').style.display = 'block';" rerender="none" /></li>    
+                        <!--MPM+ Template Guide-->
+                        <li><apex:outputText value="{!$Label.mpm4_base__templateguide}" escape="false" /></li> 
+                        <!--MPM+ FAQ-->
+                        <li><apex:outputText value="{!$Label.mpm4_base__enhancedfaq}" escape="false" /></li>
+                        <!--community portal-->
+                        <li><apex:outputText value="{!$Label.mpm4_base__forcommunityassistance}" escape="false" /></li>
+                    </ul>
+                </li>
+                
+                <li>Contact Us:
+                    <ul style="list-style-type: initial; padding: 10px;">
+                        <!--Contact Us-->
+                        <li><apex:outputText value="{!$Label.mpm4_base__contactuspage}" escape="false" /></li> 
+                        
+                        <!--for assistance: Email support to log any defects-->
+                        <li><apex:outputText value="{!$Label.mpm4_base__tosubmitissues}" escape="false" /></li> 
+                        <!-- for enhancement ideas: Email support to log any enhancement requests -->
+                        <li><apex:outputText value="{!$Label.mpm4_base__tosubmitideas}" escape="false" /></li>
+                        <!--add-ons and accelerators-->
+                        <li><apex:outputText value="{!$Label.mpm4_base__learnmore}" escape="false"></apex:outputText></li>
+                    </ul>
+                </li>
+
+                <li>Update Links:
+                    <ul style="list-style-type: initial; padding: 10px;">
+                        <li>Beta Version: <a href="http://pm-pre.passagetech.com" target="_blank">Production</a>, <a href="http://pm-pre-test.passagetech.com" target="_blank">Sandbox</a>.
+                        </li>
+                        <li>Released Version: <a href="http://pm.passagetech.com" target="_blank">Production</a>, <a href="http://pm-test.passagetech.com" target="_blank">Sandbox</a>.
+                        </li>
+                        <li>To see what's in the latest version, view our <a href="https://www.passagetechnology.com/release-notes/tag/milestones-pm" target="_blank">Release Notes</a>.
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+    </apex:pageBlock>
+        
+    <apex:pageBlock title="Enable Resources" id="resourcesMain">
+        <apex:outputPanel rendered="{!OR(hasNullResourcesOnTasks, hasNullResourcesOnTimes, hasMissingContactResources)}">
+            <h2>
+                Milestones PM+ uses a custom object called 'Resource' to assign Project Tasks and Time Entries to users<apex:outputText rendered="{!IsPremium}" value="/contacts"/>. If you have just installed the app, updated from an older version of Milestones PM+, or have missing Resource records, please click the button below to create the Resource records.
+
+                <br/> <br/>
+                Please Note:
+                <li>The resource creation process will create a maximum of 9,000 records at a time. If you need to create more than 9,000 resource records you may continue to press the create resource button multiple times until all resources are created. Before clicking the create resource button again we recommend checking your apex jobs to confirm the previous job has finished.</li>
+
+                <li>To prevent excessive resource update notifications being sent to email inboxes, it is highly recommended to 
+                check the "Disable All Resource Email Notifications" setting prior to executing the scripts.</li>
+                
+                <li>The process will create resource records for all users by default.
+                To only create resource records for users with Salesforce licenses (excluding others such as Community licenses),
+                please enable the "Only Create Resource For SF License" setting. </li>
+                
+                <li> <apex:commandLink action="{!goToCustomSetting}" target="_blank" style="color:blue">Go to the settings page</apex:commandLink> </li>
+            </h2>
+        </apex:outputPanel>
+        <br/> 
+
+        <apex:pageBlockSection title="Create Missing Resource Records" id="resourcesTask" columns="1" collapsible="false">
+            <apex:pageMessages />
+            <apex:outputPanel >
+                <center>
+                <apex:outputText value="All Resources have been created." rendered="{!AND(!hasNullResourcesOnTasks, !hasNullResourcesOnTimes, !hasMissingContactResources)}"/>
+                <apex:commandButton styleclass="slds-button slds-button_neutral" value="Create Resources for Users without a Resource" action="{!assignResourcesForTasks}" rerender="resourcesTask" rendered="{!hasNullResourcesOnTasks}"/>
+                <br/>
+                <apex:commandButton styleclass="slds-button slds-button_neutral" value="Create Resources for Time records without a Resource" action="{!assignResourcesForTimes}" rerender="resourcesTask" rendered="{!hasNullResourcesOnTimes}"/>
+                <br/>
+                <apex:commandButton styleclass="slds-button slds-button_neutral" value="Create Resources for Contacts without a Resource" action="{!createResourcesForContacts}" rerender="resourcesTask" rendered="{!AND(isPremium, hasMissingContactResources)}"/>
+                </center>
+            </apex:outputPanel>
+        </apex:pageBlockSection>
+
+    </apex:pageBlock>
+    </apex:form>
+    </body>
+</html>
+</apex:page>

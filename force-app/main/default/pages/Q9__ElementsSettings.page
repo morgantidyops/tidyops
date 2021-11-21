@@ -1,0 +1,527 @@
+<apex:page controller="Q9.ElementsSettingsControllerBundle" doctype="html-5.0">
+
+    <apex:stylesheet value="/sCSS/25.0/sprites/1342034628000/Theme3/default/gc/versioning.css" />
+    <apex:stylesheet value="/sCSS/25.0/sprites/1342034628000/Theme3/default/gc/extended.css" />
+    <style>
+        .mrgtb10{
+            margin-top: 10px; margin-bottom: 10px;
+        }
+        .bgimported{
+            background-color: #e6ffee;
+        }
+        
+        .bgDisabledUsers{
+            background-color: lightgray;
+        }
+        
+        .text_center{
+            text-align: center;
+        }
+        .divBulletClass::before {
+            content: '\2022';
+        }
+        .pbTitle {
+            white-space: nowrap
+        }
+        .quickSetupBody{
+            background-color: #FAFAFA;
+        }
+        .quickStartImage {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            height: auto;
+            max-width: 52%;
+            
+        }
+        .quickStartButton {
+            background: DodgerBlue !important;
+            border: none !important;
+            color: white !important;
+            cursor: pointer !important;
+            font-size: 15px !important;
+            margin-left: 10px !important;
+            padding: 6px 7px !important; 
+            position: relative !important;
+            left: 38% !important;
+        }
+        
+        .setupSection {
+            position: relative !important;
+        }
+    </style>
+    <div class="bPageTitle"> 
+        <div class="ptBody secondaryPalette brandSecondaryBrd">
+            <h1 class="pageType noSecondHeader" style="margin: 0px;">Elements Administrator Settings</h1>
+        </div>
+    </div>
+    <apex:form id="theForm" styleClass="mrgtb10">
+        
+        <apex:tabPanel height="50px;" style="margin-top: 10px; margin-bottom: 10px;" value="{!activeTab}" id="panel">
+            <!-- <editor-fold desc="Elements Account Tab" defaultstate="collapsed"> -->
+            <apex:tab label="Connection details" name="elAccount" id="elAccount">
+               
+            <apex:pageMessage title="Connected Space is not found in Elements" detail="Please login with your Elements credentials." severity="error" rendered="{!!esc.spaceIsFound && !isSandbox}" />
+            <apex:pageMessage title="Space is not found in Elements or the sandbox may have been refreshed" detail="Please login with your Elements credentials." severity="error" rendered="{!!esc.spaceIsFound && isSandbox}" />
+
+            <apex:pageMessages escape="false"/>
+                <apex:pageBlock title="LOGIN USING ELEMENTS CATALYST ADMIN USERNAME" rendered="{!esc.loginRes == null && !esc.isOrgConnected}">
+                    <div style="margin-top: 10px;">
+                        <p>Login with your Elements Catalyst user which is an Admin of the Space you want to connect. Your username is an email address not your Salesforce username.</p><br/>
+                        <p>If you do not know your password, then you can get a reset link <a target="_blank" href="https://app.q9elements.com/forgot-pass">Forgotten your password</a>.</p> <!-- TODO: REPLACE WITH CORRECT NOT HARDCODED LINK-->
+                    </div>
+                </apex:pageBlock>
+            
+                 <apex:pageBlock title="Elements Space Details" rendered="{!esc.isOrgConnected}">
+                        <apex:outputPanel rendered="{!esc.isOrgConnected}">
+                            <apex:pageBlockSection columns="1">
+                                <apex:pageBlockSectionItem >
+                                    <apex:outputLabel value="Name:" for="org_name"/>
+                                    <apex:inputText value="{!esc.elementsTeamName}" id="org_name" disabled="true" html-placeholder="New organization name..." size="100"/>
+                                </apex:pageBlockSectionItem>
+                                <apex:pageBlockSectionItem >
+                                    <apex:outputLabel value="Implementation name:" for="implementation_name"/>
+                                    <apex:inputText value="{!esc.elementsTeamImplemetation}" id="implementation_name" disabled="true" size="100"/>
+                                </apex:pageBlockSectionItem>
+                                <apex:pageBlockSectionItem >
+                                    <apex:outputLabel value="Domain:" for="org_domain"/>
+                                    <apex:inputText value="{!esc.elementsTeamDomain}" id="org_domain" disabled="true" html-placeholder="New organization description..." size="100"/>
+                                </apex:pageBlockSectionItem>
+                                <apex:pageBlockSectionItem >
+                                    <apex:outputLabel value="Description:" for="org_desc"/>
+                                    <apex:inputTextArea value="{!esc.elementsTeamDesc}" id="org_desc" disabled="true" cols="80" rows="5"/>
+                                </apex:pageBlockSectionItem>
+                            </apex:pageBlockSection>
+                        </apex:outputPanel>
+                    </apex:pageBlock>
+                
+                <apex:pageBlock title="{!IF(esc.loginRes == null, 'Log in to change details' , '')}">
+                    <apex:pageBlockButtons location="bottom">
+                        <apex:commandButton value="Login" action="{!esc.loginByUser}" rendered="{!esc.loginRes == null}"/>
+                        <apex:commandButton value="Renew Secret Key" action="{!esc.renewSecretKey}" rendered="{!esc.loginRes != null && esc.isOrgConnected}"/>
+                    </apex:pageBlockButtons>
+                    <apex:outputPanel rendered="{!esc.loginRes == null}">
+                        <apex:outputText rendered="{!esc.isOrgConnected}" value="Log in to renew the secret key." /><br/><br/>
+                        <apex:pageBlockSection columns="1" collapsible="false">
+                            <apex:pageBlockSectionItem >
+                                 <apex:outputLabel value="Elements Catalyst Admin Login (email):" for="elements_login"/>
+                                 <apex:inputText value="{!esc.cs.Q9__AdminEmail__c}" id="elements_login"  size="36"/>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="Elements Catalyst Password:" for="elements_pass"/>
+                                <apex:inputSecret value="{!esc.adminPass}" id="elements_pass"  size="36"/>
+                            </apex:pageBlockSectionItem>
+                        </apex:pageBlockSection>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!esc.loginRes != null}">
+                        You have been logged in as <b>{!esc.loginRes.user.email}</b>.
+                    </apex:outputPanel>
+                </apex:pageBlock>
+                
+<!--            
+                <apex:outputPanel >
+                    You can clear the current settings, but be careful, Elements will stop working - &nbsp;<apex:commandLink action="{!clearSettings}" value="Clear Settings" onclick="location.reload();"/>
+                </apex:outputPanel> -->
+            </apex:tab>
+            <!-- </editor-fold> -->
+            <!-- <editor-fold desc="Users Tab" defaultstate="collapsed"> -->
+            <apex:tab label="Connect users (SSO)" name="users" rendered="{!esc.isOrgConnected}">
+                <apex:pageBlock id="users" title="Users">
+                    <apex:pageBlockButtons >
+                        <apex:commandButton value="Connect Users" action="{!esc.connectUsers}" disabled="{!!isPackageVersionValid}" status="status" onclick="if (disableButton(true) == false) { return false; }" />
+                        <apex:commandButton value="Disconnect Users" action="{!esc.disconnectUsers}" disabled="{!!isPackageVersionValid}" status="status" onclick="if (disableButton(false) == false) { return false; }"/>
+                        <apex:commandButton value="Refresh Users List" action="{!esc.refreshUsers}" style="margin-left: 30px;" status="status"/>                    
+                    </apex:pageBlockButtons>
+                    <h2 style="margin-top: 10px; margin-bottom: 10px"><i>Create an Elements user account for Salesforce users and connect them. They can then access Elements process content and help topics inside Salesforce using their Salesforce credentials.</i></h2>
+                    <apex:inputText value="{!esc.filterName}" html-placeholder="Search by User" onkeydown="return applyFilterFunc(event);" style="margin : 15px 0px; line-height: 1.175rem; min-height: calc(1.175rem + (1px * 2)); width : 100%;"/>
+                    <apex:inputText value="{!esc.filterProfileName}" html-placeholder="Search by Profile" onkeydown="return applyFilterFunc(event);" style="margin : 15px 0px; line-height: 1.175rem; min-height: calc(1.175rem + (1px * 2)); width : 100%;"/>
+                    <script type="text/javascript">
+                        function applyFilterFunc(ev) {
+                            if (window.event && window.event.keyCode === 13 || ev.which === 13) {
+                                this.blur();
+                                applyFilter();
+                                return false;
+                            } else {
+                                return true;
+                            }
+                        }
+                        
+                        var connectButtonClicked = false;
+                        var disconnectButtonClicked = false;
+                        function disableButton(isConnect) {
+                            if (isConnect) {
+                                if (connectButtonClicked == false) {
+                                    connectButtonClicked = true;
+                                    return true;
+                                } else {
+                                    return false;
+                                }
+                            } else {
+                                if (disconnectButtonClicked == false) {
+                                    disconnectButtonClicked = true;
+                                    return true;
+                                } else {
+                                    return false;
+                                }
+                            }
+                        }
+                        
+                    </script>
+                    <apex:actionFunction action="{!esc.applyFilter}" name="filterActionFunction" reRender="users" status="status"/>
+                    <apex:pageMessages id="users_messages" escape="false"/>
+                    <apex:outputPanel ><br/></apex:outputPanel>
+                    <apex:outputPanel rendered="{!esc.users.size == 0}">
+                        <br/>
+                        <h1>No matching users</h1>
+                        <br/>
+                        <br/>
+                        <br/>
+                    </apex:outputPanel>
+                    <apex:outputPanel ><h2>Select users and click Connect Users</h2></apex:outputPanel>
+                    <apex:pageblocktable value="{!esc.users}" var="uw" id="a2" rendered="{!esc.users.size>0}">
+                        <apex:column styleClass="{!IF(!uw.connected, IF(uw.isEmailValidForElements, '', 'bgDisabledUsers'),'bgimported')} table_checkbox text_center">
+                            <apex:facet name="header">
+                                <apex:outputPanel layout="block" html-align="center">
+                                    <input type="checkbox" class="allUsersSelected" onclick="checkAllClickHandler(this)"/>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <script>
+                                function checkAllClickHandler(obj) {
+                                    var checkboxes = document.getElementsByClassName('userCheckBox'); 
+                                    for(var i=0, n=checkboxes.length;i<n;i++) {
+                                        if(!checkboxes[i].disabled){
+                                            checkboxes[i].checked = obj.checked;
+                                        }
+                                    }
+                                }
+                            </script>
+                            <apex:inputCheckbox value="{!uw.selected}" styleClass="userCheckBox" disabled="{!!uw.u.isActive || !uw.isEmailValidForElements}" title="{!IF(uw.u.isActive, IF(uw.isEmailValidForElements, '', 'User has sandbox email'), 'User is not active')}"/>
+                        </apex:column>
+                        <apex:column headerValue="User" styleClass="{!IF(!uw.connected, IF(uw.isEmailValidForElements, '', 'bgDisabledUsers'),'bgimported')}">
+                            <apex:outputLink value="/{!uw.u.Id}?noredirect=1" target="_blank">{!uw.u.Name}</apex:outputLink>
+                        </apex:column>
+                        <apex:column headerValue="Username" styleClass="{!IF(!uw.connected, IF(uw.isEmailValidForElements, '', 'bgDisabledUsers'),'bgimported')}">
+                            <apex:outputLink value="/{!uw.u.Id}?noredirect=1" target="_blank">{!uw.u.Username}</apex:outputLink>
+                        </apex:column>
+                        <apex:column headerValue="Email" styleClass="{!IF(!uw.connected, IF(uw.isEmailValidForElements, '', 'bgDisabledUsers'),'bgimported')}">
+                            <apex:outputField value="{!uw.u.Email}" />
+                        </apex:column>
+                        <apex:column headerValue="Profile" styleClass="{!IF(!uw.connected, IF(uw.isEmailValidForElements, '', 'bgDisabledUsers'),'bgimported')}">
+                            <apex:outputField value="{!uw.u.Profile.Name}" />
+                        </apex:column>
+                        <apex:column headerValue="Access To Elements" styleClass="{!IF(!uw.connected, IF(uw.isEmailValidForElements, '', 'bgDisabledUsers'),'bgimported')}" html-align="center">
+                            <apex:inputCheckBox value="{!uw.connected}" disabled="true"/>
+                        </apex:column>
+                    </apex:pageblocktable>
+                    
+                    <!--Pagination block-->
+                    <apex:outputPanel >
+                        <br></br>
+                        Users per page:&nbsp;
+                        <apex:selectList value="{!esc.resultsOnPage}" size="1">
+                            <apex:selectOption itemLabel="10" itemValue="10"/>
+                            <apex:selectOption itemLabel="25" itemValue="25"/>
+                            <apex:selectOption itemLabel="50" itemValue="50"/>
+                            <apex:selectOption itemLabel="100" itemValue="100"/>
+                            <apex:selectOption itemLabel="200" itemValue="200"/>
+                            <apex:actionSupport event="onchange" action="{!esc.fillPerPage}" reRender="users" status="status"/>
+                        </apex:selectList>   
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <apex:outputText value="<< Previous" rendered="{!esc.pageNumber == 1}"/>
+                        <apex:commandLink action="{!esc.prevPage}" value="<< Previous" rerender="users" status="status" rendered="{!esc.pageNumber > 1}"/>&nbsp;&nbsp;
+                        Page {!esc.pageNumber} of {!esc.numberOfPages} &nbsp;&nbsp;
+                        <apex:outputText value="Next >>" rendered="{!esc.pageNumber == esc.numberOfPages}"/>
+                        <apex:commandLink action="{!esc.nextPage}" value="Next >>" rerender="users" status="status" rendered="{!esc.pageNumber < esc.numberOfPages}"/>
+                    </apex:outputPanel>
+                </apex:pageBlock>
+                <apex:outputPanel styleClass="mrgtb10">
+                    <apex:pageBlock title="Users Settings">
+                        <apex:pageBlockButtons location="bottom">
+                            <apex:commandButton value="Save" action="{!esc.saveUserSettings}"/>
+                        </apex:pageBlockButtons>
+                        <apex:outputPanel >
+                            <apex:pageBlockSection columns="2">
+                                <apex:pageBlockSectionItem >
+                                    <apex:outputLabel value="Assign new Salesforce users to Elements:" for="new_users"/>
+                                    <apex:inputField value="{!esc.cs.Q9__AssignNewUsers__c}" id="new_users" />
+                                </apex:pageBlockSectionItem>
+                                <apex:pageBlockSectionItem >
+                                    <apex:outputLabel value="Disable user triggers (only use if directed by Elements support team):" for="user_trigger_run"/>
+                                    <apex:inputField value="{!esc.cs.Q9__UserTriggerIsInactive__c}" id="user_trigger_run"/>
+                                </apex:pageBlockSectionItem>
+                            </apex:pageBlockSection>
+                        </apex:outputPanel>
+                    </apex:pageBlock>
+                    <apex:pageBlock title="Profile Settings" rendered="{!esc.cs.Q9__AssignNewUsers__c}">
+                        <c:ElementsMultiselectPicklist leftLabel="Profiles which will be provisioned"
+                            leftOption="{!espic.activeProfiles}"
+                            rightLabel="Profiles which will be ignored"
+                            rightOption="{!espic.disabledProfiles}"
+                            size="15"
+                            width="280px"/>
+                        <apex:pageBlockButtons location="bottom">
+                            <apex:commandButton value="Save profile settings" action="{!espic.saveProfileSetting}" status="status"/>
+                        </apex:pageBlockButtons>
+                    </apex:pageBlock>
+                </apex:outputPanel>
+            </apex:tab>
+            <!-- </editor-fold> -->
+            <!-- <editor-fold desc="Objects Tab" defaultstate="collapsed"> -->
+            <apex:tab label="Assign diagrams to objects" name="objects" id="objects" rendered="{!esc.isOrgConnected}">
+                <apex:pageMessages />
+                <apex:pageBlock title="Enter the process diagram ID to assign to an object by record type" rendered="{!activeTab == 'objects'}">
+                    <apex:pageBlockButtons location="both">
+                        <apex:commandButton value="Save" action="{!esc.saveObjects}"/>
+                    </apex:pageBlockButtons>
+                    <apex:outputPanel >
+                        <apex:pageBlockSection columns="2" title="Standard objects" collapsible="true">
+                            <apex:repeat var="obj" value="{!esc.stdSObjectItems}">
+                                <apex:pageBlockSectionItem >
+                                    <apex:outputLabel value="{!obj.label}" for="diagramId"/>
+                                    <apex:input value="{!obj.diagramId}" id="diagramId" html-placeholder="Enter diagram Id..." />
+                                </apex:pageBlockSectionItem>
+                            </apex:repeat>
+                        </apex:pageBlockSection>
+                        <apex:pageBlockSection columns="2" title="Custom SObjects" collapsible="true" rendered="{!!esc.custSObjectItems.empty}">
+                            <apex:repeat var="obj" value="{!esc.custSObjectItems}">
+                                <apex:pageBlockSectionItem >
+                                    <apex:outputLabel value="{!obj.label}" for="diagramId"/>
+                                    <apex:input value="{!obj.diagramId}" id="diagramId" html-placeholder="Enter diagram Id..." />
+                                </apex:pageBlockSectionItem>
+                            </apex:repeat>
+                        </apex:pageBlockSection>
+                    </apex:outputPanel>
+                </apex:pageBlock>
+                <script>
+                    function copyGenCodeToClipboard(){
+                      var copyTextarea = document.querySelector('.elementsGeneratedCodeTextArea');
+                      if (copyTextarea) {
+                          copyTextarea.select();
+                          try {
+                            var successful = document.execCommand('copy');
+                            console.log(successful);
+                            var msg = successful ? 'successful' : 'unsuccessful';
+                            if (successful) {
+                                document.getElementById("text_copied_to_clipboard").style.visibility = "visible";
+                                setTimeout(function(){
+                                    document.getElementById("text_copied_to_clipboard").style.visibility = "hidden";
+                                }, 1000);
+                            }
+                          } catch (err) {
+                            console.log('Oops, unable to copy');
+                          }
+                      } else {
+                          alert('Oops, unable to copy. No text area found!');
+                      }
+
+                    }
+                </script>
+                <apex:pageBlock title="Generate inline Visual Force components for each SObject" id="pageGen">
+                    <apex:pageBlockButtons location="bottom" rendered="{!esc.selectedSObject != 'None' && esc.selectedSObject != null}">
+                        <apex:commandButton value="Create new VF page" action="{!esc.dummy}" onclick="window.open('/066/e', '_blank')" title="Opens create new Visual Force page window in new tab"/>
+                        <apex:commandButton value="Modify Layout" action="{!esc.dummy}" onclick="window.open('/ui/setup/layout/PageLayouts?type={!esc.selectedSObject}', '_blank')" title="Opens standard object layouts page." rendered="{!(RIGHT(esc.selectedSObject, 3) != '__c')}" />
+                    </apex:pageBlockButtons>
+                    <apex:outputPanel >
+                        <br></br>
+                        Select a SObject to generate a VF page for:&nbsp;
+                        <apex:selectList value="{!esc.selectedSObject}" size="1">
+                            <apex:selectOptions value="{!esc.sobjectOptions}" /> <!-- Try to use this is something goes wrong https://zenorocha.github.io/clipboard.js/ -->
+                            <apex:actionSupport event="onchange" action="{!esc.generateVF}" reRender="pageGen" status="status"/>
+                        </apex:selectList>   
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <apex:outputPanel rendered="{!esc.selectedSObject != 'None' && esc.selectedSObject != null}">
+                            <a href="" onclick="copyGenCodeToClipboard()" style="cursor: pointer;">Copy to clipboard</a>
+                            <span id="text_copied_to_clipboard" style="visibility: hidden;">&nbsp;Copied...</span>
+                        </apex:outputPanel>
+                        <br/><br/>
+                        <apex:outputPanel rendered="{!esc.selectedSObject != 'None' && esc.selectedSObject != null}">
+                            <apex:inputTextarea value="{!esc.generatedCode}" disabled="false" rows="3" cols="100" styleClass="elementsGeneratedCodeTextArea"/>
+                        </apex:outputPanel>
+                    </apex:outputPanel>
+                </apex:pageBlock>
+            </apex:tab>
+            <!-- </editor-fold> -->
+            <!--<editor-fold desc="Elements Login Flow Example" defaultstate="collapsed">-->
+            <apex:tab label="Set up Elements Login Flow" name="ElementsLoginFlowExample" id="elementsLoginFlow" rendered="{!esc.isOrgConnected}">
+                <apex:pageBlock title="How to create a login flow that logs the user into Elements Catalyst">
+                    <h1 style="margin-top: 10px"><i>You can set up a Salesforce Login Flow so users do not need to login to see Elements Help Topics on Record Pages.</i></h1>
+                    <div>
+                        <div style="margin-top: 10px;">
+                            <h3><i>1. Create a VisualForcePage. This will be used for each Profile.</i></h3><br/>
+                            <div style="padding-left:2em; margin-top: 10px; margin-bottom: 6px;">a. <i >Click 'Copy to Clipboard'.</i><br/></div>
+                            <div style="padding-left:2em; margin-bottom: 8px">
+                                <a href="" onclick="copyGenLoginFlowPageCodeToClipboard()" style="cursor: pointer;">Copy to clipboard</a>
+                                <span id="text_copied_to_clipboard_LoginFlow" style="visibility: hidden;">&nbsp;Copied...</span>
+                            </div>
+                            <apex:inputTextarea value="{!esc.generatedLoginFlowPageCode}" disabled="false" rows="2" cols="100" styleClass="elementsGeneratedLoginFlowPageCodeTextArea" style="padding-left:2em;"/>
+                            <br/>
+                            <div style="padding-left:2em; margin-top: 6px;">b. <i>Click the button 'Create new VF Page'. This creates a new VisualForce page. Give it a name and label, for example 'Elements Login Flow' and paste in the copied code.</i></div>
+                            <div style="padding-left:2em; margin-top: 6px">c. <i>Set up VisualForce page security for each Profile.</i></div>
+                            
+                        </div>
+                        <div style="margin-top: 10px;">
+                            <h3><i>2. Create Login Flow for each Profile.</i></h3><br/>
+                            <div style="padding-left:2em; margin-top: 6px;">a. <i>Select the type as VisualForce Page.</i></div>
+                            <div style="padding-left:2em; margin-top: 6px;">b. <i>Provide a Name for the Login Flow.</i></div>
+                            <div style="padding-left:2em; margin-top: 6px;">c. <i>Select the VisualForce Page.</i></div>
+                            <div style="padding-left:2em; margin-top: 6px;">d. <i>Select the user license and Profile to apply this to Login Flow to.</i></div>
+                            <div style="padding-left:2em; margin-top: 6px;">e. <i>Next time a user with this Profile logs in they will also be automatically logged into Elements.</i></div>
+                        </div>
+                        <div style="margin-top: 10px;">
+                            <h3><i>3. Connect users to Elements using the “Connect Elements (SSO) tab” from “Users.</i></h3><br/>
+                        </div>
+                    </div>
+                    <script>
+                        function copyGenLoginFlowPageCodeToClipboard(){
+                          var copyTextarea = document.querySelector('.elementsGeneratedLoginFlowPageCodeTextArea');
+                          if (copyTextarea) {
+                              copyTextarea.select();
+                              try {
+                                var successful = document.execCommand('copy');
+                                console.log(successful);
+                                var msg = successful ? 'successful' : 'unsuccessful';
+                                if (successful) {
+                                    document.getElementById("text_copied_to_clipboard_LoginFlow").style.visibility = "visible";
+                                    setTimeout(function(){
+                                        document.getElementById("text_copied_to_clipboard_LoginFlow").style.visibility = "hidden";
+                                    }, 1000);
+                                }
+                              } catch (err) {
+                                console.log('Oops, unable to copy');
+                              }
+                          } else {
+                              alert('Oops, unable to copy. No text area found!');
+                          }
+
+                        }
+                    </script>
+                    <br/><br/>
+
+                    <apex:pageBlockButtons location="bottom">
+                        <apex:commandButton value="Create new VF page" action="{!esc.dummy}" onclick="window.open('/066/e', '_blank')" title="Opens create new Visual Force page window in new tab"/>
+                        <apex:commandButton value="Create new Login Flow" action="{!esc.dummy}" onclick="window.open('/0Kq/e', '_blank')" title="Opens create new Login Flow window in new tab"/>
+                    </apex:pageBlockButtons>
+                </apex:pageBlock>
+            </apex:tab>
+            <!--</editor-fold>-->
+            <!--<editor-fold desc="Advanced" defaultstate="collapsed">-->
+            <apex:tab label="Advanced" name="advanced" id="advanced" rendered="{!!esc.isOrgConnected}">
+                <apex:pageMessages escape="false"/>
+                    <apex:pageBlock title="Elements Connection">
+                        <apex:pageBlockButtons location="bottom">
+                            <apex:commandButton value="Save" action="{!esc.saveCSonAdvancedTab}"/>
+                            <apex:commandButton value="Reset Default Settings" action="{!esc.setDefaultConnection}"/>
+                        </apex:pageBlockButtons>
+                        <apex:outputPanel >
+                            <apex:pageBlockSection columns="1">
+                                <apex:outputPanel ><b>Do not change these settings unless advised by Elements support.</b></apex:outputPanel>
+                                <apex:outputPanel >If your space uses a subdomain, please specify it here. Otherwise please keep the default values and click Save.</apex:outputPanel>
+                                <apex:pageBlockSectionItem >
+                                     <apex:outputLabel value="Domain:" for="subdomain"/>
+                                     <apex:outputPanel >
+                                        <apex:inputText value="{!esc.cs.Q9__BaseUrl__c}" id="subdomain" size="24"/>
+                                     </apex:outputPanel>
+                                </apex:pageBlockSectionItem>
+                                <apex:pageBlockSectionItem >
+                                     <apex:outputLabel value="API Domain:" for="api_subdomain"/>
+                                     <apex:outputPanel >
+                                        <apex:inputText value="{!esc.cs.Q9__ApiBaseUrl__c}" id="api_subdomain" size="24"/>
+                                     </apex:outputPanel>
+                                </apex:pageBlockSectionItem>
+                                <apex:pageBlockSectionItem >
+                                     <apex:outputLabel value="API Port Number" for="api_port_number"/>
+                                     <apex:outputPanel >
+                                        <apex:inputText value="{!esc.cs.Q9__ApiPortNumber__c}" id="api_port_number" size="8"/>
+                                     </apex:outputPanel>
+                                </apex:pageBlockSectionItem>
+                                <apex:pageBlockSectionItem >
+                                    <apex:outputLabel value="Use HTTPS:" for="https"/>
+                                    <apex:inputCheckbox value="{!esc.cs.Q9__UseHttps__c}" id="https" />
+                                </apex:pageBlockSectionItem>
+                            </apex:pageBlockSection>
+                        </apex:outputPanel>
+                    </apex:pageBlock>
+                    
+            </apex:tab>
+            <!--</editor-fold>-->
+            <!-- <editor-fold desc="Schedule" defaultstate="collapsed"> -->
+            <apex:tab label="Schedule fetch of record information" name="Schedule fetch of record information" id="ScheduleFetchOfRecordInformation" rendered="{!esc.isOrgConnected}">
+                <apex:pageMessages escape="false"/>
+                <!--TODO: DELETE ME PLEASE-->
+                 <apex:pageBlock title="Schedule fetch of record information">
+                    <h1 style="margin-top: 10px"><i>Set up a scheduled job to fetch record count and information on last created/modified record for each object.</i></h1>
+                    <br/><br/>
+
+                    <apex:pageBlockSection columns="1">
+                       <apex:pageBlockSectionItem >
+                       <apex:outputLabel value="Schedule Hours" for="scheduleHours"/>
+                       <apex:input type="number" value="{!esc.recordCountScheduleHours}" id="scheduleHours" size="24"/>
+                       </apex:pageBlockSectionItem>
+                       
+                       <apex:pageBlockSectionItem >
+                       <apex:outputLabel value="Schedule Minutes" for="scheduleMinutes"/>
+                       <apex:input type="number" value="{!esc.recordCountScheduleMinutes}" id="scheduleMinutes" size="24"/>
+                       </apex:pageBlockSectionItem>
+                    </apex:pageBlockSection>
+                    <apex:pageBlockButtons location="bottom">                        
+                        <apex:commandButton value="Set up new Schedule Job" action="{!esc.startRecordCountScheduleJob}" onclick="if(!onNewScheduleStarting()){return false};" />
+                        <script>
+                            function onNewScheduleStarting() {
+                                const numberOfRecordCountScheduledJob = parseInt('{!esc.numberOfRecordCountScheduledJob}');
+                                if (numberOfRecordCountScheduledJob === 0) {
+                                    return true;
+                                }
+                                var text = "A schedule job already is active to fetch the record count information.  Are you sure you want to add another?";
+                                return confirm(text);
+                            }
+                        </script>
+                        
+                    </apex:pageBlockButtons>
+                </apex:pageBlock>
+            </apex:tab>
+            <!-- </editor-fold> -->
+
+            <!-- <editor-fold desc="Schedule" defaultstate="collapsed"> -->
+            <apex:tab label="Schedule profile layout information" name="Schedule profile layout information" id="scheduleProfileLayoutInformation" rendered="{!esc.isOrgConnected}">
+                <apex:pageMessages escape="false"/>
+                    <apex:pageBlock title="Schedule profile layout information">
+                    <h1 style="margin-top: 10px"><i>Set up a scheduled job to fetch profile layout information.</i></h1>
+                    <br/><br/>
+
+                    <apex:pageBlockSection columns="1">
+                        <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Schedule Hours" for="profileLayoutScheduleHours"/>
+                        <apex:input type="number" value="{!esc.profileLayoutScheduleHours}" id="profileLayoutScheduleHours" size="24"/>
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Schedule Minutes" for="profileLayoutScheduleMinutes"/>
+                        <apex:input type="number" value="{!esc.profileLayoutScheduleMinutes}" id="profileLayoutScheduleMinutes" size="24"/>
+                        </apex:pageBlockSectionItem>
+                    </apex:pageBlockSection>
+                    <apex:pageBlockButtons location="bottom">                        
+                        <apex:commandButton value="Set up new Schedule Job" action="{!esc.startProfileLayoutcheduleJob}" onclick="if(!onNewProfileLayoutScheduleStarting()){return false};" />
+                        <script>
+                            function onNewProfileLayoutScheduleStarting() {
+                                const numberOfProfileLayoutScheduledJob = parseInt('{!esc.numberOfProfileLayoutScheduledJob}');
+                                if (numberOfProfileLayoutScheduledJob === 0) {
+                                    return true;
+                                }
+                                var text = "A schedule job already is active to fetch the profile layout information.  Are you sure you want to add another?";
+                                return confirm(text);
+                            }
+                        </script>
+                        
+                    </apex:pageBlockButtons>
+                </apex:pageBlock>
+            </apex:tab>
+            <!-- </editor-fold> -->
+            
+        </apex:tabPanel>
+    </apex:form>
+
+    <c:ActionStatus /> 
+    
+    <c:ElementsNeedHelpLink />
+
+</apex:page>

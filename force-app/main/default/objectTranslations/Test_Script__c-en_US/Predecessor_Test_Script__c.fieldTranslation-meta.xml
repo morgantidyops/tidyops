@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Predecessor Test Script --></label>
+        <name>Predecessor_Test_Script__c</name>
+        <relationshipLabel><!-- Successor Test Scripts --></relationshipLabel>
+    </CustomFieldTranslation>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Inbound Change Set/Install URL --></label>
+        <name>Inbound_Change_Set_Install_URL__c</name>
+    </CustomFieldTranslation>

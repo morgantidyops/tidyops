@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Write step-by-step instructions to reproduce the bug. Number each step. Ex.:
+
+1. As user ___, sign in via __ URL
+2. Click ___ tab
+3. Select ___ case
+4. Enter ___ in ___ field
+5. Select ___ from ___ drop down
+6. Click Next button
+
+Notice that.. --></help>
+        <label><!-- Reproduction Steps --></label>
+        <name>Reproduction_Steps__c</name>
+    </CustomFieldTranslation>

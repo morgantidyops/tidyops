@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Who requested this change in requirements? Who is the stakeholder/product owner? --></help>
+        <label><!-- Requestor --></label>
+        <name>Requestor__c</name>
+        <relationshipLabel><!-- Requirement Versions --></relationshipLabel>
+    </CustomFieldTranslation>

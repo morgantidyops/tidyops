@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPM4_BASE__Project_Configuration</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <height>600</height>
+    <linkType>page</linkType>
+    <masterLabel>Project Configuration</masterLabel>
+    <openType>sidebar</openType>
+    <page>MPM4_BASE__Milestone1_Project_Config</page>
+    <protected>false</protected>
+</WebLink>

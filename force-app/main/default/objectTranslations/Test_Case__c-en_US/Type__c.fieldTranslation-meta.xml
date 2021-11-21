@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Functional: 
+•Verifies application functional conformance with user req&apos;s 
+•Focuses on user transaction / use cases 
+
+Non-functional: 
+•Verifies technical or non-functional requirements such as: 
+-Platform Compatibility 
+-Usability 
+-Compliance --></help>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>Functional</masterLabel>
+            <translation><!-- Functional --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non-functional</masterLabel>
+            <translation><!-- Non-functional --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

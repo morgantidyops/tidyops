@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- What caused the test to fail? Please attach paste error message here and attach a screenshot, if necessary. --></help>
+        <label><!-- Fail Description --></label>
+        <name>Fail_Description__c</name>
+    </CustomFieldTranslation>

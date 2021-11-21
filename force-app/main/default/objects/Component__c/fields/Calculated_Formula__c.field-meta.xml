@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Calculated_Formula__c</fullName>
+    <description>Complete this field for Workflow Rules, Field Updates, Validation Rules, or Formula Fields</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Complete this field for Workflow Rules, Field Updates, Validation Rules, or Formula Fields</inlineHelpText>
+    <label>Calculated Formula</label>
+    <length>32768</length>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>10</visibleLines>
+</CustomField>

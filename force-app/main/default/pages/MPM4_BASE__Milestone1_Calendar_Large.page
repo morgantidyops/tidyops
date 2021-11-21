@@ -1,0 +1,164 @@
+<!--   
+Copyright (c) 2011, salesforce.com, Inc.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, 
+are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright notice, 
+    this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice, 
+    this list of conditions and the following disclaimer in the documentation 
+    and/or other materials provided with the distribution.
+    * Neither the name of the salesforce.com, Inc. nor the names of its contributors 
+    may be used to endorse or promote products derived from this software 
+    without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, 
+BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, 
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF 
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED 
+OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<apex:page controller="MPM4_BASE.Milestone1_repeatCon"
+		   sidebar="false"
+		   docType="html-5.0"
+		   showHeader="true"
+		   applyBodyTag="false"
+		   standardStyleSheets="false" 
+		   title="Milestones PM+ Calendar">
+    
+<body>
+<style>
+	#calendarContainer{
+		font-family: 'Salesforce Sans',Arial,sans-serif;
+	}
+	.fc *{
+		font-family: 'Salesforce Sans',Arial,sans-serif;
+	}
+
+	#calendar button {
+		background: #2C3E50;
+	}
+	.fc .fc-daygrid-day-number{
+		font-size: 14px;
+		font-weight: bold;
+	}
+	.fc .fc-col-header-cell-cushion{
+		font-size: 18px;
+		font-weight: bold;
+	}
+	.fc-theme-standard .fc-scrollgrid{
+		border: 1px solid #00000080;
+	}
+	.fc-theme-standard td, .fc-theme-standard th{
+		border: 1px solid #00000080;
+	}
+	.fc-event-title {
+    	font-size: 1.5em;
+	}
+	.fc .fc-toolbar-chunk{
+		font-size: 15px;
+	}
+	.cal-selectors{
+		display: inline-block;
+		font-size: 18px;
+		padding-top: 10px;
+		padding-left: 10px;
+		z-index:2;
+	}
+
+	.slds-picklist__label{
+		margin-left: 10px;
+		font-size: 16px;
+		width: 90px;	
+	}
+	.slds-picklist__label.multiselect-scrollbar{
+		overflow: hidden;
+	}
+	.selector-container{
+		font-size: 14px;
+		font-weight: bold;
+		font-family: 'Salesforce Sans',Arial,sans-serif;
+		display: flex;
+		justify-content: left;
+		align-items: baseline;
+		margin-bottom: -56px;
+	}
+	body input.btn.rerenderButton{
+		background: #2C3E50;
+    	color: white;
+    	font-size: 1em;
+    	line-height: 1.5;
+    	border-radius: .25em;
+		position: absolute;
+    	margin-top: -32px;
+    	margin-left: 10px;
+		font-weight: 100;
+		padding: 3px 12px;
+	}
+	.fc-day-today .fc-daygrid-day-number{
+		background-color: rgba(16, 118, 222, 0.57);
+		border-radius: 50%;
+	}
+	.fc .fc-daygrid-day.fc-day-today{
+		background-color: white;
+	}
+	.fc-col-header-cell{
+		background-color: #d0e9f0;
+	}
+	tbody{
+		background-color: #f2f2f2;
+	}
+	.fc-theme-standard td{
+		background-color: white;
+	}
+	.fc .fc-button-group{
+		margin-bottom: -40px;
+	}
+	.fc .fc-toolbar.fc-header-toolbar{
+		margin-bottom: 2.5em;
+	}
+	.fc .fc-button.fc-today-button{
+		margin-bottom: -40px;
+	}
+	.fc-toolbar-title{
+		padding-left: 10px;
+	}
+
+</style>	
+	<apex:stylesheet value="{!URLFOR($Resource.MPM4_BASE__SLDS070, '/assets/styles/salesforce-lightning-design-system-vf.min.css')}" />
+	<apex:includeScript value="{!URLFOR($Resource.MPM4_BASE__Milestone1_Resource_Bundle, 'javascript/jquery-3.1.1.js')}"/>
+	<script type="text/javascript" src="{!URLFOR($Resource.FullCalendar, 'lib/main.min.js')}"></script>
+	<apex:stylesheet value="{!URLFOR($Resource.MPM4_BASE__FullCalendar, 'lib/main.min.css')}"/>
+	<apex:outputPanel id="thePanels">
+	<apex:form >
+		<div class='selector-container fc-button-group'>
+			<div class="cal-selectors">
+			<span>Filter by Project List View:</span>
+			<apex:selectList id="projectListViewSelector" size="1" value="{!projectView}" styleClass="slds-button slds-button--neutral slds-picklist__label">
+				<apex:selectOptions value="{!projectListViewOptions}"/> 
+			</apex:selectList>
+			</div>
+			<div class="cal-selectors">
+			<span>Objects to Display:</span>
+			<apex:selectList id="objectSelector" size="3" value="{!selectedObject}" styleClass="slds-button slds-button--neutral slds-picklist__label multiselect-scrollbar" multiselect="true">
+				<apex:selectOptions value="{!objectOptions}"/> 
+			</apex:selectList>
+			</div>
+			<div class="cal-selectors cal-button">
+				<apex:commandButton styleClass="rerenderButton" action="{!save}" value="Save Filters" id="rerenderButton" reRender="thePanels"/>	
+			</div>
+		</div>
+		<c:MIlestone1_Calendar_Full projectFilter="{!projectView}" selectedObject="{!selectedObject}"/>
+	</apex:form>
+	</apex:outputPanel>
+</body>
+
+</apex:page>

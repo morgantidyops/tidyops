@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Description__c</fullName>
+    <description>http://www.wilsonmar.com/1tstwrit.htm</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Be specific. Don&#39;t use vague phrases such as &quot;problems with&quot;, &quot;is incorrect&quot;, or &quot;issue with&quot;. State the expected behavior which did not occur - such as &quot;after pop-up ___, ____ did not appear.&quot; and the behavior which occurred instead.</inlineHelpText>
+    <label>Description</label>
+    <length>32768</length>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

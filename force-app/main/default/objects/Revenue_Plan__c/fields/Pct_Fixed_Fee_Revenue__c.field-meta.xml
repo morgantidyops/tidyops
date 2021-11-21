@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pct_Fixed_Fee_Revenue__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(ISPICKVAL( Status__c,&quot;Closed&quot; ),
+ Fixed_Fee_Revenue__c /  Total_Revenue__c,
+  Fixed_Fee_Revenue__c / (Expected_Service_Revenue__c +  Product_Revenue__c)  )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>% Fixed Fee Revenue</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

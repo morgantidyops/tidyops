@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Defect__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>The defect to link to the version where it was found and the version where it was fixed.</description>
+    <externalId>false</externalId>
+    <label>Defect</label>
+    <referenceTo>Defect__c</referenceTo>
+    <relationshipLabel>Defect Links</relationshipLabel>
+    <relationshipName>Defect_Links1</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

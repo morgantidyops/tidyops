@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Sometimes a business will create a nickname or external facing name for a business application. --></help>
+        <label><!-- Also Known As --></label>
+        <name>Also_Known_As__c</name>
+    </CustomFieldTranslation>

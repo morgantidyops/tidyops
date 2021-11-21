@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sfLma__Licensed_Seats__c</fullName>
+    <deprecated>false</deprecated>
+    <description>A text field which displays the number of Licensed Seats or “Site License” based on the numeric field</description>
+    <externalId>false</externalId>
+    <formula>IF( sfLma__Seats__c &gt;=0,  TEXT(sfLma__Seats__c ), &quot;Site License&quot;)</formula>
+    <label>Licensed Seats</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

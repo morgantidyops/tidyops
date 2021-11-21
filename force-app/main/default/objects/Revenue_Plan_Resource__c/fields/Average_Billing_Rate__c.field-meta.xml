@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Average_Billing_Rate__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(ISPICKVAL(Revenue_Plan__r.Status__c,&#39;Closed&#39;), 
+Resource_Actual_Revenue__c / Actual_Billable_Hours__c,
+Resource_Expected_Revenue__c / Expected_Billable_Hours__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Average Billing Rate</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

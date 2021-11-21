@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <defaultLandingTab>standard-home</defaultLandingTab>
+    <description>Enables effortless org-to-org deployments of configuration data between Salesforce orgs, which improves speed, reliability, and auditability of application releases.</description>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <label>Prodly</label>
+    <logo>PDRI__Logos/PDRI__Prodly_AppOps.png</logo>
+    <tabs>PDRI__Moover_Admin</tabs>
+    <tabs>PDRI__Folder__c</tabs>
+    <tabs>PDRI__Connection__c</tabs>
+    <tabs>PDRI__DataSet__c</tabs>
+    <tabs>PDRI__Deployment_Plan__c</tabs>
+    <tabs>PDRI__Data_Set_Template__c</tabs>
+    <tabs>PDRI__Deployment_Result__c</tabs>
+    <tabs>PDRI__Deployment_Center</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>PDRI__Invocation_Template__c</tabs>
+    <tabs>Revenue_Plan__c</tabs>
+</CustomApplication>

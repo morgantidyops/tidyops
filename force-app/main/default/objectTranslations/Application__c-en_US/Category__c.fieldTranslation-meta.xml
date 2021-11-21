@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Which departments use this application? Which category of needs does this application meet? --></help>
+        <label><!-- Category --></label>
+        <name>Category__c</name>
+    </CustomFieldTranslation>

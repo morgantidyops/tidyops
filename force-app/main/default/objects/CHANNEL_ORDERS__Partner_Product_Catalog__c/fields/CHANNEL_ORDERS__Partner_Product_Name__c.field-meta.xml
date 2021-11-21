@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CHANNEL_ORDERS__Partner_Product_Name__c</fullName>
+    <deprecated>false</deprecated>
+    <description>Product Name of Price Book Entry on Org62</description>
+    <externalId>false</externalId>
+    <formula>CHANNEL_ORDERS__Standard_Partner_Pricebook_Entry__r.CHANNEL_ORDERS__Product_Name__c</formula>
+    <inlineHelpText>Product Name of Price Book Entry on Org62</inlineHelpText>
+    <label>Partner Product Name</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

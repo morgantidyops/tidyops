@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Actual_Service_Revenue__c</fullName>
+    <externalId>false</externalId>
+    <label>Actual Service Revenue</label>
+    <summarizedField>Revenue_Plan_Resource__c.Resource_Actual_Revenue__c</summarizedField>
+    <summaryForeignKey>Revenue_Plan_Resource__c.Revenue_Plan__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sandbox_Purpose__c</fullName>
+    <externalId>false</externalId>
+    <label>Sandbox Purpose</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Development</fullName>
+                <default>false</default>
+                <label>Development</label>
+            </value>
+            <value>
+                <fullName>Integration Testing</fullName>
+                <default>false</default>
+                <label>Integration Testing</label>
+            </value>
+            <value>
+                <fullName>Quality Assurance</fullName>
+                <default>false</default>
+                <label>Quality Assurance</label>
+            </value>
+            <value>
+                <fullName>User Acceptance Testing</fullName>
+                <default>false</default>
+                <label>User Acceptance Testing</label>
+            </value>
+            <value>
+                <fullName>Deployment Staging</fullName>
+                <default>false</default>
+                <label>Deployment Staging</label>
+            </value>
+            <value>
+                <fullName>Error Reproduction</fullName>
+                <default>false</default>
+                <label>Error Reproduction</label>
+            </value>
+            <value>
+                <fullName>Training</fullName>
+                <default>false</default>
+                <label>Training</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

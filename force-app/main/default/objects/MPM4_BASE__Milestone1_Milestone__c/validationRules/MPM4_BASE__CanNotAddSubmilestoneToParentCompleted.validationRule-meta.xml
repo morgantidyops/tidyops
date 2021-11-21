@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPM4_BASE__CanNotAddSubmilestoneToParentCompleted</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(MPM4_BASE__Parent_Milestone__r.MPM4_BASE__Complete__c, ISCHANGED(MPM4_BASE__Parent_Milestone__c))</errorConditionFormula>
+    <errorDisplayField>MPM4_BASE__Parent_Milestone__c</errorDisplayField>
+    <errorMessage>You can not add milestones to parent milestones with status completed.</errorMessage>
+</ValidationRule>

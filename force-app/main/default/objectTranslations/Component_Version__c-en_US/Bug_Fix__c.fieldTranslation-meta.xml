@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- If this component version was created as part of a bug fix, link it here. --></help>
+        <label><!-- Bug Fix --></label>
+        <name>Bug_Fix__c</name>
+        <relationshipLabel><!-- Component Versions --></relationshipLabel>
+    </CustomFieldTranslation>

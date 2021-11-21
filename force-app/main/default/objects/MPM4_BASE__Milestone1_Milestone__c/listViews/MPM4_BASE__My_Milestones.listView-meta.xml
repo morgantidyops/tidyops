@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPM4_BASE__My_Milestones</fullName>
+    <columns>MPM4_BASE__Project__c</columns>
+    <columns>NAME</columns>
+    <columns>MPM4_BASE__Deadline__c</columns>
+    <columns>MPM4_BASE__Total_Open_Tasks__c</columns>
+    <columns>MPM4_BASE__Total_Late_Tasks__c</columns>
+    <columns>MPM4_BASE__Total_Blocked_Tasks__c</columns>
+    <filterScope>Mine</filterScope>
+    <label>My Milestones</label>
+</ListView>

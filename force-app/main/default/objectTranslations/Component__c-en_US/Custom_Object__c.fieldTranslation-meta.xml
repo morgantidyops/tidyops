@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- If this component is associated with a custom object, list it here. --></help>
+        <label><!-- Custom Object --></label>
+        <name>Custom_Object__c</name>
+    </CustomFieldTranslation>

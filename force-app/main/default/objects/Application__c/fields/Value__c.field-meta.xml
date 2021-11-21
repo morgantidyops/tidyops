@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Value__c</fullName>
+    <description>What is the level of value this application brings to the business?</description>
+    <externalId>false</externalId>
+    <inlineHelpText>What is the level of value this application brings to the business?</inlineHelpText>
+    <label>Value</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Scale</valueSetName>
+    </valueSet>
+</CustomField>

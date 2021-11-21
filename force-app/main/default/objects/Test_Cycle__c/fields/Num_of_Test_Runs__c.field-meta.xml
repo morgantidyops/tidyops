@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Num_of_Test_Runs__c</fullName>
+    <description>Roll-up summary of Test Runs that have been executed</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Number of Test Runs executed</inlineHelpText>
+    <label># of Test Runs</label>
+    <summarizedField>Test_Scenario__c.Runs_Executed__c</summarizedField>
+    <summaryForeignKey>Test_Scenario__c.Test_Cycle__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

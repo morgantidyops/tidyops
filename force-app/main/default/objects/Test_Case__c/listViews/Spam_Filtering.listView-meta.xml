@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Spam_Filtering</fullName>
+    <columns>NAME</columns>
+    <columns>Description__c</columns>
+    <columns>Type__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Description__c</field>
+        <operation>contains</operation>
+        <value>spam,email filter,sensitive</value>
+    </filters>
+    <label>Spam/Filtering</label>
+</ListView>

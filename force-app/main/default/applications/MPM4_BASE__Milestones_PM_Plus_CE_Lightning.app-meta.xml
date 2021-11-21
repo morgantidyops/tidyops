@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#FA6600</headerColor>
+        <logo>MPM4_BASE__MPM_Plus_LN_Logo</logo>
+        <logoVersion>1</logoVersion>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <label>Milestones PM Plus</label>
+    <navType>Standard</navType>
+    <subscriberTabs>Resource__c</subscriberTabs>
+    <tabs>standard-home</tabs>
+    <tabs>MPM4_BASE__Milestone1_Getting_Started</tabs>
+    <tabs>MPM4_BASE__Milestone1_Home</tabs>
+    <tabs>MPM4_BASE__Milestone1_Summary</tabs>
+    <tabs>MPM4_BASE__Milestone1_Project_Creation</tabs>
+    <tabs>MPM4_BASE__Milestone1_Program__c</tabs>
+    <tabs>MPM4_BASE__Milestone1_Project__c</tabs>
+    <tabs>MPM4_BASE__Milestone1_Milestone__c</tabs>
+    <tabs>MPM4_BASE__Milestone1_Task__c</tabs>
+    <tabs>MPM4_BASE__Milestone1_Log__c</tabs>
+    <tabs>MPM4_BASE__Milestone_Calendar</tabs>
+    <tabs>MPM4_BASE__Milestone1_Resource_Gantt</tabs>
+    <tabs>MPM4_BASE__Milestone1_Import_Project_Template</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>standard-Dashboard</tabs>
+    <tabs>MPM4_BASE__TH_Time_Entry</tabs>
+    <uiType>Lightning</uiType>
+</CustomApplication>

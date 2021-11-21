@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPM4_BASE__Actual_Hours_From_Tasks__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <inlineHelpText>Calculated from time records related to tasks on this milestone</inlineHelpText>
+    <label>Actual Hours From Tasks</label>
+    <summarizedField>MPM4_BASE__Milestone1_Task__c.MPM4_BASE__Total_Hours__c</summarizedField>
+    <summaryForeignKey>MPM4_BASE__Milestone1_Task__c.MPM4_BASE__Project_Milestone__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

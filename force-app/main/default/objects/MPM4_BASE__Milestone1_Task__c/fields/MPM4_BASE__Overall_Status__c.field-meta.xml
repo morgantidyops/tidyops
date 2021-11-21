@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPM4_BASE__Overall_Status__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <formula>if ( MPM4_BASE__Complete__c == true, &#39;Complete&#39;,
+  if ( and( MPM4_BASE__Days_Late_Formula__c &gt; 0,  MPM4_BASE__Blocked__c  ),
+    if(Len( Text(MPM4_BASE__Task_Stage__c))&gt;0 , &#39;Late &amp; Blocked &#39; &amp; Text(MPM4_BASE__Task_Stage__c), &#39;Late &amp; Blocked&#39;),
+    if (MPM4_BASE__Days_Late_Formula__c &gt; 0,  
+      if(Len( Text(MPM4_BASE__Task_Stage__c))&gt;0, &#39;Late &#39; &amp; text(MPM4_BASE__Task_Stage__c), &#39;Late&#39;),
+      if(MPM4_BASE__Blocked__c == true, 
+        if(Len( Text(MPM4_BASE__Task_Stage__c))&gt;0, &#39;Blocked &#39; &amp; text(MPM4_BASE__Task_Stage__c), &#39;Blocked&#39;), 
+        if(Len( Text(MPM4_BASE__Task_Stage__c))&gt;0, &#39;Open &#39; &amp; Text(MPM4_BASE__Task_Stage__c), &#39;Open&#39;) 
+))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Calculated field indicating if the task is complete, open, late, blocked or late and blocked.</inlineHelpText>
+    <label>Overall Status</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

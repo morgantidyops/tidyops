@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tax_Liability__c</fullName>
+    <externalId>false</externalId>
+    <formula>(IF(ISPICKVAL(Status__c,&quot;Closed&quot;),Total_Revenue__c, Expected_Service_Revenue__c +  Product_Revenue__c ) 
+- 26000 
+- 1000)* 0.2</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Tax Liability</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

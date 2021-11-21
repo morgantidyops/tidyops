@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Workflow_Rules</fullName>
+    <columns>NAME</columns>
+    <columns>Calculated_Formula__c</columns>
+    <columns>Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Component_Type__c</field>
+        <operation>equals</operation>
+        <value>Workflow Rule</value>
+    </filters>
+    <label>Workflow Rules</label>
+</ListView>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Submitted to Engineering - default; 
+Evaluating - assigned to eng; 
+Development - fix in progress; 
+Submitted for Testing - sent to approver; 
+Fixed - approved by tester; 
+Withdrawn - canceled by submitter; 
+Duplicate - closed as a duplicate; 
+Blocked - Engineering is blocked;
+Rejected - not a defect; 
+Won&#39;t Fix - accepted, but no action taken; 
+Postponed - future release; 
+Failed Testing - rejected by approver; 
+Re-Opened</inlineHelpText>
+    <label>Status</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Submitted to Engineering</fullName>
+                <default>true</default>
+                <label>Submitted to Engineering</label>
+            </value>
+            <value>
+                <fullName>Evaluating</fullName>
+                <default>false</default>
+                <label>Evaluating</label>
+            </value>
+            <value>
+                <fullName>Development</fullName>
+                <default>false</default>
+                <label>Development</label>
+            </value>
+            <value>
+                <fullName>Submitted for Testing</fullName>
+                <default>false</default>
+                <label>Submitted for Testing</label>
+            </value>
+            <value>
+                <fullName>Fixed</fullName>
+                <default>false</default>
+                <label>Fixed</label>
+            </value>
+            <value>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+                <label>Withdrawn</label>
+            </value>
+            <value>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+                <label>Duplicate</label>
+            </value>
+            <value>
+                <fullName>Blocked</fullName>
+                <default>false</default>
+                <label>Blocked</label>
+            </value>
+            <value>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+                <label>Rejected</label>
+            </value>
+            <value>
+                <fullName>Won&#39;t Fix</fullName>
+                <default>false</default>
+                <label>Won&#39;t Fix</label>
+            </value>
+            <value>
+                <fullName>Postponed</fullName>
+                <default>false</default>
+                <label>Postponed</label>
+            </value>
+            <value>
+                <fullName>Failed Testing</fullName>
+                <default>false</default>
+                <label>Failed Testing</label>
+            </value>
+            <value>
+                <fullName>Re-Opened</fullName>
+                <default>false</default>
+                <label>Re-Opened</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sharing_Rules</fullName>
+    <columns>NAME</columns>
+    <columns>Component_Type__c</columns>
+    <columns>Standard_Object__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Component_Type__c</field>
+        <operation>contains</operation>
+        <value>Sharing</value>
+    </filters>
+    <label>Sharing Rules</label>
+</ListView>

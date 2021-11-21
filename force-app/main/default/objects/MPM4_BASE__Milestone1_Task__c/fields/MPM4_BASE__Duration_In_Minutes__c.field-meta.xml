@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPM4_BASE__Duration_In_Minutes__c</fullName>
+    <defaultValue>60</defaultValue>
+    <deprecated>false</deprecated>
+    <description>Contains the event length, in minutes.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Contains the event length, in minutes.</inlineHelpText>
+    <label>Duration In Minutes</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Revenue Plan --></label>
+        <name>Revenue_Plan__c</name>
+        <relationshipLabel><!-- Service Revenue Lines --></relationshipLabel>
+    </CustomFieldTranslation>

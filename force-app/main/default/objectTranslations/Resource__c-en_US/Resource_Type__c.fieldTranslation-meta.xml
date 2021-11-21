@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Resource Type --></label>
+        <name>Resource_Type__c</name>
+        <picklistValues>
+            <masterLabel>Administrator</masterLabel>
+            <translation><!-- Administrator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Business Analyst</masterLabel>
+            <translation><!-- Business Analyst --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product Manager</masterLabel>
+            <translation><!-- Product Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Project Manager</masterLabel>
+            <translation><!-- Project Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quality Engineer</masterLabel>
+            <translation><!-- Quality Engineer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Release Manager</masterLabel>
+            <translation><!-- Release Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Software Developer</masterLabel>
+            <translation><!-- Software Developer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trainer</masterLabel>
+            <translation><!-- Trainer --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>
