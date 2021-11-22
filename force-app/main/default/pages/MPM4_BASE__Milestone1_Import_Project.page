@@ -1,0 +1,179 @@
+<!-- 
+Copyright (c) 2011, salesforce.com, Inc.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, 
+are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright notice, 
+    this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice, 
+    this list of conditions and the following disclaimer in the documentation 
+    and/or other materials provided with the distribution.
+    * Neither the name of the salesforce.com, Inc. nor the names of its contributors 
+    may be used to endorse or promote products derived from this software 
+    without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, 
+BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, 
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF 
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED 
+OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<apex:page standardController="MPM4_BASE__Milestone1_Project__c" 
+           recordSetVar="projects"
+           extensions="MPM4_BASE.Milestone1_Import_Project_Controller"  
+           tabStyle="Milestone1_Import_Project_Template__tab"
+		   sidebar="false"
+           applyBodyTag="false"
+		   docType="html-5.0"
+		   showHeader="true"
+		   title="Import Project">
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<head>
+	  		<title>Import Project</title>
+	 		 <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+		</head>
+		<apex:form >
+		<center>
+		<apex:slds />
+		<div class="slds-scope">
+		<div class="slds slds-grid--frame" role="main">       
+		    <style>
+		    	.xmlImportError { color: red; font-weight: strong;}
+		    </style>
+		    <apex:outputPanel rendered="{! ProjCreationWizardContext && NOT(displayImport)}">
+	        	<c:Milestone2_Premium_Warning />
+			</apex:outputPanel>
+		    <apex:pageBlock title="{!$Label.mpm4_base__milestone1_projectxmlimport}" rendered="{! OR(ProjCreationWizardContext && displayImport, NOT(ProjCreationWizardContext))}">
+					<apex:outputPanel rendered="{!hasNeedForDocumentToFileConversion}" styleClass="slds-notify slds-notify_toast slds-theme_info" style="max-width:800px;">
+						<b>We have detected that some of your Project Templates are using the old Salesforce Documents which are not visible in the Lightning Experience.&nbsp;<apex:commandLink action="{!URLFOR($Page.Milestone1_Template_Conversion)}" style="color:#ccffff">Click here</apex:commandLink>&nbsp;if you would like to convert your project templates over to Salesforce Files.</b>
+					</apex:outputPanel>
+					<br/>
+					<apex:outputPanel rendered="{!!RealtimeProjectCreation}" styleClass="slds-notify slds-notify_toast slds-theme_info" style="max-width:800px;">
+			    		<b>Please Note: The&nbsp;<apex:commandLink action="{!goToCustomSetting}" target="_blank" style="color:#ccffff">'Realtime Project Creation'</apex:commandLink>&nbsp;custom setting is disabled. On project import you will be forwarded to the project list view where you may need to refresh the page a couple times before the project will show up in the list.</b>
+			    	</apex:outputPanel>
+		        <center>
+		        <div style="max-width:800px;">
+					<apex:outputPanel id="errorMessages">
+						<apex:messages styleClass="xmlImportError" />
+					</apex:outputPanel>
+			        
+					<apex:pageBlockSection title="{!$Label.mpm4_base__milestone1_importlocaltemplatexml}" collapsible="false" rendered="{!NOT(ProjCreationWizardContext)}">
+						<apex:inputFile style="width:100%" fileSize="{!maxFileSize}" id="fileToUpload" value="{!fileBody}" contentType="{!contentType}" filename="{!fileName}"/>
+						<apex:commandButton action="{!upload}" value="{!$Label.mpm4_base__milestone1_import}" styleClass="slds-button slds-button--brand" onclick="document.getElementById('loading').style.display='block';"></apex:commandButton>
+					</apex:pageBlockSection>
+					<apex:actionRegion >
+					<apex:pageBlockSection title="{!$Label.mpm4_base__milestone1_newprojectinformation}" collapsible="false" rendered="{!ProjCreationWizardContext && displayImport}">
+						<apex:outputPanel >
+							<table styleClass="slds-table">
+								<tbody>
+									<tr>
+										New Project Name: <apex:inputText value="{!projName}"/><br/>
+									</tr>
+									<tr>
+										Field Relating Project to {!parentObjType}: <apex:selectList value="{!projLookupField}" size="1">
+										<apex:selectOptions value="{!ProjLookupFields}"/>
+										</apex:selectList><br/>
+									</tr>
+								</tbody>
+							</table>
+						</apex:outputPanel>
+					</apex:pageBlockSection>
+					<apex:pageBlockSection title="{!$Label.mpm4_base__milestone1_importtemplatexml}" columns="1" collapsible="false"/>
+
+						<div id="templateTypeSelection" style="width:100%;margin-bottom:1%">
+							<table styleClass="slds-table" style="width:100%;position:relative;">
+								<tbody>
+									<tr>
+										<td style="text-align:center;">Template type:</td>
+									</tr>
+									<tr>
+										<td style="text-align:center;">
+											<apex:selectList size="1" value="{!templateType}" styleClass="slds-truncate">
+												<apex:actionSupport event="onchange" action="{! selectDefaultFolder }" status="statusMessage"/>
+												<apex:selectOptions value="{!templateTypeOptions}"/>
+											</apex:selectList>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					
+					<apex:outputPanel id="templateSelection" rendered="{!NOT(templateType == null)}">
+						<apex:selectList size="1" value="{! folderId }" styleClass="slds-truncate">
+							<apex:actionSupport event="onchange" action="{! resetDocumentList }" status="statusMessage"/>
+							<apex:selectOptions value="{! folderOptions }"/>
+						</apex:selectList>
+						<apex:actionStatus id="statusMessage" startText="(refreshing...)" stopText=" " startStyleClass="xmlImportError"/>
+						<table class="slds-table">
+							<thead>
+								<th></th>
+								<th>
+									<apex:commandLink value="{!IF(sortOrder == 'Title ASC', 'Template Name ▲', IF(sortOrder != 'Title DESC', 'Template Name', 'Template Name ▼'))}" action="{!populateSortOrder}">
+										<apex:param name="sort1" value="Title" assignTo="{!sortField}"/>
+									</apex:commandLink>
+								</th>
+								<th>
+									<apex:commandLink value="{!IF(sortOrder == 'CreatedDate ASC', 'Created Date ▲', IF(sortOrder != 'CreatedDate DESC', 'Created Date', 'Created Date ▼'))}" action="{!populateSortOrder}">
+										<apex:param name="sort2" value="CreatedDate" assignTo="{!sortField}"/>
+									</apex:commandLink>
+								</th>
+							</thead> 
+							<tbody>
+							<apex:repeat value="{!docs}" var="doc">
+								<tr style="{!IF(docId == doc.templateId, 'background:#FFF2C7;','')}">
+									<td>
+										<apex:commandLink value="Select" rendered="{!docId != doc.templateId}">
+											<apex:param name="selectedTemplateId" value="{!doc.templateId}" assignTo="{!docId}"/>
+										</apex:commandLink>
+										<apex:outputText value="Selected" rendered="{!docId == doc.templateId}"/>
+									</td>
+									<td style="max-width:500px;" title="{!doc.templateName}"><p class="slds-truncate">{!doc.templateName}</p></td> 
+									<td>{!doc.createdDate}</td>
+								</tr>
+							</apex:repeat>
+							</tbody>
+						</table>
+					</apex:outputPanel>
+					<apex:commandButton rendered="{!IF(AND(documentsExist, NOT(templateType == null)),true, false)}"  action="{!importTemplateXML}" value="{!$Label.mpm4_base__milestone1_import}" styleClass="slds-button slds-button--brand" reRender="errorMessages, asyncProj" onComplete="document.getElementById('loading').style.display = 'block'"/>
+					</apex:actionRegion> 
+				</div>
+		</center>
+		</apex:pageBlock>
+		<apex:actionRegion >
+			<apex:outputPanel id="asyncProj" rendered="{!!RealtimeProjectCreation}">
+				<div id="loading" style="display:none;">
+					<div aria-hidden="false" role="dialog" class="slds-modal slds-fade-in-open">
+						<div class="slds-modal__container">
+							<header class="slds-modal__header">
+								<h2 class="slds-text-heading_medium">Asynchronous Project Creation</h2>
+							</header>
+							<div class="slds-modal__content" style="text-align: left;padding:20px;">
+								The project creation job is running in the background. Once the job has completed you will be forwarded to the imported project, or the project list view. 
+								<br/><br/>
+								<b>Please Note: </b>If the project creation is taking longer than expected you may also click the 'View Project List View' button below to search for the newly created project.
+							</div>
+							<div class="slds-modal__footer">
+								<div class="slds-x-small-buttons_horizontal"> 
+									<apex:commandbutton value="View Project List View" action="{!goToProjectListView}"/>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="slds-backdrop slds-backdrop_open"></div>
+				</div>
+			</apex:outputPanel>
+			<apex:actionPoller action="{!getAsyncProject}" interval="5" reRender="errorMessages" rendered="{!!RealtimeProjectCreation}"/>
+		</apex:actionRegion>
+	     </div>
+	     </div>
+		 </center>
+	 	 </apex:form>
+     </html>
+</apex:page>

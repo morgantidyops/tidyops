@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>CMS</masterLabel>
+            <translation><!-- CMS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CRM</masterLabel>
+            <translation><!-- CRM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ERP</masterLabel>
+            <translation><!-- ERP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LMS</masterLabel>
+            <translation><!-- LMS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing Automation</masterLabel>
+            <translation><!-- Marketing Automation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OMS</masterLabel>
+            <translation><!-- OMS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prospect Database</masterLabel>
+            <translation><!-- Prospect Database --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service / Helpdesk</masterLabel>
+            <translation><!-- Service / Helpdesk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eSignature &amp; Agreement Mgmt</masterLabel>
+            <translation><!-- eSignature &amp; Agreement Mgmt --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

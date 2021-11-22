@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Test_Case__c.Test_Scripts__r.Steps__r$Name</field>
+    </columns>
+    <columns>
+        <field>Test_Case__c.Test_Scripts__r.Steps__r$Step_Number__c</field>
+    </columns>
+    <columns>
+        <field>Test_Case__c.Test_Scripts__r.Steps__r$Known_Inputs__c</field>
+    </columns>
+    <columns>
+        <field>Test_Case__c.Test_Scripts__r.Steps__r$Expected_Results__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Test_Case__c.Test_Scripts__r$Name</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>TS-00001</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Test_Case__c$Description__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Dynamic Test Steps Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Test_Cases_w_Test_Scripts_w_or_w_o_Test_Steps__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Test_Case__c.Test_Scripts__r.Steps__r$Step_Number__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Test_Case__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

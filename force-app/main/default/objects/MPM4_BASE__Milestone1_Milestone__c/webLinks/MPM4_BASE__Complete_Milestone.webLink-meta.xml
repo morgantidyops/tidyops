@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPM4_BASE__Complete_Milestone</fullName>
+    <availability>online</availability>
+    <description>Marks the Milestone complete and navigates to its successor Milestone if it has one.</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>Complete Milestone</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <url>/apex/MPM4_BASE__Milestone2_Complete_Action?recId={!MPM4_BASE__Milestone1_Milestone__c.Id}</url>
+</WebLink>

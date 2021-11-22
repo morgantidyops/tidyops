@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PDRI__Custom_Upsert_Record_Handling__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <label>Upsert Record Handling</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Virtual External ID</fullName>
+                <default>true</default>
+                <label>Virtual External ID</label>
+            </value>
+            <value>
+                <fullName>Standard Upsert</fullName>
+                <default>false</default>
+                <label>Standard Upsert</label>
+            </value>
+            <value>
+                <fullName>Match First Found</fullName>
+                <default>false</default>
+                <label>Match First Found</label>
+            </value>
+            <value>
+                <fullName>Skip Duplicate</fullName>
+                <default>false</default>
+                <label>Skip Duplicate</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

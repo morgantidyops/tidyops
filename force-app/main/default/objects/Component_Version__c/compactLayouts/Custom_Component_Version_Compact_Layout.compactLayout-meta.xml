@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Custom_Component_Version_Compact_Layout</fullName>
+    <fields>Name</fields>
+    <fields>Component__c</fields>
+    <fields>Component_Type__c</fields>
+    <fields>Object__c</fields>
+    <fields>Change_Type__c</fields>
+    <fields>Status__c</fields>
+    <fields>Environment__c</fields>
+    <fields>Feature__c</fields>
+    <fields>Bug_Fix__c</fields>
+    <label>Custom Component Version Compact Layout</label>
+</CompactLayout>

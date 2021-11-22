@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Salesforce Add-On Type --></label>
+        <name>Salesforce_Add_On_Type__c</name>
+        <picklistValues>
+            <masterLabel>API Integration</masterLabel>
+            <translation><!-- API Integration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Managed Package</masterLabel>
+            <translation><!-- Managed Package --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Native Add-On</masterLabel>
+            <translation><!-- Native Add-On --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unmanaged Package</masterLabel>
+            <translation><!-- Unmanaged Package --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

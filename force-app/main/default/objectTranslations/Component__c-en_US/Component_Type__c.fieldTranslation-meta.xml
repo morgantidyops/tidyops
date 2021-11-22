@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- The metadata type of the Component --></help>
+        <label><!-- Component Type --></label>
+        <name>Component_Type__c</name>
+        <picklistValues>
+            <masterLabel>Account Criteria Based Sharing Rule</masterLabel>
+            <translation><!-- Account Criteria Based Sharing Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Account Owner Sharing Rule</masterLabel>
+            <translation><!-- Account Owner Sharing Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Account Territory Owner Sharing Rule</masterLabel>
+            <translation><!-- Account Territory Owner Sharing Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Action (includes object-oriented quick actions and global quick actions)</masterLabel>
+            <translation><!-- Action (includes object-oriented quick actions and global quick actions) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Action Link Group Template</masterLabel>
+            <translation><!-- Action Link Group Template --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Apex Class</masterLabel>
+            <translation><!-- Apex Class --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Apex Trigger</masterLabel>
+            <translation><!-- Apex Trigger --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Apex Sharing Reason</masterLabel>
+            <translation><!-- Apex Sharing Reason --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>App</masterLabel>
+            <translation><!-- App --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Assignment Rule</masterLabel>
+            <translation><!-- Assignment Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Assignment Rule Entry</masterLabel>
+            <translation><!-- Assignment Rule Entry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Auth. Provider</masterLabel>
+            <translation><!-- Auth. Provider --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Auto-Response Rule</masterLabel>
+            <translation><!-- Auto-Response Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Auto-Response Rule Entry</masterLabel>
+            <translation><!-- Auto-Response Rule Entry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Button</masterLabel>
+            <translation><!-- Button --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CORS Whitelist Origin</masterLabel>
+            <translation><!-- CORS Whitelist Origin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Call Center</masterLabel>
+            <translation><!-- Call Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Campaign Criteria Based Sharing Rule</masterLabel>
+            <translation><!-- Campaign Criteria Based Sharing Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Campaign Owner Sharing Rule</masterLabel>
+            <translation><!-- Campaign Owner Sharing Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Case Assignment Rule</masterLabel>
+            <translation><!-- Case Assignment Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Case Auto-Response</masterLabel>
+            <translation><!-- Case Auto-Response --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Case Criteria Based Sharing Rule</masterLabel>
+            <translation><!-- Case Criteria Based Sharing Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Case Owner Sharing Rule</masterLabel>
+            <translation><!-- Case Owner Sharing Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Communities (Zones)</masterLabel>
+            <translation><!-- Communities (Zones) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Compact Layout</masterLabel>
+            <translation><!-- Compact Layout --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Console App</masterLabel>
+            <translation><!-- Console App --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contact Criteria Based Sharing Rule</masterLabel>
+            <translation><!-- Contact Criteria Based Sharing Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contact Owner Sharing Rule</masterLabel>
+            <translation><!-- Contact Owner Sharing Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Country/Territory Changelist Entry</masterLabel>
+            <translation><!-- Country/Territory Changelist Entry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Country/Territory Picklist</masterLabel>
+            <translation><!-- Country/Territory Picklist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Console Component</masterLabel>
+            <translation><!-- Custom Console Component --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Data Type</masterLabel>
+            <translation><!-- Custom Data Type --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Label</masterLabel>
+            <translation><!-- Custom Label --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Object Criteria Sharing Rule</masterLabel>
+            <translation><!-- Custom Object Criteria Sharing Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Object Owner Sharing Rule</masterLabel>
+            <translation><!-- Custom Object Owner Sharing Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Permission</masterLabel>
+            <translation><!-- Custom Permission --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Report Type</masterLabel>
+            <translation><!-- Custom Report Type --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Setting</masterLabel>
+            <translation><!-- Custom Setting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dashboard</masterLabel>
+            <translation><!-- Dashboard --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Document</masterLabel>
+            <translation><!-- Document --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Duplicate Rule</masterLabel>
+            <translation><!-- Duplicate Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Einstein Bot</masterLabel>
+            <translation><!-- Einstein Bot --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email Folder</masterLabel>
+            <translation><!-- Email Folder --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email Template</masterLabel>
+            <translation><!-- Email Template --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email-to-case Routing Address</masterLabel>
+            <translation><!-- Email-to-case Routing Address --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Entitlement Process</masterLabel>
+            <translation><!-- Entitlement Process --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Entitlement Template</masterLabel>
+            <translation><!-- Entitlement Template --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Escalation Rule</masterLabel>
+            <translation><!-- Escalation Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>External - Mailbox</masterLabel>
+            <translation><!-- External - Mailbox --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>External - Website</masterLabel>
+            <translation><!-- External - Website --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>External Data Source</masterLabel>
+            <translation><!-- External Data Source --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Field</masterLabel>
+            <translation><!-- Field --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Field Set</masterLabel>
+            <translation><!-- Field Set --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Flow</masterLabel>
+            <translation><!-- Flow --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Folder</masterLabel>
+            <translation><!-- Folder --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Global Value Set</masterLabel>
+            <translation><!-- Global Value Set --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Group</masterLabel>
+            <translation><!-- Group --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Home Page Component</masterLabel>
+            <translation><!-- Home Page Component --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Home Page Layout</masterLabel>
+            <translation><!-- Home Page Layout --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Knowledge Data Category</masterLabel>
+            <translation><!-- Knowledge Data Category --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Knowledge Data Category Group</masterLabel>
+            <translation><!-- Knowledge Data Category Group --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Language Translation</masterLabel>
+            <translation><!-- Language Translation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lead Assignment Rule</masterLabel>
+            <translation><!-- Lead Assignment Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lead Auto-Response</masterLabel>
+            <translation><!-- Lead Auto-Response --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lead Criteria Based Sharing Rule</masterLabel>
+            <translation><!-- Lead Criteria Based Sharing Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lead Owner Sharing Rule</masterLabel>
+            <translation><!-- Lead Owner Sharing Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Letterhead</masterLabel>
+            <translation><!-- Letterhead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lightning Page</masterLabel>
+            <translation><!-- Lightning Page --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Link</masterLabel>
+            <translation><!-- Link --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>List View</masterLabel>
+            <translation><!-- List View --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Live Agent Configuration</masterLabel>
+            <translation><!-- Live Agent Configuration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Live Chat Deployment</masterLabel>
+            <translation><!-- Live Chat Deployment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Live Chat Sensitive Data Rule</masterLabel>
+            <translation><!-- Live Chat Sensitive Data Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Macro</masterLabel>
+            <translation><!-- Macro --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Matching Rule</masterLabel>
+            <translation><!-- Matching Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Milestone</masterLabel>
+            <translation><!-- Milestone --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Named Credential</masterLabel>
+            <translation><!-- Named Credential --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Object</masterLabel>
+            <translation><!-- Object --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Opportunity Criteria Based Sharing Rule</masterLabel>
+            <translation><!-- Opportunity Criteria Based Sharing Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Opportunity Owner Sharing Rule</masterLabel>
+            <translation><!-- Opportunity Owner Sharing Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Organization-Wide Default</masterLabel>
+            <translation><!-- Organization-Wide Default --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Organization-Wide Email</masterLabel>
+            <translation><!-- Organization-Wide Email --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Page Layout</masterLabel>
+            <translation><!-- Page Layout --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Permission Set</masterLabel>
+            <translation><!-- Permission Set --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Platform Cache Partition</masterLabel>
+            <translation><!-- Platform Cache Partition --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Post Templates for Approvals in Chatter</masterLabel>
+            <translation><!-- Post Templates for Approvals in Chatter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Presence Configuration</masterLabel>
+            <translation><!-- Presence Configuration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Presence Decline Reason</masterLabel>
+            <translation><!-- Presence Decline Reason --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Presence Status</masterLabel>
+            <translation><!-- Presence Status --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Process</masterLabel>
+            <translation><!-- Process --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Profile</masterLabel>
+            <translation><!-- Profile --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Queue</masterLabel>
+            <translation><!-- Queue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quick Text</masterLabel>
+            <translation><!-- Quick Text --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Record Type</masterLabel>
+            <translation><!-- Record Type --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Remote Site</masterLabel>
+            <translation><!-- Remote Site --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Report</masterLabel>
+            <translation><!-- Report --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Report Folder</masterLabel>
+            <translation><!-- Report Folder --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Role</masterLabel>
+            <translation><!-- Role --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Routing Configuration</masterLabel>
+            <translation><!-- Routing Configuration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S-Control</masterLabel>
+            <translation><!-- S-Control --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Send Action</masterLabel>
+            <translation><!-- Send Action --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Channel</masterLabel>
+            <translation><!-- Service Channel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sharing Set</masterLabel>
+            <translation><!-- Sharing Set --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Site.com</masterLabel>
+            <translation><!-- Site.com --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>State Changelist Entry</masterLabel>
+            <translation><!-- State Changelist Entry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>State Picklist</masterLabel>
+            <translation><!-- State Picklist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>State and Country/Territory Picklist Configuration</masterLabel>
+            <translation><!-- State and Country/Territory Picklist Configuration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Static Resource</masterLabel>
+            <translation><!-- Static Resource --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Supervisor Configuration</masterLabel>
+            <translation><!-- Supervisor Configuration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Support Process</masterLabel>
+            <translation><!-- Support Process --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tab</masterLabel>
+            <translation><!-- Tab --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Territory</masterLabel>
+            <translation><!-- Territory --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Transaction Security Policy</masterLabel>
+            <translation><!-- Transaction Security Policy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>User Criteria Based Sharing Rule</masterLabel>
+            <translation><!-- User Criteria Based Sharing Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>User Membership Based Sharing Rule</masterLabel>
+            <translation><!-- User Membership Based Sharing Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Validation Rule</masterLabel>
+            <translation><!-- Validation Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Visualforce Page</masterLabel>
+            <translation><!-- Visualforce Page --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Visualforce Component</masterLabel>
+            <translation><!-- Visualforce Component --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workflow Email Alert</masterLabel>
+            <translation><!-- Workflow Email Alert --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workflow Field Update</masterLabel>
+            <translation><!-- Workflow Field Update --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workflow Outbound Message</masterLabel>
+            <translation><!-- Workflow Outbound Message --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workflow Rule</masterLabel>
+            <translation><!-- Workflow Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workflow Task</masterLabel>
+            <translation><!-- Workflow Task --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workflow Time Trigger</masterLabel>
+            <translation><!-- Workflow Time Trigger --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

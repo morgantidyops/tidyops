@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Env__c</fullName>
+    <description>Pulls the value from the Env. field from the fixed Component Version</description>
+    <externalId>false</externalId>
+    <formula>Version_Fixed__r.Environment__r.Name</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Indicates the highest environment that the fixed Component Version has advanced to</inlineHelpText>
+    <label>Env.</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

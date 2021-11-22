@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Who_is_deploying__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <inlineHelpText>This is most likely the person who built the solution, but possible a release manager. Please list the relevant resource here.</inlineHelpText>
+    <label>Who is deploying?</label>
+    <referenceTo>Resource__c</referenceTo>
+    <relationshipLabel>Component Versions</relationshipLabel>
+    <relationshipName>Component_Versions</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

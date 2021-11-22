@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Revenue_Plan__c</fullName>
+    <externalId>false</externalId>
+    <label>Revenue Plan</label>
+    <referenceTo>Revenue_Plan__c</referenceTo>
+    <relationshipLabel>Product Revenue Line</relationshipLabel>
+    <relationshipName>Product_Revenue_Line</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

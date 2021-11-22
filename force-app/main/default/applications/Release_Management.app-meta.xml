@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <logo>Rocket</logo>
+        <logoVersion>1</logoVersion>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>Track changes for releases, list manual deployment steps for your release components, and compile release notes!</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>true</isNavPersonalizationDisabled>
+    <label>Release Management</label>
+    <navType>Standard</navType>
+    <setupExperience>all</setupExperience>
+    <tabs>standard-home</tabs>
+    <tabs>MPM4_BASE__Milestone1_Program__c</tabs>
+    <tabs>MPM4_BASE__Milestone1_Project__c</tabs>
+    <tabs>standard-Account</tabs>
+    <tabs>Release__c</tabs>
+    <tabs>Component__c</tabs>
+    <tabs>Component_Version__c</tabs>
+    <tabs>standard-Event</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>standard-File</tabs>
+    <tabs>standard-Feed</tabs>
+    <tabs>Revenue_Plan__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Release_Management_UtilityBar</utilityBar>
+</CustomApplication>

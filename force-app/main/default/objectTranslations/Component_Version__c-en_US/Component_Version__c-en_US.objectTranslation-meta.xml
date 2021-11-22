@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Component Version</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Component Versions</value>
+    </caseValues>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <layouts>
+        <layout>Component Version Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Deployment Steps --></label>
+            <section>Deployment Steps</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Release Info --></label>
+            <section>Release Info</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Delete --></label>
+        <name>Delete</name>
+    </webLinks>
+</CustomObjectTranslation>

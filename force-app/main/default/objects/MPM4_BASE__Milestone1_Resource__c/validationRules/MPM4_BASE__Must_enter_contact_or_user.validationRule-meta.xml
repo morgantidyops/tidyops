@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPM4_BASE__Must_enter_contact_or_user</fullName>
+    <active>true</active>
+    <description>User must enter either a contact or user before saving the the resource.</description>
+    <errorConditionFormula>OR(AND(MPM4_BASE__Contact__c = null, MPM4_BASE__User__c = null), AND(MPM4_BASE__Contact__c != null, MPM4_BASE__User__c != null))</errorConditionFormula>
+    <errorMessage>You must enter either a contact or user before saving the the resource.</errorMessage>
+</ValidationRule>

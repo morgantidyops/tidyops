@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- JIRA Issue, Asana Task or other ticketing system URL if applicable --></help>
+        <label><!-- Request URL --></label>
+        <name>Request_URL__c</name>
+    </CustomFieldTranslation>

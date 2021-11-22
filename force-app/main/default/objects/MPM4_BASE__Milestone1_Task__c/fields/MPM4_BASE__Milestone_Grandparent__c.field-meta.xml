@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPM4_BASE__Milestone_Grandparent__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <formula>if (
+ MPM4_BASE__Project_Milestone__r.MPM4_BASE__Parent_Milestone__c != null, 
+ MPM4_BASE__Project_Milestone__r.MPM4_BASE__Parent_Milestone__r.Name , &#39;&#39;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>The name of the grandparent Milestone. Please Note: This field will not have a value if the &#39;Parent Milestone&#39; lookup field is not used.</inlineHelpText>
+    <label>Milestone Grandparent</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

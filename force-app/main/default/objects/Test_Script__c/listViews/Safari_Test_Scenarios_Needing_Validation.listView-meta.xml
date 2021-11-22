@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Safari_Test_Scenarios_Needing_Validation</fullName>
+    <columns>NAME</columns>
+    <columns>Predecessor_Test_Script__c</columns>
+    <columns>Description__c</columns>
+    <columns>Environment__c</columns>
+    <columns>Test_Group__c</columns>
+    <columns>Status__c</columns>
+    <columns>Test_Case__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Browser__c</field>
+        <operation>equals</operation>
+        <value>Safari</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Ready For Validation</value>
+    </filters>
+    <label>Safari Test Scenarios Needing Validation</label>
+</ListView>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Component_Type__c</fullName>
+    <description>The metadata type of the Component</description>
+    <externalId>false</externalId>
+    <formula>IF( 
+  Component__r.RecordType.Name = &quot;Field&quot;,
+  &quot;Field&quot;,
+  TEXT( Component__r.Component_Type__c )
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>The metadata type of the Component</inlineHelpText>
+    <label>Component Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <logo>test</logo>
+        <logoVersion>1</logoVersion>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>Use this app to plan and track all testing activity</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>true</isNavPersonalizationDisabled>
+    <label>Test Management</label>
+    <navType>Standard</navType>
+    <setupExperience>all</setupExperience>
+    <tabs>standard-home</tabs>
+    <tabs>Test_Plan__c</tabs>
+    <tabs>Test_Cycle__c</tabs>
+    <tabs>Test_Case__c</tabs>
+    <tabs>Test_Script__c</tabs>
+    <tabs>Test_Scenario__c</tabs>
+    <tabs>Release__c</tabs>
+    <tabs>Test_Resource__c</tabs>
+    <tabs>Test_Group__c</tabs>
+    <tabs>Resource__c</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>Revenue_Plan__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Test_Management_UtilityBar</utilityBar>
+</CustomApplication>

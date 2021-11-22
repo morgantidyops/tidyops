@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Testing_Inactive_Value__c</fullName>
+    <description>Testing Restrict picklist to the values defined in the value set behavior when a record has an inactive picklist value</description>
+    <externalId>false</externalId>
+    <label>Testing Inactive Value</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Value to Delete</fullName>
+                <default>false</default>
+                <label>Value to Delete</label>
+            </value>
+            <value>
+                <fullName>Remaining Value</fullName>
+                <default>false</default>
+                <label>Remaining Value</label>
+            </value>
+            <value>
+                <fullName>Another Value</fullName>
+                <default>false</default>
+                <label>Another Value</label>
+            </value>
+            <value>
+                <fullName>Value to Deactivate</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Value to Deactivate</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

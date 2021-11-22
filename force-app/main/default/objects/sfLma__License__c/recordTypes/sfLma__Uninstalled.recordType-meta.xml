@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sfLma__Uninstalled</fullName>
+    <active>true</active>
+    <label>Uninstalled</label>
+    <picklistValues>
+        <picklist>sfLma__Status__c</picklist>
+        <values>
+            <fullName>Uninstalled</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+</RecordType>

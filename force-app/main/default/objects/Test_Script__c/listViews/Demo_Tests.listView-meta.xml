@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Demo_Tests</fullName>
+    <columns>NAME</columns>
+    <columns>Description__c</columns>
+    <columns>Browser__c</columns>
+    <columns>Environment__c</columns>
+    <columns>Test_Group__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Environment__c</field>
+        <operation>contains</operation>
+        <value>Demo</value>
+    </filters>
+    <label>Demo Tests</label>
+</ListView>

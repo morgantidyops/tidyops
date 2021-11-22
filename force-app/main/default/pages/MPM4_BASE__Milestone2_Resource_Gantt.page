@@ -1,0 +1,108 @@
+<apex:page controller="MPM4_BASE.Milestone1_Charts_Gantt_Helper" title="Milestones PM+ Resource Allocation" sidebar="false" docType="html-5.0">
+    <style>
+        .body, td {
+            font-family: Arial,Helvetica,sans-serif !important;
+        }
+        .allocation {
+            text-align:center !important;
+        }
+    </style>
+
+    <script>
+        function selectTab(selected, previousSelected){
+            document.getElementById(selected).className = "slds-tabs_scoped__item slds-is-active";
+            document.getElementById(previousSelected).className = "slds-tabs_scoped__item";
+        }
+        function toggleElement(displaying, hidden){
+            if(document.getElementById(hidden).style.display != 'block'){
+                document.getElementById(hidden).style.display = 'block';
+                document.getElementById(displaying).style.display = 'none';
+                toggleAvailabilityView();
+            }
+        }
+    </script>
+
+    <apex:actionStatus id="showSpinner" onstart="document.getElementById('spinner').style.display = 'block';" onstop="document.getElementById('spinner').style.display = 'none';"/>
+
+    <apex:slds />
+        <div class="slds-scope">
+            <div style="background-color:rgb(22, 50, 92);font-size:1.75rem;font-weight:300;line-height:1.25;padding:.5rem .75rem 0;margin:0 0 .5rem;color:white;">
+                Milestones PM+ Resource Allocation
+            </div>
+            <apex:outputPanel rendered="{!viewProperties['premium']}">
+            <div id="tab-default-1" class="slds-tabs_default__content slds-show" role="tabpanel" aria-labelledby="tab-default-1__item">
+                <div class="slds-tabs_scoped">
+                    <ul class="slds-tabs_scoped__nav" role="tablist">
+                            <li id="ganttTab" class="slds-tabs_scoped__item slds-is-active" title="Resource Gantt" role="presentation" onClick="selectTab('ganttTab','availTab');toggleElement('availPage', 'ganttPage');">
+                                <a class="slds-tabs_scoped__link" href="javascript:void(0);" role="tab" tabindex="0" aria-controls="tab-scoped-1" id="tab-scoped-1__item">Resource Gantt</a>
+                            </li>
+                            <li id="availTab" class="slds-tabs_scoped__item" title="Find Available Resources" role="presentation" onClick="selectTab('availTab','ganttTab');toggleElement('ganttPage', 'availPage');">
+                                <a class="slds-tabs_scoped__link" href="javascript:void(0);" role="tab" tabindex="1" aria-controls="tab-scoped-2" id="tab-scoped-2__item">Find Available Resources</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </apex:outputPanel>
+        </div>
+        <div id="ganttPage">
+            <apex:include pageName="MPM4_BASE__Milestone2_Charts_Wrapper"/>
+        </div>
+        <div id="availPage">
+            <apex:form id="availTable">
+                <apex:actionFunction name="toggleAvailabilityView" action="{!toggleView}" reRender="availTable" status="showSpinner"/>
+
+                <apex:pageBlock rendered="{!availabilityPage}">
+                    <div style="max-width:500px;">
+                        <b>Please Note:</b> The lowest available allocation percentage will be displayed. 
+                        This means that if a resource has 10% allocation available on the first date in the date range 
+                        and 50% allocation available on the rest of the days in the date range, the available allocation will display as 10%.
+                    </div><br/>
+                    <b>Resource Teams:</b><br/>
+                    <apex:selectList value="{!resourceTeam}" multiselect="false" size="5">
+                        <apex:selectOptions value="{!ResourceTeams}"/>
+                    </apex:selectList><br/>
+                    <b>Skills Required:</b>
+                    <span>                  
+                        <a onmouseover="document.getElementById('skillhelp').style.display = 'block';" onmouseout="document.getElementById('skillhelp').style.display = 'none';"> 
+                            <img  class="slds-icon slds-icon--x-small" src="/apexpages/slds/latest/assets/icons/utility/info_60.png"></img>                 
+                        </a> 
+                        <div style="max-height:0px;overflow:visible;overflow-y:visible;position:relative;">
+                            <div class="slds-popover slds-theme--info" id='skillhelp' style="display:none !important;">                       
+                                <div class="slds-popover__body">
+                                    To select multiple skills hold ctrl and left click all of the skills you would like to filter on.
+                                </div>
+                            </div>    
+                        </div> 
+                    </span>
+                    <apex:selectList value="{!requiredSkills}" multiselect="true" size="5">
+                        <apex:selectOptions value="{!ResourceSkills}"/>
+                    </apex:selectList><br/><br/>
+                    <b>Start Date:</b>&nbsp;&nbsp;<apex:input type="date" value="{!startDate}"/><br/>
+                    <b>End Date:</b>&nbsp;&nbsp;<apex:input type="date" value="{!endDate}"/><br/><font color="red">{!AvailabilityDateError}</font><br/>
+                    <apex:commandButton value="Refresh" action="{!buildPaginatedListOfAvailableResources}" reRender="availTable" status="showSpinner"/><br/><br/>
+                    <c:Paginate pageController="{!availableResources}" renderedComponent="availTable"/>
+                    <apex:pageBlockTable value="{!availableResources.PaginatedList}" var="resource" style="max-width:500px;">
+                        <apex:column style="text-align:center;" headerclass="allocation" value="{!resource['name']}" headerValue="Resource Name"/>
+                        <apex:column style="text-align:center;" headerclass="allocation" value="{!resource['allocation']}" headerValue="Allocation Available"/>
+                    </apex:pageBlockTable>
+                </apex:pageBlock>
+            </apex:form>
+        </div>
+        <div id="spinner" style="display:none">
+            <div aria-hidden="false" role="dialog" class="slds-modal slds-fade-in-open">
+              <div class="slds-modal__container" style="min-width: 50px; width: 100px;">
+                <div class="slds-modal__content slds-p-around_small">
+                <center>
+                <div class="slds-spinner_large" background="#16325c">
+                    <img src="{! URLFOR($Resource.SLDS070, 'assets/images/spinners/slds_spinner_brand.gif')}" alt="Loading..." />
+                </div>
+                </center>
+                </div>
+              </div>
+            </div>
+            <div class="slds-modal-backdrop slds-modal-backdrop--open"></div>
+          </div>
+    <script>
+        document.getElementById('expandCollapse').style.display = 'none';
+    </script>
+</apex:page>

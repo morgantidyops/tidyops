@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CHANNEL_ORDERS__Default_Auto_Renew_Policy__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <label>Default Auto Renew Policy</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Always Auto Renew</fullName>
+                <default>false</default>
+                <label>Always Auto Renew</label>
+            </value>
+            <value>
+                <fullName>Never Auto Renew</fullName>
+                <default>false</default>
+                <label>Never Auto Renew</label>
+            </value>
+            <value>
+                <fullName>Partner Selection</fullName>
+                <default>false</default>
+                <label>Partner Selection</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

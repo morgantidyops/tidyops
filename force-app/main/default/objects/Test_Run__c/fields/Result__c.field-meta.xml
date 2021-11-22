@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Result__c</fullName>
+    <description>http://www.wilsonmar.com/1tstwrit.htm</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Pass - Expected Results are received
+Fail - Conclusive evidence that requirements are not met
+Inconclusive - No proof that a Pass or Fail verdict can be given
+Test Error - Problem with the test case or testing system itself</inlineHelpText>
+    <label>Result</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Pass</fullName>
+                <default>false</default>
+                <label>Pass</label>
+            </value>
+            <value>
+                <fullName>Fail</fullName>
+                <default>false</default>
+                <label>Fail</label>
+            </value>
+            <value>
+                <fullName>Inconclusive</fullName>
+                <default>false</default>
+                <label>Inconclusive</label>
+            </value>
+            <value>
+                <fullName>Test Error</fullName>
+                <default>false</default>
+                <label>Test Error</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

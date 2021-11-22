@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CHANNEL_ORDERS__Default_Contract_Currency__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <label>Default Contract Currency</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>AUD</fullName>
+                <default>false</default>
+                <label>AUD</label>
+            </value>
+            <value>
+                <fullName>EUR</fullName>
+                <default>false</default>
+                <label>EUR</label>
+            </value>
+            <value>
+                <fullName>GBP</fullName>
+                <default>false</default>
+                <label>GBP</label>
+            </value>
+            <value>
+                <fullName>JPY</fullName>
+                <default>false</default>
+                <label>JPY</label>
+            </value>
+            <value>
+                <fullName>SEK</fullName>
+                <default>false</default>
+                <label>SEK</label>
+            </value>
+            <value>
+                <fullName>USD</fullName>
+                <default>false</default>
+                <label>USD</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

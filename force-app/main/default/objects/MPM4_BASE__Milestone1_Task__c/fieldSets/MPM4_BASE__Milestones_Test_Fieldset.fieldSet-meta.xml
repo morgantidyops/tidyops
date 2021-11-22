@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPM4_BASE__Milestones_Test_Fieldset</fullName>
+    <description>This field set is used to test the resource notification functionality in the Milestones PM+ package. Please do not delete this field set.</description>
+    <displayedFields>
+        <field>MPM4_BASE__Due_Date__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <displayedFields>
+        <field>MPM4_BASE__Actual_Duration__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <displayedFields>
+        <field>MPM4_BASE__Predecessor_Task__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <displayedFields>
+        <field>MPM4_BASE__Predecessor_Task__r.MPM4_BASE__Due_Date__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <displayedFields>
+        <field>MPM4_BASE__Resource__r.Id</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <displayedFields>
+        <field>MPM4_BASE__Start_Date__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <displayedFields>
+        <field>MPM4_BASE__Project_Lookup__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <label>Test Field Set2</label>
+</FieldSet>

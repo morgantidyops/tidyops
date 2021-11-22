@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_API_Name_Format</fullName>
+    <active>false</active>
+    <errorConditionFormula>CONTAINS(API_Name__c,&quot; &quot;)</errorConditionFormula>
+    <errorDisplayField>API_Name__c</errorDisplayField>
+    <errorMessage>API Name can only contain alphanumeric characters, must begin with a letter, cannot end with an underscore or contain two consecutive underscore characters, and must be unique across all Component fields</errorMessage>
+</ValidationRule>

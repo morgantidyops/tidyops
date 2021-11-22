@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sandbox_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Sandbox Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Developer</fullName>
+                <default>false</default>
+                <label>Developer</label>
+            </value>
+            <value>
+                <fullName>Developer Pro</fullName>
+                <default>false</default>
+                <label>Developer Pro</label>
+            </value>
+            <value>
+                <fullName>Partial</fullName>
+                <default>false</default>
+                <label>Partial</label>
+            </value>
+            <value>
+                <fullName>Full</fullName>
+                <default>false</default>
+                <label>Full</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

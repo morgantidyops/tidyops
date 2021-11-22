@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bug_Fix__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>If this component version was created as part of a bug fix, link it here.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>If this component version was created as part of a bug fix, link it here.</inlineHelpText>
+    <label>Bug Fix</label>
+    <referenceTo>Bug_Fix__c</referenceTo>
+    <relationshipLabel>Component Versions</relationshipLabel>
+    <relationshipName>Component_Versions</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

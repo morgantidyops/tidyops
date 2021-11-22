@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPM4_BASE__Percent_Complete__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <formula>IF(TEXT(MPM4_BASE__Status__c) == &#39;Completed&#39;, 1, IF(AND(MPM4_BASE__Total_Open_Task_Count__c == 0,MPM4_BASE__Total_Complete_Task_Count__c == 0), 0, MPM4_BASE__Total_Complete_Task_Count__c / (MPM4_BASE__Total_Complete_Task_Count__c + MPM4_BASE__Total_Open_Task_Count__c)))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Percent Complete</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

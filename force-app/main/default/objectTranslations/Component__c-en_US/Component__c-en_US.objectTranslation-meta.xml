@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Component</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Components</value>
+    </caseValues>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <layouts>
+        <layout>Component Layout</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Field Layout</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Boolean Properties --></label>
+            <section>Boolean Properties</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Field Basics --></label>
+            <section>Field Basics</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <description><!-- Select this record type for any non-field component (Apex Trigger, Page Layout, Process, etc.). --></description>
+        <label><!-- Component --></label>
+        <name>Component</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Select this record type for any standard or custom field. --></description>
+        <label><!-- Field --></label>
+        <name>Field</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- API Name can only contain alphanumeric characters, must begin with a letter, cannot end with an underscore or contain two consecutive underscore characters, and must be unique across all Component fields --></errorMessage>
+        <name>Validate_API_Name_Format</name>
+    </validationRules>
+</CustomObjectTranslation>

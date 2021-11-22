@@ -1,0 +1,820 @@
+<apex:page title="Deployment Center" 
+    standardStylesheets="false"
+    standardController="PDRI__Deployment_Plan__c" 
+    extensions="PDRI.DeploymentCenterController" tabStyle="Deployment_Center__tab">  
+    <!-- MD-1706 -->
+    <script src="/soap/ajax/40.0/connection.js"></script>
+    <script src="/soap/ajax/40.0/apex.js" type="text/javascript"></script>
+    
+    <!-- MD-3266: Static resource updated from SLDS080 to SLDS -->
+    <!-- <apex:stylesheet value="{!URLFOR($Resource.SLDS080, 'SLDS080/assets/styles/salesforce-lightning-design-system-vf.css')}"/> -->
+    <apex:stylesheet value="{!URLFOR($Resource.PDRI__SLDS, '/styles/salesforce-lightning-design-system-vf.css')}"/>
+    
+    <!--MD-1499 Tool tips and UI adjustments for Deployment pages-->
+    <apex:includeScript value="{!URLFOR($Resource.PDRI__MooverResources, 'scripts/general.js')}"/>
+    <!-- MD-1700 -->
+    <apex:includeScript value="{!URLFOR($Resource.PDRI__Prodly_Moover_JQuery, 'JQuery/jquery-1.12.4.js')}" />
+    <style>
+        .selectTarget {
+            height : 98px !important;
+        }
+        /*MD-1499 Tool tips and UI adjustments for Deployment page*/
+        .dsLabel {
+            font-size: 14px !important;
+        }
+        
+        .tooltipIcon {
+            display: inline-block !important;
+            left: -11px;
+        }
+    /*MD-1700 Start*/
+        .verticalNav {
+          position: relative;
+    }
+
+    .verticalNavItem {
+		    position: relative;
+		}
+		.verticalNavItem.isActive:before {
+		    content: '';
+		    width: 0px;
+		    left: 0;
+		    top: 0;
+		    bottom: 0;
+		    position: absolute;
+		}
+    .verticalNavItemAction {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 0.5rem 1.5rem;
+        /*//add*/
+		    height: 40px;
+		    text-decoration:none !important;
+       /* border-top: 1px solid transparent;*/
+        /*border-bottom: 1px solid transparent;*/
+        /*border-radius: 0;*/
+    }
+    .verticalNavItemAction, .verticalNavItemAction:active, .verticalNavItemAction:hover, .verticalNavItemAction:focus {
+		    color: currentColor;
+		}
+		
+		.verticalNav .isActive .verticalNavItemAction {
+		    background-color: white;
+		    border-color: #dddbda;
+		}
+		.verticalNavItem.isActive .verticalNavItemAction {
+		    //background-color: rgba(21, 137, 238, 0.1);
+		}
+		
+		nav.verticalNav{
+		    float: left;
+		    width: 15%;
+		}
+		.vertical-right {
+		    float: left;
+		    width: 100%;
+		    border-top: 1px solid #ccc;
+		    background: #e7f3fd0d;
+		    padding: 0 10px;
+		    padding-bottom: 10px;
+		}
+		.fullWidth{
+			width:100%
+		}
+		
+		.set-deploy-button{
+			float: right;
+		    margin-top: -24%;
+		}
+
+    	/*add*/
+		.verticalNavItem:hover {
+    		color: #0070d2;
+    		border-bottom: 2px solid #0070d2 ;
+    		text-decoration: none !important;
+    		background-color: rgb(231, 243, 253);
+		}
+		
+		.verticalNavItemAction.active{
+			border-bottom: 2px solid #0070d2; 
+		}
+		.next_button{
+			float: right;
+    		display: inline-block;
+    		margin-right: 10px;
+		}
+		
+		.leftMargin{
+			margin-left:24px;
+		}
+		.byDefaultHover{
+			color: #0070d2;
+    		border-bottom: 2px solid #0070d2 !important;
+    		text-decoration: none !important;
+    		border-bottom: 0px;
+    	}
+		.marginTop{
+			margin-top: -45px;
+		}
+    /*MD-1700 End*/
+
+    	/*style for radio button on deployment palns table*/
+	
+    .slds-radio [type="radio"]:checked + .slds-radio_faux, .slds-radio [type="radio"]:checked + .slds-radio--faux, .slds-radio [type="radio"]:checked ~ .slds-radio_faux, .slds-radio [type="radio"]:checked ~ .slds-radio--faux, .slds-radio [type="radio"]:checked + .slds-radio__label .slds-radio_faux, .slds-radio [type="radio"]:checked + .slds-radio__label .slds-radio--faux {
+	    background: white;
+	}
+	.slds-form-element .slds-radio [type='radio'] + .slds-radio_faux, .slds-form-element .slds-radio [type='radio'] + .slds-radio--faux, .slds-form-element .slds-radio [type='radio'] ~ .slds-radio_faux, .slds-form-element .slds-radio [type='radio'] ~ .slds-radio--faux, .slds-radio [type='radio'] + .slds-radio__label .slds-radio_faux, .slds-radio [type='radio'] + .slds-radio__label .slds-radio--faux {
+	    margin-right: 0.5rem;
+	}
+	.slds-radio .slds-radio_faux, .slds-radio .slds-radio--faux {
+	    width: 1rem;
+	    height: 1rem;
+	    display: inline-block;
+	    position: relative;
+	    vertical-align: middle;
+	    border: 1px solid #dddbda;
+	    border-radius: 50%;
+	    background: white;
+	    -webkit-transition: border 0.1s linear, background-color 0.1s linear;
+	    transition: border 0.1s linear, background-color 0.1s linear;
+	}
+	
+    .slds-radio [type="radio"]:checked + .slds-radio__label .slds-radio_faux span.dot{visiblity:hidden}
+    .slds-radio [type="radio"]:checked + .slds-radio_faux,
+    .slds-radio [type="radio"]:checked + .slds-radio__label .slds-radio_faux span.dot{
+		    width: 0.5rem;
+		    height: 0.5rem;
+		    content: '';
+		    position: absolute;
+		    top: 50%;
+		    left: 50%;
+		    -webkit-transform: translate3d(-50%, -50%, 0);
+		    transform: translate3d(-50%, -50%, 0);
+		    border-radius: 50%;
+		    background: #0070d2;
+		    visibility:visible;
+	}
+	
+	/*MD-2713*/
+	.tabblock{
+		position: fixed;
+	    z-index: 999999999;
+	    width: 100%;
+	    top: 0;
+	    left: 0;
+	    background: rgba(0, 0, 0, 0.29);
+	    height: 100%;
+	}
+    </style>
+    
+    <script type="text/javascript">
+        
+                /* var deploymentPlanDeploy = false;*/
+                /*MD-1499 Start (Tool tips and UI adjustments for Deployment page)*/
+                function tooltipDisplay(tooltipId) {
+                    toggleElemVisibility(tooltipId);
+                      
+                    }
+                    
+                    function toolTipDisplayOut(tooltipId) {
+                    toggleElemVisibility(tooltipId);
+                    
+                                                                                     
+                    }
+                    /*MD-1499 End*/
+                    
+                    //MD-1484 start
+                    function checkMaxSelectedDataset(elem) {
+                     var selectedIndex = document.getElementsByClassName('hiddentext')[0].innerHTML;
+                    if(!elem.checked){
+                    	if(selectedIndex == 1){
+                    		var button = document.getElementsByClassName("nextButton");
+                    		for (var i = 0; i < button.length; i++) { 
+    						    button[i].disabled = true;
+    						}
+                    	}
+                    	selectedIndex--;
+                    }
+                    else{
+                    	var button = document.getElementsByClassName("nextButton");
+                    		for (var i = 0; i < button.length; i++) { 
+    						    button[i].disabled = false;
+    						}
+                    }
+                    	
+                    if(selectedIndex >= 10) {
+                        alert('{!$Label.MULTIPLE_DATASET_LIMIT_ERROR}');
+                        elem.checked = false;
+                    }
+                    else {
+                        onEntitySelect();
+                    }
+                    }
+                    //MD-1484 End
+                      
+                    function tabSetting(tabName) {
+            	
+                if(tabName == "dataSet") {
+                	
+                    showElemVisibility("DataSetTab");
+                    showElemVisibility("datasetDiv");
+                    
+                    hideElemVisibility("DeploymentPlanTab");
+                    hideElemVisibility("deploymentPlanDiv");
+                    hideElemVisibility('deployButtonDiv');
+                    $("#datasetTabId").addClass('byDefaultHover').siblings().removeClass('byDefaultHover');
+                    
+                } else if(tabName == "deploymentPlan") {
+                
+                    showElemVisibility("DeploymentPlanTab");
+                    showElemVisibility("deploymentPlanDiv");
+                    hideElemVisibility("DataSetTab");
+                    hideElemVisibility("datasetDiv");
+                    hideElemVisibility('deployButtonDiv');
+                    $("#deploymentPlanTabId").addClass('byDefaultHover').siblings().removeClass('byDefaultHover');
+                }
+                endPreparation();
+            }
+
+            function startPreparation(tabName) {
+            	showElemVisibility("nextButtonDiv");
+            	showElemVisibility("nextButtonDivBottom");
+            	var button = document.getElementsByClassName("nextButton");
+              	for (var i = 0; i < button.length; i++) { 
+				    button[i].disabled = true;
+				}
+			    hideElemVisibility("settingPanel");
+			    showElemVisibility("progressSpinner");
+			    prepareData(tabName);
+			}
+			
+			function endPreparation() {
+			    hideElemVisibility("progressSpinner");
+			    showElemVisibility("settingPanel");
+			    
+			}
+            function getSearchString(elem){
+            	onSearch(elem.value);
+            }
+            
+            function clickNextButton(){
+            	hideElemVisibility("nextButtonDiv");
+            	hideElemVisibility("nextButtonDivBottom");
+            	hideElemVisibility("DataSetTab");
+			    hideElemVisibility("datasetDiv");
+			    hideElemVisibility("DeploymentPlanTab");
+                hideElemVisibility("deploymentPlanDiv");
+			    
+			    showElemVisibility('connectionsDiv');
+			    showElemVisibility('deployButtonDiv');
+			    
+			}
+			
+			function onDeploymentPlanSelect(deploymentPlanId){
+				showElemVisibility("nextButtonDiv");
+				showElemVisibility("nextButtonDivBottom");
+				var button = document.getElementsByClassName("nextButton");
+              	for (var i = 0; i < button.length; i++) { 
+				    button[i].disabled = false;
+				}
+				onEntitySelect(deploymentPlanId);
+			}
+			
+			//MD-2713 - START
+			function showConfirmBox(elem){
+				if(elem == 'true')
+					showElemVisibility("WarningPrompt");
+				else
+					doDeploy();
+			}
+			
+			function isEventControlExists(){
+				var warnCheckbox = document.getElementById("doNotWarnAgain");
+				warnCheckbox.checked = false;
+				isWarnForEventControlConfiguration();
+			}
+			
+			function clickOkWarningPrompt(){
+				var warnCheckbox = document.getElementById("doNotWarnAgain");
+				if(warnCheckbox.checked){
+					insertDeploymentCenterUIState();
+				}
+				else{
+					doDeploy();
+				}
+			}
+            //MD-2713 - END
+        </script>
+        <apex:form id="theForm">
+        <apex:actionFunction action="{!onSearch}" name="onSearch" rerender="paginationPanel,dataSetsPanel,scriptsPanel,noDataSetsPanel,paginationPanelDP,dataSetsPanelDP,scriptsPanel,noDataSetsPanelDP">
+        	<apex:param name="searchString" value="" assignTo="{!searchString}" />
+        </apex:actionFunction>
+        <apex:actionFunction action="{!doDeploy}" name="doDeploy" rerender="alertOutterPanel,deploymentResultPanel,alertOutterPanelDP,deploymentResultPanel">
+        	<!-- apex:param name="sourceConnection" value="" assignTo="{!selectedSourceConnectionId}" />
+        	<apex:param name="targetConnections" value="" assignTo="{!selectedTargetConnectionIds}" / -->
+        </apex:actionFunction>
+        <apex:actionFunction oncomplete="if( {!isNoConnectionError} ) { window.location.href = 'apex/NewConnectionEditor'; }" action="{!onDismissAlert}" name="dismissAlert" rerender="alertOutterPanel"/>
+        <apex:actionFunction name="onEntitySelect" action="{!onSelect}" rerender="deployButtonPanel,deployButtonPanelDP" >
+        	<apex:param name="deploymentPlanId" value="" assignTo="{!selectedDeploymentPlanId}"/>
+        </apex:actionFunction>
+        <apex:actionFunction action="{!prepareData}" name="prepareData" oncomplete="tabSetting('{!deploymentTab}');" rerender="datasetPanel,deploymentPlanPanel,progressSpinner,connectionsPanel,alertOutterPanel">
+        	<apex:param name="dataSet" value="" assignTo="{!deploymentTab}"/>
+        </apex:actionFunction>
+        <!-- MD-2713  -->
+        <apex:actionFunction action="{!isWarnForEventControlConfiguration}" name="isWarnForEventControlConfiguration" rerender="" oncomplete="showConfirmBox('{!showEventConfirmationBox}');" />
+        <apex:actionFunction action="{!insertDeploymentCenterUIState}" name="insertDeploymentCenterUIState" rerender="" oncomplete="doDeploy();" />
+        
+        <apex:outputPanel id="fullPanel" layout="block">
+            <div class="slds">
+                <div id="progressSpinner" class="slds-hide">
+                    <div class="slds-grid slds-grid--align-center slds-m-vertical--xx-large">
+                        <div class="slds-spinner--large slds-m-vertical--xx-large">
+                        	<!-- MD-3266: Static resource updated from SLDS080 to SLDS -->
+                            <img class="slds-m-vertical--xx-large" src="{!URLFOR($Resource.SLDS, '/images/spinners/slds_spinner_brand.gif')}" alt="Loading..." />
+                        </div>
+                    </div>
+                </div>
+                <div id="settingPanel" class="slds-show">
+                	<apex:outputPanel id="alertOutterPanel">
+	                    <apex:outputPanel id="alertPanel" layout="block" rendered="{!isAlertShown}">
+	                        <div class="slds-grid slds-m-top--large slds-show" id="alertPanelDiv" >
+	                            <div class="slds-notify slds-notify--alert slds-theme--error slds-theme--inverse-text slds-theme--alert-texture slds-size--1-of-1" role="alert">
+	                                <span class="slds-assistive-text">Info</span>
+	                                <button onclick="dismissAlert(); return false;" class="slds-button slds-button--icon-inverse slds-notify__close">
+	                                	<!-- MD-3266: Static resource updated from SLDS080 to SLDS -->
+	                                    <img src="{!URLFOR($Resource.SLDS, '/icons/action/close_60.png')}" alt="Close" class="slds-button__icon" />
+	                                    <span class="slds-assistive-text">Close</span>
+	                                </button>
+	                                <h2>{!alertMessage}</h2>
+	                            </div>
+	                        </div>
+	                    </apex:outputPanel>
+	                </apex:outputPanel>
+	                
+	                <!-- Vartical Tabs -->
+	                <apex:outputPanel rendered="{!AND(NOT(ISNULL(connectionOptions)), connectionOptions.Size > 0)}">
+	                    <nav class="slds-context-bar__secondary " aria-label="Sub page">
+						    <div class="slds-context-bar__secondary" style="display: inline-block">
+						     <ul class="slds-grid">
+						                <li class="slds-context-bar__item verticalNavItem " id="datasetTabId" data-aura-rendered-by="1:9152;a">
+	                                        <a class="slds-nav-vertical--action verticalNavItemAction" aria-describedby="entity-header" data-refid="list" href="javascript:startPreparation('dataSet');" data-list="Data Sets" data-aura-rendered-by="2:9152;a">Data Sets
+	                                        </a>
+	                                    </li>
+	                                    <li class="slds-context-bar__item verticalNavItem leftMargin"  id="deploymentPlanTabId" data-aura-rendered-by="4:9152;a">
+	                                        <a class="slds-nav-vertical--action verticalNavItemAction" aria-describedby="entity-header" data-refid="list" href="javascript:startPreparation('deploymentPlan');" data-list="Deployment Plans" data-aura-rendered-by="5:9152;a">Deployment Plans
+	                                        </a>
+	                                    </li>
+	                                </ul>
+	                            </div>
+	                            <div id="nextButtonDiv" class="slds-show next_button ">
+	                                    <button id="nextButtonTop" onclick="clickNextButton(); return false;" class="slds-button slds-button--neutral nextButton" disabled="true">Next</button>
+	                            </div>
+	                             <div class="slds-button-group slds-hide next_button" id="deployButtonDiv">
+                                   <apex:outputPanel id="deployButtonPanel" layout="block">
+                                   		<!-- MD-2713 -->
+                                       <button id="deployButton" onclick="isEventControlExists(); return false;" class="slds-button slds-button--neutral">Deploy</button> 
+                                       <!-- MD-1484 start -->
+                                       <apex:outputPanel id="hiddenSection">
+                                           <div class="slds-hide">  
+                                               <apex:outputText value="{!selectedDataSetCounter}" id="hiddentext" styleClass="hiddentext"/>
+                                           </div>
+                                       </apex:outputPanel>
+                                       <!-- MD-1484 end -->
+                                   </apex:outputPanel>
+                               </div>
+	                        </nav>
+	                <div class="vertical-right" id="deployInfopanel">
+	                	<!-- Connection START -->
+	                	<apex:outputPanel id="connectionsPanel" rendered="{!AND(NOT(ISNULL(connectionOptions)), connectionOptions.Size > 0)}">
+	                	<div class="slds-grid slds-hide" id='connectionsDiv'>
+	                	<div class="slds-col slds-size--4-of-6">     
+	                                    <div role="form" class="slds-form--stacked slds-grid slds-wrap">
+	                                        <div class="slds-form-element slds-m-top--large slds-size--3-of-6">
+	                                            <label class="slds-form-element__label dsLabel" for="selectSample1"><!--MD-1499 comment<div class="slds-text-heading--small">-->Source Salesforce Organization<!--</div>--></label>
+	                                            <!-- MD-1499 START (Tool tips and UI adjustments for Deployment page)-->
+	                                              <div class="slds-form-element tooltipIcon" onmouseover="tooltipDisplay('tooltipSource');" onmouseout="toolTipDisplayOut('tooltipSource');">
+	                                                <div class="slds-form-element__icon slds-align-middle" >
+	                                                	<!--MD-3266: Changed the static resource from SLDS_Resource to SLDS -->
+	                                                    <img class="slds-button__icon" src="{!URLFOR($Resource.SLDS, '/icons/utility/info_60.png')}" alt="Table" />
+	                                                </div>
+	                                              
+	                                                <div class="slds-popover slds-popover--tooltip slds-nubbin--left-top toggle slds-hide" role="tooltip" style="position: absolute;top: -40px;left: 27px;float: right;min-width: 312px;" id="tooltipSource">
+	                                                   <div class="slds-popover__body">{!$Label.TOOL_TIP_SOURCE_SALESFORCE_ORGANIZATION}</div>
+	                                                </div> 
+	                                                </div>
+	                                            <!-- MD-1499 END -->
+	                                            <div class="slds-form-element__control slds-m-top--small">
+	                                                <apex:selectList value="{!selectedSourceConnectionId}" size="1" required="true" styleClass="slds-select" > 
+	                                                    <apex:selectOptions value="{!connectionOptions}"/>
+	                                                    <!-- <apex:actionSupport event="onchange" action="{!onSourceSelect}" reRender="alertOutterPanel"/> --> 
+	                                                </apex:selectList>
+	                                            </div> 
+	                                        </div>
+	                                    </div>             
+	                                    <div role="form" class="slds-form--stacked slds-grid slds-wrap">
+	                                        <div class="slds-form-element slds-m-top--large slds-size--3-of-6">
+	                                            <label class="slds-form-element__label dsLabel" for="selectSample1"><!--MD-1499 comment<div class="slds-text-heading--small">-->Destination Salesforce Organization<!--</div>--></label>
+	                                            <!-- MD-1499 START (Tool tips and UI adjustments for Deployment page)-->
+	                                              <div class="slds-form-element tooltipIcon" onmouseover="tooltipDisplay('tooltipDestination');" onmouseout="toolTipDisplayOut('tooltipDestination');">
+	                                                <div class="slds-form-element__icon slds-align-middle" >
+	                                                	<!--MD-3266: Changed the static resource from SLDS_Resource to SLDS -->
+	                                                    <img class="slds-button__icon" src="{!URLFOR($Resource.SLDS, '/icons/utility/info_60.png')}" alt="Table" />
+	                                                </div>
+	                                              
+	                                                <div class="slds-popover slds-popover--tooltip slds-nubbin--left-top toggle slds-hide" role="tooltip" style="position: absolute;top: -46px;left: 30px;float: left;min-width: 312px;" id="tooltipDestination">
+	                                                   <div class="slds-popover__body">{!$Label.TOOL_TIP_DESTINATION_SALESFORCE_ORGANIZATION}</div>
+	                                                </div>
+	                                                </div> 
+	                                            <!-- MD-1499 END -->
+	                                            <div class="slds-form-element__control slds-m-top--small">
+	                                                <apex:selectList value="{!selectedTargetConnectionIds}" size="3" required="false" styleClass="slds-select selectTarget" multiselect="true" > 
+	                                                    <!-- MD-2886 change selectoptions value -->
+	                                                    <apex:selectOptions value="{!destinationConnectionOptions}"/>
+	                                                </apex:selectList>
+	                                            </div>
+	                                        </div>
+										</div>      
+										<div role="form" class="slds-form--stacked slds-grid slds-wrap">
+											<div class="slds-form-element slds-m-top--large slds-size--3-of-6">
+												<label class="slds-form-element__label dsLabel" for="selectSample1">Deployment Name</label>
+												<div class="slds-form-element tooltipIcon"  onmouseover="tooltipDisplay('tooltipDeploymentName');" onmouseout="toolTipDisplayOut('tooltipDeploymentName');">
+													<div class="slds-form-element__icon slds-align-middle" >
+														<img class="slds-button__icon" src="{!URLFOR($Resource.SLDS, '/icons/utility/info_60.png')}" alt="Table" />
+													</div>
+													<div class="slds-popover slds-popover--tooltip slds-nubbin--left-top toggle slds-hide" role="tooltip" style="position: absolute;top: -49px;left: 30px;float: left;min-width: 312px;" id="tooltipDeploymentName">
+														<div class="slds-popover__body">{!$Label.TOOL_TIP_DEPLOYMENT_NAME}</div>
+													</div> 
+												</div>
+												<div class="slds-form-element__control slds-m-top--small">
+													<apex:inputText value="{!deploymentName}" styleClass="slds-input dsLabel" style="resize: vertical; line-height: initial;" html-placeholder="{!$Label.pdri__tool_tip_deployment_name_placeholder}"  />
+												</div>
+											</div>   
+										</div>
+										<!-- AP-2198 START -->      
+										<div role="form" class="slds-form--stacked slds-grid slds-wrap">
+											<div class="slds-form-element slds-m-top--large slds-size--3-of-6">
+												<label class="slds-form-element__label dsLabel" for="selectSample1">Deployment Notes</label>
+												<div class="slds-form-element tooltipIcon"  onmouseover="tooltipDisplay('tooltipDeploymentNotes');" onmouseout="toolTipDisplayOut('tooltipDeploymentNotes');">
+													<div class="slds-form-element__icon slds-align-middle" >
+														<img class="slds-button__icon" src="{!URLFOR($Resource.SLDS, '/icons/utility/info_60.png')}" alt="Table" />
+													</div>
+													<div class="slds-popover slds-popover--tooltip slds-nubbin--left-top toggle slds-hide" role="tooltip" style="position: absolute;top: -49px;left: 30px;float: left;min-width: 312px;" id="tooltipDeploymentNotes">
+														<div class="slds-popover__body">{!$Label.TOOL_TIP_DEPLOYMENT_NOTES}</div>
+													</div> 
+												</div>
+												<div class="slds-form-element__control slds-m-top--small">
+													<apex:inputTextarea value="{!deploymentNotes}" rows="10" styleClass="slds-input dsLabel" style="resize: vertical; line-height: initial;" html-placeholder="{!$Label.pdri__tool_tip_deployment_placeholder}"  />
+												</div>
+											</div>   
+										</div>
+										<!-- AP-2198 END -->
+	                                </div>
+	                           <div class="slds-col "> 
+                           </div>
+                           </div>
+	                     </apex:outputPanel>
+	                	<!-- Connection END -->
+	                <!-- DataSet -->
+	                <div class="slds-show" id="DataSetTab">
+	                    <apex:outputPanel id="datasetPanel" rendered="{!AND(NOT(ISNULL(connectionOptions)), connectionOptions.Size > 0)}">
+
+	                        <div id="datasetDiv" class="slds-show ">
+	                            <div class="slds-grid slds-m-top--x-large" >
+	                                <div class="slds-col">
+	                                    <div class="slds-form-element">
+	                                        <label class="slds-form-element__label dsLabel" for="selectSample1"><!--MD-1499 comment<div class="slds-text-heading--small">-->Deployment Selection<!--</div>--></label>
+	                                        <!-- MD-1499 START (Tool tips and UI adjustments for Deployment page)-->
+	                                          <div class="slds-form-element tooltipIcon" onmouseover="tooltipDisplay('tooltipSelection');" onmouseout="toolTipDisplayOut('tooltipSelection');">
+	                                            <div class="slds-form-element__icon slds-align-middle" >
+	                                            	<!--MD-3266: Changed the static resource from SLDS_Resource to SLDS -->
+	                                                <img class="slds-button__icon" src="{!URLFOR($Resource.SLDS, '/icons/utility/info_60.png')}" alt="Table" />
+	                                            </div>
+	                                          
+	                                            <div class="slds-popover slds-popover--tooltip slds-nubbin--left-top toggle slds-hide" role="tooltip" style="position: absolute;top: -36px;left: 26px;float: left;min-width: 312px;" id="tooltipSelection">
+	                                               <div class="slds-popover__body">{!$Label.TOOL_TIP_DEPLOYMENT_CENTER_SELECTION}</div>
+	                                            </div>
+	                                            </div> 
+	                                        <!-- MD-1499 END -->  
+	                                        <div class="slds-form-element__control slds-m-top--small">
+	                                            <!-- MD-1484 -->
+	                                            <!--MD-1499 (Tool tips and UI adjustments for Deployment page)--> <!-- MD-1700 -->
+	                                            <apex:inputText id="dataSetSearchInput"  html-placeholder="Search by data set name, deployment object, namespace or folder…" value="{!searchString}" styleClass="slds-input slds-medium-size--2-of-5" onkeyup="getSearchString(this);"/>
+	                                            <!-- MD-1499 START -->
+	                                          <div class="slds-form-element" style="display: inline-block;" onmouseover="tooltipDisplay('tooltipSearch');" onmouseout="toolTipDisplayOut('tooltipSearch');">
+	                                            <div class="slds-form-element__icon slds-align-middle" >
+	                                            	<!--MD-3266: Changed the static resource from SLDS_Resource to SLDS -->
+	                                                <img class="slds-button__icon" src="{!URLFOR($Resource.SLDS, '/icons/utility/info_60.png')}" alt="Table" />
+	                                            </div>
+	                                          
+	                                            <div class="slds-popover slds-popover--tooltip slds-nubbin--left-top toggle slds-hide" role="tooltip" style="position: absolute;top: -58px;left: 28px;float: left;min-width: 331px;" id="tooltipSearch">
+	                                               <div class="slds-popover__body">{!$Label.TOOL_TIP_DEPLOYMENT_CENTER_SEARCH}</div>
+	                                            </div> 
+	                                            </div>
+	                                        <!-- MD-1499 END -->
+	                                        </div>    
+	                                       
+	                                    </div>
+	                                </div>
+	                            </div>
+	                            <div class="slds-grid slds-m-top--medium">
+	                                <apex:outputPanel id="dataSetsPanel" layout="block" styleClass="fullWidth" >
+	                                    <apex:outputPanel rendered="{!If(totalRecords!= null && totalRecords > 0, true, false)}">
+	                                    <div role="form" class="slds-form--stacked slds-grid slds-wrap">
+	                                        <!-- <div class="slds-form-element">-->
+	                                            <!-- <div class="slds-form-element__control tableContainer">-->
+	                                                <table class="slds-table slds-table--bordered slds-m-top--medium">
+	                                                    <thead>
+	                                                        <tr class="slds-text-heading--label">
+	                                                            <th class="slds-cell-shrink" scope="col">
+	                                                            </th>
+	                                                            <th scope="col">
+	                                                                <span class="slds-truncate">Data Set Name</span>
+	                                                            </th>
+	                                                            <th scope="col">
+	                                                                <span class="slds-truncate">Folder</span>
+	                                                            </th>
+	                                                            <th scope="col">
+	                                                                <span class="slds-truncate">Deployment Object</span>
+	                                                            </th>
+	                                                            <th scope="col">
+	                                                                <span class="slds-truncate">Namespace</span>
+	                                                            </th>
+	                                                        </tr>
+	                                                    </thead>
+	                                                    <tbody>
+	                                                        <apex:repeat value="{!tempListOfWrapper}" var="dataSetWrapper">
+	                                                            <tr class="slds-hint-parent">
+	                                                                <td>
+	                                                                    <label class="slds-checkbox">
+	                                                                        <apex:inputCheckbox styleClass="CheckBoxClass" value="{!dataSetWrapper.isSelected}" disabled="{!dataSetWrapper.isDisabled}" onclick="checkMaxSelectedDataset(this);">
+	                                                                            <!--  <apex:actionSupport event="onclick" action="{!onSelect}" rerender="deployButtonPanel"/>-->
+	                                                                        </apex:inputCheckbox>
+	                                                                        <span class="slds-checkbox--faux"></span>
+	                                                                        <span class="slds-form-element__label slds-assistive-text">select</span>
+	                                                                    </label>
+	                                                                </td>
+	                                                                <td>
+	                                                                    <!-- MD-1487 Change the window name from 'Data Set Editor') to '{!dataSetWrapper.dataSet.ID}'-->
+	                                                                    <!-- MD-2310 -->
+                                                                        <span class="slds-truncate"><a href="javascript:window.open('/{!dataSetWrapper.dataSet.ID}','{!dataSetWrapper.dataSet.ID}');" class="slds-truncate">{!dataSetWrapper.dataSet.Name}</a></span>
+	                                                                </td>
+	                                                                <td>
+	                                                                	<span class="slds-truncate"><a href="javascript:window.open('/{!dataSetWrapper.dataSet.Folder__c}','{!dataSetWrapper.dataSet.Folder__c}');" class="slds-truncate" target="_blank">{!dataSetWrapper.folderName}</a></span>
+	                                                                    <!--  <span class="slds-truncate">{!dataSetWrapper.folderName}</span>-->
+	                                                                </td>
+	                                                                <td>
+	                                                                    <span class="slds-truncate">{!dataSetWrapper.objectLabel}</span>
+	                                                                </td>
+	                                                                <td>
+	                                                                    <span class="slds-truncate">{!dataSetWrapper.objectNamespace}</span>
+	                                                                </td>
+	                                                            </tr>
+	                                                        </apex:repeat>
+	                                                    </tbody>
+	                                                </table>
+	                                            <!--  </div>-->
+	                                        <!-- </div>-->
+	                                    </div>
+	                                    </apex:outputPanel>
+	                                
+	                                <apex:outputPanel id="noDataSetsPanel" layout="block">
+	                                <apex:outputPanel rendered="{!If(totalRecords= null || totalRecords <= 0, true, false)}">
+	                                    <p>{!$Label.pdri__active_data_set_not_found}</p>
+	                                    </apex:outputPanel>
+	                                </apex:outputPanel></apex:outputPanel>
+	                            </div>
+	                            <div></div>
+	                           <br/>
+	                            <apex:outputPanel id="paginationPanel">
+	                                <apex:outputPanel rendered="{!If(totalRecords != null && totalRecords > 0, true, false)}">
+	                                    <apex:commandButton value="<<" action="{!first}" styleClass="slds-button slds-button--neutral" rerender="dataSetsPanel,paginationPanel"   disabled="{!FirstButtonDisabled}"> 
+	                                    </apex:commandButton> &nbsp;
+	                                    
+	                                    <apex:commandButton value="<" action="{!previous}" styleClass="slds-button slds-button--neutral" rerender="dataSetsPanel,paginationPanel"  disabled="{!PreviousButtonDisabled}" >
+	                                    </apex:commandButton> &nbsp;
+	                                    
+	                                    <apex:commandButton value=">" action="{!next}" styleClass="slds-button slds-button--neutral"  rerender="dataSetsPanel,paginationPanel" disabled="{!NextButtonDisabled}">
+	                                    </apex:commandButton> &nbsp;
+	                                    
+	                                    <apex:commandButton value=">>" action="{!last}" styleClass="slds-button slds-button--neutral" rerender="dataSetsPanel,paginationPanel"  disabled="{!LastButtonDisabled}" >
+	                                    </apex:commandButton> &nbsp;
+	                                    
+	                                    <apex:outputLabel value="{!startNumber} - {!endNumber} of {!totalRecords} Records"/>
+	                                </apex:outputPanel> 
+	                            </apex:outputPanel>
+	                    
+	                        </div>
+	                    </apex:outputPanel>
+	                </div>
+	                
+	                <!-- Deployment Plan -->
+	                <div class="slds-hide" id="DeploymentPlanTab">
+	                    <apex:outputPanel id="deploymentPlanPanel" rendered="{!AND(NOT(ISNULL(connectionOptions)), connectionOptions.Size > 0)}">
+	                     
+	                        <div id="deploymentPlanDiv" class="slds-hide">
+	                            <div class="slds-grid slds-m-top--x-large" >
+	                                <div class="slds-col">
+	                                    <div class="slds-form-element">
+	                                        <label class="slds-form-element__label dsLabel" for="selectSample1">Deployment Selection</label>
+	                                        <div class="slds-form-element tooltipIcon" onmouseover="tooltipDisplay('tooltipSelectionDP');" onmouseout="toolTipDisplayOut('tooltipSelectionDP');">
+	                                            <div class="slds-form-element__icon slds-align-middle" >
+	                                            	<!--MD-3266: Changed the static resource from SLDS_Resource to SLDS -->
+	                                                <img class="slds-button__icon" src="{!URLFOR($Resource.SLDS, '/icons/utility/info_60.png')}" alt="Table" />
+	                                            </div>
+	                                      
+	                                            <div class="slds-popover slds-popover--tooltip slds-nubbin--left-top toggle slds-hide" role="tooltip" style="position: absolute;top: -36px;left: 26px;float: left;min-width: 312px;" id="tooltipSelectionDP">
+	                                                <div class="slds-popover__body">{!$Label.TOOL_TIP_DEPLOYMENT_PLAN_CENTER_SELECTION}</div>
+	                                            </div>
+	                                        </div>  
+	                                        <div class="slds-form-element__control slds-m-top--small">
+	                                            <apex:inputText id="dataSetSearchInputDP"  html-placeholder="Search by deployment plan name or folder…" value="{!searchString}" styleClass="slds-input slds-medium-size--2-of-5" onkeyup="getSearchString(this);"/>
+	                                            <div class="slds-form-element" style="display: inline-block;" onmouseover="tooltipDisplay('tooltipSearchDP');" onmouseout="toolTipDisplayOut('tooltipSearchDP');">
+	                                                <div class="slds-form-element__icon slds-align-middle" >
+	                                                	<!--MD-3266: Changed the static resource from SLDS_Resource to SLDS -->
+	                                                    <img class="slds-button__icon" src="{!URLFOR($Resource.SLDS, '/icons/utility/info_60.png')}" alt="Table" />
+	                                                </div>
+	                                                <div class="slds-popover slds-popover--tooltip slds-nubbin--left-top toggle slds-hide" role="tooltip" style="position: absolute;top: -26px;left: 28px;float: left;min-width: 331px;" id="tooltipSearchDP">
+	                                                   <div class="slds-popover__body">{!$Label.TOOL_TIP_DEPLOYMENT_PLAN_CENTER_SEARCH}</div>
+	                                                </div> 
+	                                            </div>
+	                                        </div>    
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        <div class="slds-grid slds-m-top--medium">
+	                            <apex:outputPanel id="dataSetsPanelDP" layout="block" styleClass="fullWidth">
+	                                <apex:outputPanel rendered="{!If(totalRecords != null && totalRecords > 0, true, false)}">
+	                                <div role="form" class="slds-form--stacked slds-grid slds-wrap">
+	                                    <!-- <div class="slds-form-element">
+	                                        <div class="slds-form-element__control tableContainer"> -->
+	                                            <table class="slds-table slds-table--bordered slds-m-top--medium">
+	                                                <thead>
+	                                                    <tr class="slds-text-heading--label">
+	                                                        <th class="slds-cell-shrink" scope="col">
+	                                                        </th>
+	                                                        <th scope="col">
+	                                                            <span class="slds-truncate">Deployment Plan Name</span>
+	                                                        </th>
+	                                                        <th scope="col">
+	                                                            <span class="slds-truncate">Folder</span>
+	                                                        </th>
+	                                                        <th scope="col">
+	                                                            <span class="slds-truncate">Number of Plan Steps</span>
+	                                                        </th>
+	                                                    </tr>
+	                                                </thead>
+	                                                <tbody>
+	                                                
+                                                    <apex:repeat value="{!tempDeploymentPlanWrapper}" var="dpWrapper">
+                                                        <tr class="slds-hint-parent">
+                                                            <td>
+                                                            	<div class="slds-form-element__control">
+                                                               	<span class="slds-radio">
+                                                            	<input type="radio" name="option" id="{!dpWrapper.deploymentPlan.Id}" value="{!dpWrapper.deploymentPlan.Id}" onclick="onDeploymentPlanSelect('{!dpWrapper.deploymentPlan.Id}');"/>
+                                                                <label class="slds-radio__label" for="{!dpWrapper.deploymentPlan.Id}">
+                                                                	<span class="slds-radio_faux"><span class="dot"></span></span>
+                                                                    <span class="slds-form-element__label slds-assistive-text">select</span>
+                                                                </label>
+                                                                </span>
+                                                                </div>
+                                                                <script>
+                                                                	if('{!dpWrapper.isSelected}' == 'true' && '{!dpWrapper.deploymentPlan.Id}' == '{!selectedDeploymentPlanId}') {
+                                                                		document.getElementById('{!dpWrapper.deploymentPlan.Id}').checked = true;
+                                                                	}
+                                                                </script>
+                                                            </td>
+                                                            <td>
+                                                            	<!-- MD-1487 Change the window name from 'Data Set Editor') to '{!dataSetWrapper.dataSet.ID}'-->
+                                                                <span class="slds-truncate"><a href="javascript:window.open('/{!dpWrapper.deploymentPlan.ID}','{!dpWrapper.deploymentPlan.ID}');" class="slds-truncate">{!dpWrapper.deploymentPlan.Name}</a></span>
+                                                            </td>
+                                                            <td>
+                                                                <span class="slds-truncate"><a href="javascript:window.open('/{!dpWrapper.deploymentPlan.Folder__c}','{!dpWrapper.deploymentPlan.Folder__c}');" class="slds-truncate">{!dpWrapper.DPFolderName}</a></span>
+                                                            </td>
+                                                            <td>
+                                                                <span class="slds-truncate">{!dpWrapper.deploymentPlan.Of_Deployment_Plan_Items__c}</span>
+                                                            </td>
+                                                           
+                                                        </tr>
+                                                    </apex:repeat>
+	                                                </tbody>
+	                                            </table>
+	                                        <!-- </div>
+	                                    </div>  -->
+	                                </div>
+	                                </apex:outputPanel>
+	                            
+	                            <apex:outputPanel id="noDataSetsPanelDP" layout="block">
+	                            <apex:outputPanel rendered="{!If(totalRecords= null || totalRecords <= 0, true, false)}">
+	                                <p>{!$Label.pdri__deployment_plan_not_found}</p>
+	                                </apex:outputPanel>
+	                            </apex:outputPanel></apex:outputPanel>
+	                        </div>
+	                        <div></div>
+	                       <br/>
+	                        <apex:outputPanel id="paginationPanelDP">
+	                            <apex:outputPanel rendered="{!If(totalRecords != null && totalRecords > 0, true, false)}">
+	                                <apex:commandButton value="<<" action="{!first}" styleClass="slds-button slds-button--neutral" rerender="dataSetsPanelDP,paginationPanelDP"   disabled="{!FirstButtonDisabled}">
+	                                </apex:commandButton> &nbsp;
+	                                <apex:commandButton value="<" action="{!previous}" styleClass="slds-button slds-button--neutral" rerender="dataSetsPanelDP,paginationPanelDP"  disabled="{!PreviousButtonDisabled}" >
+	                                </apex:commandButton> &nbsp;
+	                                <apex:commandButton value=">" action="{!next}" styleClass="slds-button slds-button--neutral"  rerender="dataSetsPanelDP,paginationPanelDP" disabled="{!NextButtonDisabled}">
+	                                </apex:commandButton> &nbsp;
+	                                <apex:commandButton value=">>" action="{!last}" styleClass="slds-button slds-button--neutral" rerender="dataSetsPanelDP,paginationPanelDP"  disabled="{!LastButtonDisabled}" >
+	                                </apex:commandButton> &nbsp;
+	                                <apex:outputLabel value="{!startNumber} - {!endNumber} of {!totalRecords} Records"/>
+	                            </apex:outputPanel> 
+	                        </apex:outputPanel>
+	                
+	                    </div>
+	                </apex:outputPanel>
+	                </div>
+	                
+	                <!-- MD-2713 START-->
+	                <div id="WarningPrompt" class="tabblock slds-hide" style="height: 640px;">
+						<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+							<div class="slds-modal__container"  style="bottom:20%;">
+								<header class="slds-modal__header slds-text-heading--medium">
+									<h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{!$Label.LABEL_EVENT_CONTROL_CONFIRMATION_PROMPT_HEADING}</h2>
+								</header>
+                                <div class="slds-modal__content slds-p-around_medium">  
+                                    <p style="white-space: pre-line;">{!$Label.LABEL_EVENT_CONTROL_CONFIRMATION_PROMPT_MESSAGE}</p>
+                                    <div class="slds-form-element" style="margin-bottom:20px; top:16px;">
+                                        <div class="slds-form-element__control" >
+                                            <label class="slds-checkbox">
+                                                <input type="checkbox" name="options" id="doNotWarnAgain"  class="CheckBoxClass" />
+                                                <span class="slds-checkbox--faux"></span>
+                                                <span class="slds-form-element__label slds-assistive-text"></span> 
+                                            </label>
+                                            <div class="slds-checkbox" >
+                                                <label class="slds-checkbox__label" for="checkbox-2" >
+                                                    <span class="slds-checkbox_faux"></span>
+                                                    <span class="slds-form-element__label">{!$Label.LABEL_DO_NOT_WARN_AGAIN}</span>
+                                                </label>
+                                            </div> 
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+								<footer class="slds-modal__footer">
+									<button class="slds-button slds-button_neutral slds-button--neutral" onclick="hideElemVisibility('WarningPrompt'); return false;">Cancel</button>
+									<button class="slds-button slds-button_brand slds-button--brand" onclick="clickOkWarningPrompt(); hideElemVisibility('WarningPrompt'); return false;">Yes</button> 
+								</footer>
+							</div>
+						</section>
+					</div>
+	                <!-- MD-2713 - END -->
+	                </div>
+	                <div>
+	                <nav aria-label="Sub page">
+			            <div id="nextButtonDivBottom" class="slds-show next_button marginTop ">
+				        	<button id="nextButtonBottom" onclick="clickNextButton(); return false;" class="slds-button slds-button--neutral nextButton" disabled="true">Next</button>
+				        </div>
+	        		</nav></div>
+	                </apex:outputPanel>
+                </div>
+            </div>
+            <script>
+            	//MD-3579
+            	tabSetting('{!JSENCODE(HTMLENCODE(deploymentTab))}' );
+            </script>
+        </apex:outputPanel>     
+    </apex:form>
+    
+    <apex:outputPanel id="deploymentResultPanel">
+    	<!--  This script is to check how many orgs have been selected for deployment and accordingly it opens the deployment screen in the same/new window -->
+        <a href="" id="ancherId" target="_blank"></a>
+        <script>
+        	var deploymentRe1sultIds =  '{!deploymentResults}';
+            
+                if(deploymentRe1sultIds != null && deploymentRe1sultIds != '') {
+                    var idArray = deploymentRe1sultIds.split(',');
+                    console.log('array ' + idArray);
+                    for(var i=0; i< idArray.length; i++) {
+                        console.log('/' + idArray[i]);
+                        if(i == 0) {
+                            document.getElementById("ancherId").setAttribute('target', '_self');
+                        }
+                        else {
+                            document.getElementById("ancherId").setAttribute('target', '_blank');  
+                        }
+                        //MD-1404 Added toast parameter
+                        document.getElementById("ancherId").href = '/' + idArray[i]; //MD-1561 +'?isToastVisible=true';
+                        document.getElementById("ancherId").click();
+                    }
+                }
+                
+                //MD-2197
+            	var alertMessage = '{!alertMessage}';
+                if( {!isDeployDisabled} || alertMessage.includes('{!$Label.ERROR_ENFORCE_CORRECT_CONTROL_ORG}')) {
+                    document.getElementById('deployButton').disabled = true;
+                } else {
+                	var button = document.getElementsByClassName('nextButton');
+               		for (var i = 0; i < button.length; i++) { 
+					    button[i].disabled = false;
+					}
+                	document.getElementById('deployButton').disabled = false;
+                }
+        </script>
+    </apex:outputPanel>
+</apex:page>

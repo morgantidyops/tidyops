@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Edition --></label>
+        <name>Edition__c</name>
+        <picklistValues>
+            <masterLabel>Developer</masterLabel>
+            <translation><!-- Developer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Enterprise</masterLabel>
+            <translation><!-- Enterprise --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Essentials</masterLabel>
+            <translation><!-- Essentials --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partner Developer</masterLabel>
+            <translation><!-- Partner Developer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Professional</masterLabel>
+            <translation><!-- Professional --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unlimited</masterLabel>
+            <translation><!-- Unlimited --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Test_Scenario_Versions</fullName>
+    <columns>NAME</columns>
+    <columns>Browser__c</columns>
+    <columns>Environment__c</columns>
+    <columns>Release__c</columns>
+    <columns>Test_Cycle_Type__c</columns>
+    <columns>Assigned_To__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All Test Scenario Versions</label>
+</ListView>

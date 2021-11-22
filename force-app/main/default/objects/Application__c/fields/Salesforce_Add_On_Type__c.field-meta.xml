@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Salesforce_Add_On_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Salesforce Add-On Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Native Add-On</fullName>
+                <default>false</default>
+                <label>Native Add-On</label>
+            </value>
+            <value>
+                <fullName>Managed Package</fullName>
+                <default>false</default>
+                <label>Managed Package</label>
+            </value>
+            <value>
+                <fullName>Unmanaged Package</fullName>
+                <default>false</default>
+                <label>Unmanaged Package</label>
+            </value>
+            <value>
+                <fullName>API Integration</fullName>
+                <default>false</default>
+                <label>API Integration</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

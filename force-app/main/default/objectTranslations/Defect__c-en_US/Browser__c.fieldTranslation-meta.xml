@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Browser in use when user encountered defect --></help>
+        <label><!-- Browser --></label>
+        <name>Browser__c</name>
+        <picklistValues>
+            <masterLabel>Chrome</masterLabel>
+            <translation><!-- Chrome --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internet Explorer</masterLabel>
+            <translation><!-- Internet Explorer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Safari</masterLabel>
+            <translation><!-- Safari --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

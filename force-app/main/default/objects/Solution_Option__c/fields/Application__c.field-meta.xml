@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Application__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>If this solution is application specific, link it here.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>If this solution is application specific, link it here.</inlineHelpText>
+    <label>Application</label>
+    <referenceTo>Application__c</referenceTo>
+    <relationshipLabel>Solution Options</relationshipLabel>
+    <relationshipName>Solution_Options</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

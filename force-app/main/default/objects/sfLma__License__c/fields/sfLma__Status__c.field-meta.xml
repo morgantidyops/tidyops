@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sfLma__Status__c</fullName>
+    <deprecated>false</deprecated>
+    <description>This is the Status of the Package License in the Subscriber Org</description>
+    <externalId>false</externalId>
+    <label>Status</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Trial</fullName>
+                <default>false</default>
+                <label>Trial</label>
+            </value>
+            <value>
+                <fullName>Active</fullName>
+                <default>false</default>
+                <label>Active</label>
+            </value>
+            <value>
+                <fullName>Suspended</fullName>
+                <default>false</default>
+                <label>Suspended</label>
+            </value>
+            <value>
+                <fullName>Uninstalled</fullName>
+                <default>false</default>
+                <label>Uninstalled</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPM4_BASE__Predecessor_Task_of_Successor_Task</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(NOT(ISBLANK(MPM4_BASE__Predecessor_Task__r.MPM4_BASE__Predecessor_Task__c)), Id  =  MPM4_BASE__Predecessor_Task__r.MPM4_BASE__Predecessor_Task__c)</errorConditionFormula>
+    <errorDisplayField>MPM4_BASE__Predecessor_Task__c</errorDisplayField>
+    <errorMessage>Cannot have a predecessor task that is the successor of the task.</errorMessage>
+</ValidationRule>

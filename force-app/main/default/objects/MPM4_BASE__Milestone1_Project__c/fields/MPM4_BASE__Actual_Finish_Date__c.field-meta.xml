@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPM4_BASE__Actual_Finish_Date__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <inlineHelpText>When did the project close-out?</inlineHelpText>
+    <label>Actual Finish Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

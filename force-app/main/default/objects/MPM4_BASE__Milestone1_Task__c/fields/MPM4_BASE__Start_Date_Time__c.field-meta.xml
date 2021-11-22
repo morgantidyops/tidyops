@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPM4_BASE__Start_Date_Time__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <inlineHelpText>In order to schedule an Event on your Salesforce Calendar, this must be populated. Changing the start time will update your calendar as well as your project task&#39;s start date.</inlineHelpText>
+    <label>Start Time</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

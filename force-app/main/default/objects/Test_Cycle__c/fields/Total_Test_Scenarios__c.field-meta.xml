@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Test_Scenarios__c</fullName>
+    <description>Roll-up summary of total child Test Scenario records</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Total number of Test Scenarios</inlineHelpText>
+    <label>Total Test Scenarios</label>
+    <summaryForeignKey>Test_Scenario__c.Test_Cycle__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

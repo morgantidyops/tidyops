@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPM4_BASE__My_Active_Projects</fullName>
+    <columns>NAME</columns>
+    <columns>MPM4_BASE__Deadline__c</columns>
+    <columns>MPM4_BASE__Total_Blocked_Task_Count__c</columns>
+    <columns>MPM4_BASE__Total_Late_Task_Count__c</columns>
+    <columns>MPM4_BASE__Total_Open_Task_Count__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>MPM4_BASE__Status__c</field>
+        <operation>equals</operation>
+        <value>Active</value>
+    </filters>
+    <label>My Active Projects</label>
+</ListView>

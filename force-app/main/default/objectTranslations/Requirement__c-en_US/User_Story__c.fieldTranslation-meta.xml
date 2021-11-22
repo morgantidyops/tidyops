@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- As a &lt;type of user&gt;, 
+I want &lt;some goal&gt; 
+so that &lt;some business reason&gt; --></help>
+        <label><!-- User Story --></label>
+        <name>User_Story__c</name>
+    </CustomFieldTranslation>

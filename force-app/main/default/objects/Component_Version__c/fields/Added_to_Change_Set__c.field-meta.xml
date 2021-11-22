@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Added_to_Change_Set__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Check this once the component has been added to the change set, if applicable.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Check this once the component has been added to the change set, if applicable.</inlineHelpText>
+    <label>Added to Change Set?</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

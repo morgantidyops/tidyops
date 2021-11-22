@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customObject>true</customObject>
+    <description>Tab for managing data sets.</description>
+    <icon>PDRI__Logos/PDRI__Prodly_Icon.png</icon>
+    <motif>Custom283: TV Widescreen</motif>
+</CustomTab>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Build</masterLabel>
+            <translation><!-- Build --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deployed</masterLabel>
+            <translation><!-- Deployed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Planning</masterLabel>
+            <translation><!-- Planning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Release Ready</masterLabel>
+            <translation><!-- Release Ready --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Testing in Progress</masterLabel>
+            <translation><!-- Testing in Progress --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

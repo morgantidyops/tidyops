@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Actual_Utilization_Rate__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(Billable_Hours_Capacity__c &gt; 0, Actual_Billable_Hours__c /  Billable_Hours_Capacity__c,0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Actual Utilization Rate</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

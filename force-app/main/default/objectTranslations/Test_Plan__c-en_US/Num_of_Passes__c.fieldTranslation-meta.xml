@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- How many times are all the tests being run? --></help>
+        <label><!-- # of Passes --></label>
+        <name>Num_of_Passes__c</name>
+    </CustomFieldTranslation>

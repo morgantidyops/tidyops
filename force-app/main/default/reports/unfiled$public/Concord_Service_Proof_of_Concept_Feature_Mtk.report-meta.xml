@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Component__c$Name</field>
+    </columns>
+    <columns>
+        <field>Component__c$Description__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Component__c.Features__r$Requirement__c.Requestor__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Dan Tierney</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Component__c.Features__r$Requirement__c.MoSCoW_Priority__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Must Have</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Component__c.Features__r$Requirement__c.Parent_Requirement__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Component__c.Features__r$Requirement__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Component__c$Component_Type__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Concord Proof of Concept Features</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Requirements_with_Components__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Component__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

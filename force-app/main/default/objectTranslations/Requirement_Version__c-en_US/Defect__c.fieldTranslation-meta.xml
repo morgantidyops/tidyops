@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- If this new requirement came from resolving a defect, associate the defect here --></help>
+        <label><!-- Defect --></label>
+        <name>Defect__c</name>
+        <relationshipLabel><!-- New Requirements --></relationshipLabel>
+    </CustomFieldTranslation>

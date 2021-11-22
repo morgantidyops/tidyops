@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Sandbox Type --></label>
+        <name>Sandbox_Type__c</name>
+        <picklistValues>
+            <masterLabel>Developer</masterLabel>
+            <translation><!-- Developer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Developer Pro</masterLabel>
+            <translation><!-- Developer Pro --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Full</masterLabel>
+            <translation><!-- Full --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partial</masterLabel>
+            <translation><!-- Partial --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

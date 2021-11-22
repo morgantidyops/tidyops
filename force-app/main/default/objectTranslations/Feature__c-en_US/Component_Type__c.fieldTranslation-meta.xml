@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Formula that pulls that Component Type field from the parent Component --></help>
+        <label><!-- Component Type --></label>
+        <name>Component_Type__c</name>
+    </CustomFieldTranslation>

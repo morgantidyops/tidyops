@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Severity__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Minor / Low - Cosmetic defect/typo; 
+Average / Medium - Annoyance; 
+Major / High - Unexpected behavior; 
+Critical / Show Stopper - Item that prevents further testing; 
+Emergency - Highest severity; 
+Enhancement - Additional features to improve the product</inlineHelpText>
+    <label>Severity</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Minor / Low</fullName>
+                <default>false</default>
+                <label>Minor / Low</label>
+            </value>
+            <value>
+                <fullName>Average / Medium</fullName>
+                <default>false</default>
+                <label>Average / Medium</label>
+            </value>
+            <value>
+                <fullName>Major / High</fullName>
+                <default>false</default>
+                <label>Major / High</label>
+            </value>
+            <value>
+                <fullName>Critical / Show Stopper</fullName>
+                <default>false</default>
+                <label>Critical / Show Stopper</label>
+            </value>
+            <value>
+                <fullName>Emergency</fullName>
+                <default>false</default>
+                <label>Emergency</label>
+            </value>
+            <value>
+                <fullName>Enhancement</fullName>
+                <default>false</default>
+                <label>Enhancement</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

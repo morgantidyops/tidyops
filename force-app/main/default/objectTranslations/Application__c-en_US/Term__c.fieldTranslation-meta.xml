@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Term --></label>
+        <name>Term__c</name>
+        <picklistValues>
+            <masterLabel>2-Year</masterLabel>
+            <translation><!-- 2-Year --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3-Year</masterLabel>
+            <translation><!-- 3-Year --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4-Year</masterLabel>
+            <translation><!-- 4-Year --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Annual</masterLabel>
+            <translation><!-- Annual --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bi-Annual</masterLabel>
+            <translation><!-- Bi-Annual --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Month</masterLabel>
+            <translation><!-- Month --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarter</masterLabel>
+            <translation><!-- Quarter --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

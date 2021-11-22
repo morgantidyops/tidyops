@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <defaultLandingTab>standard-home</defaultLandingTab>
+    <description>Enables business agility in Salesforce applications with the first enterprise AppOps solution for automating and simplifying configuration data management. AppOps does for low code applications what DevOps does for complex development.</description>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <label>Prodly AppOps</label>
+    <logo>PDRI__Logos/PDRI__Prodly_AppOps.png</logo>
+    <tabs>PDRI__Prodly_Account</tabs>
+    <tabs>PDRI__AppOpsTestClassic</tabs>
+    <tabs>PDRI__AppOpsReleaseClassic</tabs>
+    <tabs>PDRI__Connection__c</tabs>
+    <tabs>PDRI__Deployment_Result__c</tabs>
+    <tabs>Revenue_Plan__c</tabs>
+</CustomApplication>

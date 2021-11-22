@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Grants access to viewing employee personally identifiable information only visible to HR.</description>
+    <label>Human Resources</label>
+    <permissionSets>View_Encrypted_Data</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>

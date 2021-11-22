@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPM4_BASE__Project_Task__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <inlineHelpText>The task that is having time charged to it.</inlineHelpText>
+    <label>Project Task</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>$User.Id</field>
+            <operation>equals</operation>
+            <valueField>MPM4_BASE__Milestone1_Task__c.MPM4_BASE__Resource__r.MPM4_BASE__User__c</valueField>
+        </filterItems>
+        <isOptional>true</isOptional>
+    </lookupFilter>
+    <referenceTo>MPM4_BASE__Milestone1_Task__c</referenceTo>
+    <relationshipLabel>Times</relationshipLabel>
+    <relationshipName>Project_Times</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

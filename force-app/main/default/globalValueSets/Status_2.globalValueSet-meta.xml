@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Draft</fullName>
+        <default>false</default>
+        <label>Draft</label>
+    </customValue>
+    <customValue>
+        <fullName>Ready to Build</fullName>
+        <default>false</default>
+        <label>Ready to Build</label>
+    </customValue>
+    <customValue>
+        <fullName>In Progress</fullName>
+        <default>false</default>
+        <label>In Progress</label>
+    </customValue>
+    <customValue>
+        <fullName>Internal Testing</fullName>
+        <default>false</default>
+        <label>Internal Testing</label>
+    </customValue>
+    <customValue>
+        <fullName>Quality Assurance</fullName>
+        <default>false</default>
+        <label>Quality Assurance</label>
+    </customValue>
+    <customValue>
+        <fullName>User Acceptance Testing</fullName>
+        <default>false</default>
+        <label>User Acceptance Testing</label>
+    </customValue>
+    <customValue>
+        <fullName>Release Ready</fullName>
+        <default>false</default>
+        <label>Release Ready</label>
+    </customValue>
+    <customValue>
+        <fullName>Complete</fullName>
+        <default>false</default>
+        <label>Complete</label>
+    </customValue>
+    <description>Other Status Values</description>
+    <masterLabel>Component Version Status</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

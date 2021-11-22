@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Component</fullName>
+    <active>true</active>
+    <compactLayoutAssignment>Component_Custom_Compact_Layout</compactLayoutAssignment>
+    <description>Select this record type for any non-field component (Apex Trigger, Page Layout, Process, etc.).</description>
+    <label>Component</label>
+    <picklistValues>
+        <picklist>Component_Type__c</picklist>
+        <values>
+            <fullName>Account Criteria Based Sharing Rule</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Account Owner Sharing Rule</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Account Territory Owner Sharing Rule</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Action %28includes object-oriented quick actions and global quick actions%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Action Link Group Template</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Apex Class</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Apex Trigger</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Apex%C2%A0Sharing Reason</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>App</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Assignment Rule</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Assignment Rule Entry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Auth%2E Provider</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Auto-Response Rule</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Auto-Response Rule Entry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Button</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CORS Whitelist Origin</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Call Center</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Campaign Criteria Based Sharing Rule</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Campaign Owner Sharing Rule</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Case Assignment Rule</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Case Auto-Response</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Case Criteria Based Sharing Rule</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Case Owner Sharing Rule</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Communities %28Zones%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Compact Layout</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Console App</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contact Criteria Based Sharing Rule</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contact Owner Sharing Rule</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Country%2FTerritory Changelist Entry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Country%2FTerritory Picklist</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Custom Console Component</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Custom Data Type</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Custom Label</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Custom Object Criteria Sharing Rule</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Custom Object Owner Sharing Rule</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Custom Permission</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Custom Report Type</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Custom Setting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dashboard</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Document</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Duplicate Rule</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Einstein Bot</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Email Folder</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Email Template</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Email-to-case Routing Address</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Entitlement Process</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Entitlement Template</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Escalation Rule</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>External - Mailbox</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>External - Website</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>External Data Source</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Field</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Field Set</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Flow</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Folder</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Global Value Set</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Group</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Home Page Component</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Home Page Layout</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Knowledge Data Category</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Knowledge Data Category Group</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Language Translation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lead Assignment Rule</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lead Auto-Response</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lead Criteria Based Sharing Rule</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lead Owner Sharing Rule</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Letterhead</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lightning Page</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Link</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>List View</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Live Agent Configuration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Live Chat Deployment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Live Chat Sensitive Data Rule</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Macro</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Matching Rule</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Milestone</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Named Credential</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Object</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Opportunity Criteria Based Sharing Rule</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Opportunity Owner Sharing Rule</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Organization-Wide Default</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Organization-Wide Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Page Layout</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Permission Set</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Platform Cache Partition</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Post Templates for%C2%A0Approvals in Chatter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Presence Configuration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Presence Decline Reason</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Presence Status</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Process</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Profile</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Queue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Quick Text</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Record Type</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Remote Site</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Report</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Report Folder</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Role</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Routing Configuration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-Control</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Send Action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Service Channel</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sharing Set</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Site%2Ecom</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>State Changelist Entry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>State Picklist</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>State and Country%2FTerritory Picklist Configuration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Static Resource</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supervisor Configuration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Support Process</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tab</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Territory</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Transaction Security Policy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>User Criteria Based Sharing Rule</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>User Membership Based Sharing Rule</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Validation Rule</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Visualforce Page</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Visualforce%C2%A0Component</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Workflow Email Alert</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Workflow Field Update</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Workflow Outbound Message</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Workflow Rule</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Workflow Task</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Workflow Time Trigger</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>SOAP_Type__c</picklist>
+        <values>
+            <fullName>BOOLEAN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DATE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DATETIME</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ID</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>STRING</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Standard_Object__c</picklist>
+        <values>
+            <fullName>Account</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Case</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contact</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EmailMessage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lead</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Opportunity</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OpportunityLineItem</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Product2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Task</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>User</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Delivered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deprecated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Draft</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In Progress</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Release Ready</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rolled back</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Testing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UAT</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type__c</picklist>
+        <values>
+            <fullName>BOOLEAN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DATE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DATETIME</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ID</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PICKLIST</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>REFERENCE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>STRING</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

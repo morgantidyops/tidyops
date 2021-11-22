@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- What is the purpose of this component? What business problem does it solve? How does it function? If this is a field, is it populated manually or via automation? Describe the data type or other attributes of the component. --></help>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </CustomFieldTranslation>

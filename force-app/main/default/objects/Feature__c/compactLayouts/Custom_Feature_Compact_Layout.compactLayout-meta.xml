@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Custom_Feature_Compact_Layout</fullName>
+    <fields>Name</fields>
+    <fields>Requirement__c</fields>
+    <fields>Requirement_Status__c</fields>
+    <fields>Component__c</fields>
+    <fields>Component_Type__c</fields>
+    <fields>Object__c</fields>
+    <fields>Project__c</fields>
+    <fields>Build_Task__c</fields>
+    <label>Custom Feature Compact Layout</label>
+</CompactLayout>

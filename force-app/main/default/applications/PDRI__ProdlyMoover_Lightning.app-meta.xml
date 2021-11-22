@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <logo>PDRI__Prodly_Logo_Final</logo>
+        <logoVersion>1</logoVersion>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>Enables effortless org-to-org deployments of configuration data between Salesforce orgs, which improves speed, reliability, and auditability of application releases.</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <label>Prodly</label>
+    <navType>Standard</navType>
+    <tabs>standard-home</tabs>
+    <tabs>PDRI__Moover_Admin</tabs>
+    <tabs>PDRI__Prodly_Account</tabs>
+    <tabs>PDRI__AppOpsTest</tabs>
+    <tabs>PDRI__AppOpsRelease</tabs>
+    <tabs>PDRI__Folder__c</tabs>
+    <tabs>PDRI__Connection__c</tabs>
+    <tabs>PDRI__Data_Sets_Home</tabs>
+    <tabs>PDRI__Deployment_Plan__c</tabs>
+    <tabs>PDRI__Data_Set_Template__c</tabs>
+    <tabs>PDRI__Deployment_Result__c</tabs>
+    <tabs>PDRI__Deployment_Center</tabs>
+    <tabs>PDRI__DataSet__c</tabs>
+    <tabs>PDRI__Invocation_Template__c</tabs>
+    <tabs>standard-report</tabs>
+    <uiType>Lightning</uiType>
+</CustomApplication>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- If any special instructions for this release, please list them here. This includes steps which need to be taken in a specific order, manual configurations, etc. --></help>
+        <label><!-- Instructions --></label>
+        <name>Instructions__c</name>
+    </CustomFieldTranslation>

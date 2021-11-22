@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- If this component is associated with a standard object, select it here. --></help>
+        <label><!-- Standard Object --></label>
+        <name>Standard_Object__c</name>
+        <picklistValues>
+            <masterLabel>Account</masterLabel>
+            <translation><!-- Account --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AccountInvoiceDetail__c</masterLabel>
+            <translation><!-- AccountInvoiceDetail__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AccountInvoice__c</masterLabel>
+            <translation><!-- AccountInvoice__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AccountPayment__c</masterLabel>
+            <translation><!-- AccountPayment__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AccountPublicationEvent__c</masterLabel>
+            <translation><!-- AccountPublicationEvent__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AccountPublicationRate__c</masterLabel>
+            <translation><!-- AccountPublicationRate__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AccountPublicationRoute__c</masterLabel>
+            <translation><!-- AccountPublicationRoute__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AccountPublication__c</masterLabel>
+            <translation><!-- AccountPublication__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AddressChange__c</masterLabel>
+            <translation><!-- AddressChange__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Alert__c</masterLabel>
+            <translation><!-- Alert__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BonusDay__c</masterLabel>
+            <translation><!-- BonusDay__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Case</masterLabel>
+            <translation><!-- Case --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Code__c</masterLabel>
+            <translation><!-- Code__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Component_Version__c</masterLabel>
+            <translation><!-- Component_Version__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Component__c</masterLabel>
+            <translation><!-- Component__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contact</masterLabel>
+            <translation><!-- Contact --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Defect_Link__c</masterLabel>
+            <translation><!-- Defect_Link__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Delete_History__c</masterLabel>
+            <translation><!-- Delete_History__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DrawAdjustment__c</masterLabel>
+            <translation><!-- DrawAdjustment__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DrawHistoryDetail__c</masterLabel>
+            <translation><!-- DrawHistoryDetail__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DrawHistory__c</masterLabel>
+            <translation><!-- DrawHistory__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DrawTemplate__c</masterLabel>
+            <translation><!-- DrawTemplate__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Draw__c</masterLabel>
+            <translation><!-- Draw__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EmailMessage</masterLabel>
+            <translation><!-- EmailMessage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Environment__c</masterLabel>
+            <translation><!-- Environment__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Error_Log__c</masterLabel>
+            <translation><!-- Error_Log__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Event</masterLabel>
+            <translation><!-- Event --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Feature__c</masterLabel>
+            <translation><!-- Feature__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>InsertCredit__c</masterLabel>
+            <translation><!-- InsertCredit__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Insertion__c</masterLabel>
+            <translation><!-- Insertion__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lead</masterLabel>
+            <translation><!-- Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MPM4_BASE__Milestone1_Log__c</masterLabel>
+            <translation><!-- MPM4_BASE__Milestone1_Log__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MPM4_BASE__Milestone1_Milestone__c</masterLabel>
+            <translation><!-- MPM4_BASE__Milestone1_Milestone__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MPM4_BASE__Milestone1_Program__c</masterLabel>
+            <translation><!-- MPM4_BASE__Milestone1_Program__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MPM4_BASE__Milestone1_Project__c</masterLabel>
+            <translation><!-- MPM4_BASE__Milestone1_Project__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MPM4_BASE__Milestone1_Task__c</masterLabel>
+            <translation><!-- MPM4_BASE__Milestone1_Task__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MPM4_BASE__Risk__c</masterLabel>
+            <translation><!-- MPM4_BASE__Risk__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NoPubDay__c</masterLabel>
+            <translation><!-- NoPubDay__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Opportunity</masterLabel>
+            <translation><!-- Opportunity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OpportunityLineItem</masterLabel>
+            <translation><!-- OpportunityLineItem --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Org__c</masterLabel>
+            <translation><!-- Org__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product2</masterLabel>
+            <translation><!-- Product2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PublicationServiceType__c</masterLabel>
+            <translation><!-- PublicationServiceType__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Publication__c</masterLabel>
+            <translation><!-- Publication__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rate__c</masterLabel>
+            <translation><!-- Rate__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Release__c</masterLabel>
+            <translation><!-- Release__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Requirement_Version__c</masterLabel>
+            <translation><!-- Requirement_Version__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Requirement__c</masterLabel>
+            <translation><!-- Requirement__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Resource__c</masterLabel>
+            <translation><!-- Resource__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RouteAlert__c</masterLabel>
+            <translation><!-- RouteAlert__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RouteRange__c</masterLabel>
+            <translation><!-- RouteRange__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Route_Assignment__c</masterLabel>
+            <translation><!-- Route_Assignment__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Route__c</masterLabel>
+            <translation><!-- Route__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SubscriptionPriceHistory__c</masterLabel>
+            <translation><!-- SubscriptionPriceHistory__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Task</masterLabel>
+            <translation><!-- Task --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Territory__c</masterLabel>
+            <translation><!-- Territory__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Test_Case__c</masterLabel>
+            <translation><!-- Test_Case__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Test_Group__c</masterLabel>
+            <translation><!-- Test_Group__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Test_Plan__c</masterLabel>
+            <translation><!-- Test_Plan__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Test_Resource__c</masterLabel>
+            <translation><!-- Test_Resource__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Test_Run__c</masterLabel>
+            <translation><!-- Test_Run__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Test_Scenario_Version__c</masterLabel>
+            <translation><!-- Test_Scenario_Version__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Test_Scenario__c</masterLabel>
+            <translation><!-- Test_Scenario__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Test_Step__c</masterLabel>
+            <translation><!-- Test_Step__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>User</masterLabel>
+            <translation><!-- User --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VendorRoute__c</masterLabel>
+            <translation><!-- VendorRoute__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Zone__c</masterLabel>
+            <translation><!-- Zone__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Zuora__CustomerAccount__c</masterLabel>
+            <translation><!-- Zuora__CustomerAccount__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Zuora__PaymentMethod__c</masterLabel>
+            <translation><!-- Zuora__PaymentMethod__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Zuora__Payment__c</masterLabel>
+            <translation><!-- Zuora__Payment__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Zuora__Product__c</masterLabel>
+            <translation><!-- Zuora__Product__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Zuora__Refund__c</masterLabel>
+            <translation><!-- Zuora__Refund__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Zuora__SubscriptionProductCharge__c</masterLabel>
+            <translation><!-- Zuora__SubscriptionProductCharge__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Zuora__SubscriptionRatePlan__c</masterLabel>
+            <translation><!-- Zuora__SubscriptionRatePlan__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Zuora__Subscription__c</masterLabel>
+            <translation><!-- Zuora__Subscription__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Zuora__ZInvoice__c</masterLabel>
+            <translation><!-- Zuora__ZInvoice__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>zqu__ProductRatePlan__c</masterLabel>
+            <translation><!-- zqu__ProductRatePlan__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>zqu__ZProduct__c</masterLabel>
+            <translation><!-- zqu__ZProduct__c --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

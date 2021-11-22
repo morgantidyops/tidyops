@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AutoResponseRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <autoResponseRule>
+        <fullName>Email-to-Case Autoresponder</fullName>
+        <active>true</active>
+        <ruleEntry>
+            <criteriaItems>
+                <field>Case.Origin</field>
+                <operation>equals</operation>
+                <value>Email</value>
+            </criteriaItems>
+            <notifyCcRecipients>false</notifyCcRecipients>
+            <replyToEmail>help@tidyops.co</replyToEmail>
+            <senderEmail>meredith@tidyops.co</senderEmail>
+            <senderName>TidyOps Support</senderName>
+            <template>Support_Templates/Support_Email_to_Case_Auto_Response</template>
+        </ruleEntry>
+    </autoResponseRule>
+</AutoResponseRules>

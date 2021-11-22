@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Non_Test_Validation_Tests</fullName>
+    <columns>NAME</columns>
+    <columns>Environment__c</columns>
+    <columns>Test_Group__c</columns>
+    <columns>Test_Cycle__c</columns>
+    <columns>Browser__c</columns>
+    <columns>Test_Scenario_Status__c</columns>
+    <columns>Assigned_To__c</columns>
+    <columns>Test_Cycle_Type__c</columns>
+    <columns>Release__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Test_Cycle_Type__c</field>
+        <operation>equals</operation>
+        <value>Internal Acceptance</value>
+    </filters>
+    <filters>
+        <field>Runs_Executed__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Assigned_To__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>Test_Scenario_Status__c</field>
+        <operation>equals</operation>
+        <value>Verified</value>
+    </filters>
+    <label>Non-Test Validation Tests</label>
+</ListView>

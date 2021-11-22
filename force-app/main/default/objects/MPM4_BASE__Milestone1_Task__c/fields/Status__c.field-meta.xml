@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>New</fullName>
+                <default>false</default>
+                <label>New</label>
+            </value>
+            <value>
+                <fullName>Ready</fullName>
+                <default>false</default>
+                <label>Ready</label>
+            </value>
+            <value>
+                <fullName>In Development</fullName>
+                <default>false</default>
+                <label>In Development</label>
+            </value>
+            <value>
+                <fullName>Ready for Peer Review</fullName>
+                <default>false</default>
+                <label>Ready for Peer Review</label>
+            </value>
+            <value>
+                <fullName>Ready for QA</fullName>
+                <default>false</default>
+                <label>Ready for QA</label>
+            </value>
+            <value>
+                <fullName>QA Testing</fullName>
+                <default>false</default>
+                <label>QA Testing</label>
+            </value>
+            <value>
+                <fullName>Ready for UAT</fullName>
+                <default>false</default>
+                <label>Ready for UAT</label>
+            </value>
+            <value>
+                <fullName>In UAT</fullName>
+                <default>false</default>
+                <label>In UAT</label>
+            </value>
+            <value>
+                <fullName>Passed UAT</fullName>
+                <default>false</default>
+                <label>Passed UAT</label>
+            </value>
+            <value>
+                <fullName>Complete</fullName>
+                <default>false</default>
+                <label>Complete</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

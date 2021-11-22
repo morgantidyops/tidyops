@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- For the engineer assigned to evaluate the defect to make notes about the findings of root cause analysis &amp; the solution --></help>
+        <label><!-- Engineering Notes --></label>
+        <name>Engineering_Notes__c</name>
+    </CustomFieldTranslation>

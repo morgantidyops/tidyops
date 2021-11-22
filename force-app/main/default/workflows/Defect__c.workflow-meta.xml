@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Update_Status_to_Development</fullName>
+        <field>Status__c</field>
+        <literalValue>Development</literalValue>
+        <name>Update Status to Development</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Status_to_Failed_Testing</fullName>
+        <field>Status__c</field>
+        <literalValue>Failed Testing</literalValue>
+        <name>Update Status to Failed Testing</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Status_to_Fixed</fullName>
+        <field>Status__c</field>
+        <literalValue>Fixed</literalValue>
+        <name>Update Status to Fixed</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Status_to_Submitted_for_Testing</fullName>
+        <field>Status__c</field>
+        <literalValue>Submitted for Testing</literalValue>
+        <name>Update Status to Submitted for Testing</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+</Workflow>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sfLma__Login_to_Partner_BT</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>page</linkType>
+    <masterLabel>Log Into Subscriber Console</masterLabel>
+    <openType>replace</openType>
+    <page>sfLma__LoginToPartnerBT</page>
+    <protected>false</protected>
+</WebLink>

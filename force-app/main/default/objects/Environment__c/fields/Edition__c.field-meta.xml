@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Edition__c</fullName>
+    <externalId>false</externalId>
+    <label>Edition</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Essentials</fullName>
+                <default>false</default>
+                <label>Essentials</label>
+            </value>
+            <value>
+                <fullName>Professional</fullName>
+                <default>false</default>
+                <label>Professional</label>
+            </value>
+            <value>
+                <fullName>Unlimited</fullName>
+                <default>false</default>
+                <label>Unlimited</label>
+            </value>
+            <value>
+                <fullName>Enterprise</fullName>
+                <default>false</default>
+                <label>Enterprise</label>
+            </value>
+            <value>
+                <fullName>Developer</fullName>
+                <default>false</default>
+                <label>Developer</label>
+            </value>
+            <value>
+                <fullName>Partner Developer</fullName>
+                <default>false</default>
+                <label>Partner Developer</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

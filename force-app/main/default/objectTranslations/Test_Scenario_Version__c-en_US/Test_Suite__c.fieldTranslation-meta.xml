@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Represents a group of test cases that should be run for a specific Test Cycle --></help>
+        <label><!-- Test Suite --></label>
+        <name>Test_Suite__c</name>
+        <relationshipLabel><!-- Test Scenario Versions --></relationshipLabel>
+    </CustomFieldTranslation>

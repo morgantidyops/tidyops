@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPM4_BASE__MyTask__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <formula>IF(AND(MPM4_BASE__Resource__c != null, MPM4_BASE__Resource__r.MPM4_BASE__User__c != null ), MPM4_BASE__Resource__r.MPM4_BASE__User__c == $User.Id, false)</formula>
+    <label>My Task</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

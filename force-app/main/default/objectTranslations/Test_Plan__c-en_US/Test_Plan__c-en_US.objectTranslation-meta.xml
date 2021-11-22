@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Test Plan</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Test Plans</value>
+    </caseValues>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <layouts>
+        <layout>Test Plan Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Exit Criteria --></label>
+            <section>Exit Criteria</section>
+        </sections>
+        <sections>
+            <label><!-- Scope --></label>
+            <section>Scope</section>
+        </sections>
+        <sections>
+            <label><!-- Test Strategy --></label>
+            <section>Test Strategy</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

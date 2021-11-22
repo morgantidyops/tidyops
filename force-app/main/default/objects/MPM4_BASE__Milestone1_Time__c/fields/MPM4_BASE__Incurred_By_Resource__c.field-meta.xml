@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPM4_BASE__Incurred_By_Resource__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <label>Incurred By</label>
+    <referenceTo>MPM4_BASE__Milestone1_Resource__c</referenceTo>
+    <relationshipLabel>Times</relationshipLabel>
+    <relationshipName>Times</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_City</fullName>
+    <active>true</active>
+    <description>Uses REGEX to require only latin alpha characters in City field.</description>
+    <errorConditionFormula>IF(
+  MailingCity != &#39;&#39;,
+  NOT(REGEX(MailingCity, &quot;([A-Z]{1})([a-z]+)(?: ([A-Z]{1})([a-z]+))?&quot;)),
+  FALSE
+)</errorConditionFormula>
+    <errorDisplayField>MailingCity</errorDisplayField>
+    <errorMessage>Please use proper casing and do not use any special characters in the City field.</errorMessage>
+</ValidationRule>

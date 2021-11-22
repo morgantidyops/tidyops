@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Component__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Which component is part of this related Solution?</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Which component is part of this related Solution?</inlineHelpText>
+    <label>Component</label>
+    <referenceTo>Component__c</referenceTo>
+    <relationshipLabel>Solution Components</relationshipLabel>
+    <relationshipName>Solution_Components</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPM4_BASE__Program_Health__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <label>Program Health</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Red</fullName>
+                <color>#FF6666</color>
+                <default>false</default>
+                <label>Red</label>
+            </value>
+            <value>
+                <fullName>Green</fullName>
+                <color>#78C953</color>
+                <default>false</default>
+                <label>Green</label>
+            </value>
+            <value>
+                <fullName>Yellow</fullName>
+                <color>#FFFF66</color>
+                <default>false</default>
+                <label>Yellow</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

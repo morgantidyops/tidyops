@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Who is responsible for gathering details for this requirement? --></help>
+        <label><!-- Business Analyst --></label>
+        <name>Business_Analyst__c</name>
+        <relationshipLabel><!-- Requirements (Business Analyst) --></relationshipLabel>
+    </CustomFieldTranslation>

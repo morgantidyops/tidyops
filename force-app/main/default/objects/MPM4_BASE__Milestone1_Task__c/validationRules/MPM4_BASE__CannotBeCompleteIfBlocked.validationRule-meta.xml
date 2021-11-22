@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPM4_BASE__CannotBeCompleteIfBlocked</fullName>
+    <active>true</active>
+    <errorConditionFormula>if (and ( MPM4_BASE__Complete__c == true,  MPM4_BASE__Blocked__c ==true), true, false)</errorConditionFormula>
+    <errorDisplayField>MPM4_BASE__Complete__c</errorDisplayField>
+    <errorMessage>You cannot complete a task marked as blocked.</errorMessage>
+</ValidationRule>

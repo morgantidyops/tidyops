@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Under Consideration</fullName>
+        <default>false</default>
+        <label>Under Consideration</label>
+    </customValue>
+    <customValue>
+        <fullName>Planning</fullName>
+        <default>false</default>
+        <label>Planning</label>
+    </customValue>
+    <customValue>
+        <fullName>Design Phase</fullName>
+        <default>false</default>
+        <label>Design Phase</label>
+    </customValue>
+    <customValue>
+        <fullName>Implementation Phase</fullName>
+        <default>false</default>
+        <label>Implementation Phase</label>
+    </customValue>
+    <customValue>
+        <fullName>Active</fullName>
+        <default>false</default>
+        <label>Active</label>
+    </customValue>
+    <customValue>
+        <fullName>Inactive</fullName>
+        <default>false</default>
+        <label>Inactive</label>
+    </customValue>
+    <customValue>
+        <fullName>Deprecated</fullName>
+        <default>false</default>
+        <label>Deprecated</label>
+    </customValue>
+    <customValue>
+        <fullName>Deleted</fullName>
+        <default>false</default>
+        <label>Deleted</label>
+    </customValue>
+    <customValue>
+        <fullName>Canceled/Rejected</fullName>
+        <default>false</default>
+        <label>Canceled/Rejected</label>
+    </customValue>
+    <masterLabel>Application Status</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- This is most likely the person who built the solution, but possible a release manager. Please list the relevant resource here. --></help>
+        <label><!-- Who is deploying? --></label>
+        <name>Who_is_deploying__c</name>
+        <relationshipLabel><!-- Component Versions --></relationshipLabel>
+    </CustomFieldTranslation>

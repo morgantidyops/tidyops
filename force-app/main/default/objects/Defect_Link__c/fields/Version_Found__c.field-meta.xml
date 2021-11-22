@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Version_Found__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>The the component version where the linked defect was found.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The the component version where the linked defect was found.</inlineHelpText>
+    <label>Version Found</label>
+    <lookupFilter>
+        <active>true</active>
+        <errorMessage>You must select a Component Version for the Component listed on the Defect Link.</errorMessage>
+        <filterItems>
+            <field>Component_Version__c.Component__c</field>
+            <operation>equals</operation>
+            <valueField>$Source.Component__c</valueField>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Component_Version__c</referenceTo>
+    <relationshipLabel>Defects Found</relationshipLabel>
+    <relationshipName>Defect_Links2</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

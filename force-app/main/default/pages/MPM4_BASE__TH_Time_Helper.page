@@ -1,0 +1,147 @@
+<!--*************************************************************************************************************************
+/*                                                                                                                          *
+/*  Company: Passage Technology, All Rights Reserved                                                                        *
+/*  Purpose: An easy to use interface for quickly recording time spent on activities.                                       *
+/*  Author:  Brent Gossett (224-552-0077)                                                                                   *
+/*                                                                                                                          *
+/****************************************************************************************************************************-->
+
+<apex:page standardStylesheets="true" sidebar="false" controller="MPM4_BASE.TH_Time_Helper_Controller" showHeader="true" title="Time Entry">
+    <meta name="viewport" content="width=device-width, user-scalable=no"/> 
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <apex:includeScript value="{! URLFOR($Resource.PT_Resources_v1, '/js/modernizr-1.7.min.js') }"/>
+    <apex:includeScript value="{!URLFOR($Resource.MPM4_BASE__Milestone1_Resource_Bundle, 'javascript/jquery-3.1.1.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.MPM4_BASE__Milestone1_Resource_Bundle, 'javascript/jquery-ui.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.MPM4_BASE__Milestone1_Resource_Bundle, 'javascript/iosWorkaround.js')}"/>
+    <apex:includeScript value="{!$Resource.MPM4_BASE__TH_Time_Helper_js}"/>
+    <apex:stylesheet value="{! URLFOR($Resource.PT_Resources_v1, '/css/reset.css') }"/>
+    <apex:stylesheet value="{! URLFOR($Resource.PT_Resources_v1, '/css/grid.css') }"/>
+    <style>
+        div[id$=setting_values] { overflow-x:scroll; }
+        div[id$=header] { padding-top:25px; padding-bottom:15px; }
+        div[id$=footer] { text-align:center; color:#666; font-size:0.9em; padding:4px 0px; }
+        span[class~=logo] { padding-top:20px; font-size:2.5em; }
+        div[class~=row] { padding-bottom:5px; }     
+        span[id$=weekStart] { text-align:center; font-weight:bold; font-size:1.5em; }    
+        
+        .status {color:red;text-decoration:blink;text-transform:capitalize;}
+        .colweekend { background-color: rgba(0,0,0,.125); }
+        
+        .col.col_18, .col.col_16{
+        	width: 100%;
+        }
+        
+        .row{
+        	width: 80%;
+        }
+    </style>
+    <div class="slds slds-grid--frame" role="main">
+
+    <apex:outputPanel rendered="{!premium}">
+    <center>
+    <apex:form styleClass="col_15" rendered="{!emptySelectOption}" id="setup">
+
+        <div id="updateBox" rendered="false">
+        <div class="message" style="text-align:center"><font size="3">In order to record time your organization must first enable time entry on objects.
+                                                                  Please contact your administrator to enable time entry on objects.</font> </div>
+        </div>
+    </apex:form>
+   </center>
+
+    <center>
+		<apex:outputPanel id="negativeNumberError">
+	    	<apex:form styleClass="col_15" rendered="{! negativeTimeError }">
+		    	<div class="message" style="text-align:center"><font size="3">A negative value cannot be entered for a time sheet.</font> </div>
+		    </apex:form>
+	    </apex:outputPanel>
+    </center>
+    
+    <center>
+		<apex:outputPanel id="tooManyHoursMessage">
+	    	<apex:form styleClass="col_15" rendered="{! tooManyHoursError }">
+		    	<div class="message" style="text-align:center"><font size="3">The time cannot exceed 24 Hours in a single day for any {! parentObjName }.</font> </div>
+		    </apex:form>
+	    </apex:outputPanel>
+    </center>
+    
+    <center>
+		<apex:outputPanel id="invalidTimeMessage">
+	    	<apex:form styleClass="col_15" rendered="{! invalidTimeError }">
+		    	<div class="message" style="text-align:center"><font size="3">The time entry can only contain numerical values.</font> </div>
+		    </apex:form>
+	    </apex:outputPanel>
+    </center>
+    <apex:form >
+
+            <apex:actionFunction name="sortEntries" action="{!updateSortOrder}" reRender="gridComp" status="loading">
+                    <apex:param name="sortColumnField" assignTo="{!sortColumn}" value=""/>
+            </apex:actionFunction>
+
+    <apex:outputPanel styleClass="row" layout="block">
+        <!-- Object List (1x1) -->
+        <apex:outputPanel styleClass="col col_18" layout="block">
+        <apex:pageBlock title="{! $Label.TH_Page_Block_Header }" id="objects">
+            <apex:outputPanel styleClass="row" layout="block">
+                <apex:outputText styleClass="col col_3" value="{! $Label.TH_User_List }" style="text-align:right;"/>
+                <apex:outputText styleClass="col col_3" value="{! userName }"/>
+            </apex:outputPanel>
+            <br/>
+
+            <apex:outputPanel styleClass="row" layout="block" id="availObjs">
+                <apex:outputText styleClass="col col_3" value="{! $Label.TH_Object_List }" style="text-align:right;"/>
+                <apex:actionRegion >
+                <apex:selectList size="1" id="ObjNameList" styleClass="col col_3" value="{! parentObjName }">
+                    <apex:actionSupport event="onchange" onSubmit="page = 0; week = 0;" onComplete=" onChangeOfList(); return false;" action="{! resetDetails }" reRender="details, grid, listView" status="loading"/>
+                    <apex:selectOptions value="{! parents }"/>
+                </apex:selectList>
+                </apex:actionRegion>
+            </apex:outputPanel>
+            <br/>
+            <apex:outputText styleClass="col col_3" value="{! $Label.TH_Owner }" style="text-align:right;"/>
+            <apex:outputPanel styleClass="col col_7" layout="block">
+                <apex:outputPanel id="listView" styleClass="row" layout="block">
+                    <apex:selectList size="1" styleClass="col col_3" value="{! listView }" id="views" >
+                        <apex:actionSupport event="onchange" onSubmit="page = 0; week = 0; resetJGrid();" action="{!resetGrid}" reRender="grid, weekStart, backWeek, nextWeek, buttons" status="loading"/>
+                        <apex:selectOptions value="{! listViews }"/>
+                    </apex:selectList>
+                </apex:outputPanel>
+            </apex:outputPanel>
+
+            <apex:outputPanel id="weekButtons" layout="block" rendered="{!!approverPage}">
+                <apex:commandButton value="<<" id="backWeek" onclick="page=0; week+=1;" styleClass="button col col_1" action="{! backOneWeek }" reRender="gridComp, weekButtons" status="loading"/>                
+                <apex:outputText styleClass="col col_3" id="weekStart" value="Week Of {! startDate }"/>
+                <apex:commandButton action="{! forwardOneWeek }" id="nextWeek" onclick="page=0; week-=1;" reRender="gridComp, weekButtons" value=">>" styleClass="button col col_1"  disabled="{! futureWeekNotAvailable }" status="loading"/>
+                <br/>
+            </apex:outputPanel> 
+            <br/>
+            <apex:outputPanel id="gridComp">
+                <c:TH_Grid rendered="{! NOT( emptySelectOption ) }" LineItems="{! timeGrid }" ShowProject="{! showProjectColumn }" Approver="false" User="true"  SelectedUser="{!isSelectedUser}" Sort="{!sortClause}" Field="{!sortColumn}"/>
+            </apex:outputPanel>            
+        </apex:pageBlock>
+        </apex:outputPanel>
+
+    </apex:outputPanel>
+    
+    </apex:form>
+
+    <apex:outputPanel styleClass="row" layout="block">
+        <apex:outputPanel styleClass="col col_16">
+            <apex:pageMessages />
+        </apex:outputPanel>
+    </apex:outputPanel>
+    
+    <apex:outputPanel styleClass="row" layout="block" id="footer">
+        <apex:outputPanel styleClass="col col_16">
+            Please visit our <a href="https://info.passagetechnology.com/contact-us" target="_blank">contact us page</a> if you need to reach us.
+        </apex:outputPanel>
+    </apex:outputPanel>
+	</apex:outputPanel>
+	
+	<apex:outputPanel rendered="{!!premium}">
+    <c:Milestone2_Premium_Warning />
+    </apex:outputPanel> 
+	
+	</div>
+	</html>
+
+</apex:page>

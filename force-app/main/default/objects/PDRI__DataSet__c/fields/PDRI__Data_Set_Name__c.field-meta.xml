@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PDRI__Data_Set_Name__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <formula>IF(PDRI__Root__c, 
+IF($User.UIThemeDisplayed=&quot;Theme4d&quot;,HYPERLINK(&quot;/?sort=&quot; &amp; Name , &quot;&quot;) &amp; HYPERLINK(&quot;/one/one.app#/sObject/&quot; &amp; Id &amp; 
+&quot;/view&quot;, Name, &quot;_self&quot;) 
+,HYPERLINK(&quot;/?sort=&quot; &amp; Name , &quot;&quot;) &amp; HYPERLINK(&quot;/&quot;&amp;Id, Name, &quot;_self&quot;) ) , 
+IF($User.UIThemeDisplayed=&quot;Theme4d&quot;,HYPERLINK(&quot;/?sort=&quot; &amp; PDRI__Root_Data_Set__r.Name, &quot;&quot;) &amp; 
+HYPERLINK(&quot;/one/one.app#/sObject/&quot; &amp; PDRI__Root_Data_Set__r.Id &amp; &quot;/view&quot;, 
+PDRI__Root_Data_Set__r.Name, &quot;_self&quot;), HYPERLINK(&quot;/?sort=&quot; &amp; PDRI__Root_Data_Set__r.Name, &quot;&quot;) &amp; 
+HYPERLINK(&quot;/&quot;&amp;PDRI__Root_Data_Set__r.Id, 
+PDRI__Root_Data_Set__r.Name, &quot;_self&quot;)) 
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Data Set Name</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

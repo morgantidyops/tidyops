@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Component_Version__c</fullName>
+    <description>Which component version is part of this related Solution?</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Which component version is part of this related Solution?</inlineHelpText>
+    <label>Component Version</label>
+    <referenceTo>Component_Version__c</referenceTo>
+    <relationshipLabel>Solution Components</relationshipLabel>
+    <relationshipName>Solution_Components</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

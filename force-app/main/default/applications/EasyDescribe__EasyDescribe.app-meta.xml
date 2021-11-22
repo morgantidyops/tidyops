@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <defaultLandingTab>EasyDescribe__EasyDescribe</defaultLandingTab>
+    <description>Etherios EasyDescribe - MetaData Viewer/Extractor</description>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <label>EasyDescribe</label>
+    <logo>EasyDescribe__EasyDescribe/EasyDescribe__logo_250x50_appBkground_jpg.png</logo>
+    <tabs>EasyDescribe__EasyDescribe</tabs>
+    <tabs>Revenue_Plan__c</tabs>
+</CustomApplication>

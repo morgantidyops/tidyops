@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Minor / Low - Cosmetic defect/typo; 
+Average / Medium - Annoyance; 
+Major / High - Unexpected behavior; 
+Critical / Show Stopper - Item that prevents further testing; 
+Emergency - Highest severity; 
+Enhancement - Additional features to improve the product --></help>
+        <label><!-- Severity --></label>
+        <name>Severity__c</name>
+        <picklistValues>
+            <masterLabel>Average / Medium</masterLabel>
+            <translation><!-- Average / Medium --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Critical / Show Stopper</masterLabel>
+            <translation><!-- Critical / Show Stopper --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Emergency</masterLabel>
+            <translation><!-- Emergency --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Enhancement</masterLabel>
+            <translation><!-- Enhancement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Major / High</masterLabel>
+            <translation><!-- Major / High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Minor / Low</masterLabel>
+            <translation><!-- Minor / Low --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

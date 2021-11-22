@@ -1,0 +1,168 @@
+<apex:page standardStylesheets="false" title="Milestones PM+ Home" sidebar="false" applyBodyTag="false" docType="html-5.0" showHeader="true">
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <head> 
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    </head>
+        <style>
+            .linkTile {
+                height:200px !important; 
+                width:300px !important;
+            }
+
+            a:hover {
+                text-decoration:none !important;
+            }
+        </style>
+        <apex:slds />
+        <script>
+            sessionStorage.setItem('rootPage','home');
+            
+            function navigateToURL(pageName){
+                if(typeof sforce != 'undefined')
+                    sforce.one.navigateToURL(pageName, true);
+                else
+                    window.open(pageName);	
+            }
+        </script>
+    
+        <body  class="slds-scope">
+            <div class="slds-card slds-card_empty">
+                <header class="slds-card__header slds-grid grid_flex-spread slds-text-heading_small slds-truncate slds-theme_alt-inverse">
+                    <h1 class="slds-text-heading--large">Welcome to Milestones PM+!</h1>
+                </header>
+            
+                <section class="slds-card__body" >
+                    <br/>
+                
+                    <div>
+                        <table style="margin-left: auto; margin-right: auto;">
+                            <tr class="slds-align_absolute-center">
+                                <td class="linkTile slds-button slds-button--neutral">
+                                    <a onclick="navigateToURL('{!URLFOR($Page.Milestone1_Project_Creation)}');">
+                                        <div>
+                                            <h2 class="slds-text-heading--large" style="padding-bottom:15px; padding-top:15px;">Create</h2>
+                                            <span class="slds-icon_container slds-icon-action-new">
+                                                <img class="slds-icon slds-icon_large" src="/apexpages/slds/latest/assets/icons/action/new_120.png" />
+                                            </span>
+                                            <h3 class="slds-text-heading--medium" style="padding-top:15px;">New Project</h3>
+                                        </div>
+                                    </a>
+                                </td>
+
+                                <td class="linkTile slds-button slds-button--neutral">
+                                    <a onclick="navigateToURL('{! URLFOR($Page.Milestone1_Import_Project) }');">
+                                        <div>
+                                            <h2 class="slds-text-heading--large" style="padding-bottom:15px; padding-top:15px;">Import</h2>
+                                            <span class="slds-icon__container slds-icon-action-update-status">
+                                                <img class="slds-icon slds-icon--large" src="/apexpages/slds/latest/assets/icons/action/share_file_120.png" />
+                                            </span>
+                                            <h3 class="slds-text-heading--medium" style="padding-top:15px;">Project From Template</h3>
+                                        </div>
+                                    </a>
+                                </td>
+
+                                <td class="linkTile slds-button slds-button--neutral">
+                                    <a onclick="navigateToURL('{! URLFOR($Page.TH_Time_Helper) }');">
+                                        <div>
+                                            <h2 class="slds-text-heading--large" style="padding-bottom:15px; padding-top:15px;">Log</h2>
+                                            <span class="slds-icon__container slds-icon-action-fallback">
+                                                <img class="slds-icon slds-icon--large" src="/apexpages/slds/latest/assets/icons/action/defer_120.png" />
+                                            </span>
+                                            <h3 class="slds-text-heading--medium" style="padding-top:15px;">Time Entries</h3>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+
+                            <tr class="slds-align_absolute-center">
+                                <td class="linkTile slds-button slds-button--neutral">
+                                    <a onclick="navigateToURL('{! URLFOR($Action.Milestone1_Project__c.Tab,$ObjectType.Milestone1_Project__c) }');">
+                                        <div>
+                                            <h2 class="slds-text-heading--large" style="padding-bottom:15px; padding-top:15px;">View</h2>
+                                            <span class="slds-icon__container slds-icon-action-question-post-action">
+                                                <img class="slds-icon slds-icon--large" src="/apexpages/slds/latest/assets/icons/action/description_120.png" />
+                                            </span>
+                                            <h3 class="slds-text-heading--medium" style="padding-top:15px;">Projects</h3>
+                                        </div>
+                                    </a>
+                                </td> 		
+                                
+                                <td class="linkTile slds-button slds-button--neutral">
+                                    <a onclick="navigateToURL('{! URLFOR($Action.Milestone1_Milestone__c.Tab,$ObjectType.Milestone1_Milestone__c) }');">
+                                        <div>
+                                            <h2 class="slds-text-heading--large" style="padding-bottom:15px; padding-top:15px;">View</h2>
+                                            <span class="slds-icon__container slds-icon-action-question-post-action">
+                                                <img class="slds-icon slds-icon--large" src="/apexpages/slds/latest/assets/icons/action/canvas_120.png" />
+                                            </span>
+                                            <h3 class="slds-text-heading--medium" style="padding-top:15px;">Milestones</h3>
+                                        </div>
+                                    </a>
+                                </td>	
+
+                                <td class="linkTile slds-button slds-button--neutral">
+                                    <a onclick="navigateToURL('{! URLFOR($Action.Milestone1_Task__c.Tab,$ObjectType.Milestone1_Task__c) }');">
+                                        <div>
+                                            <h2 class="slds-text-heading--large" style="padding-bottom:15px; padding-top:15px;">View</h2>
+                                            <span class="slds-icon__container slds-icon-action-question-post-action">
+                                                <img class="slds-icon slds-icon--large" src="/apexpages/slds/latest/assets/icons/action/new_task_120.png" />
+                                            </span>
+                                            <h3 class="slds-text-heading--medium" style="padding-top:15px;">Tasks</h3>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+
+                            <tr class="slds-align_absolute-center">
+                                <td class="linkTile slds-button slds-button--neutral">
+                                    <a onclick="navigateToURL('{! URLFOR($Page.Milestone1_Calendar_Large) }');">
+                                        <div>
+                                            <h2 class="slds-text-heading--large" style="padding-bottom:15px; padding-top:15px;">View</h2>
+                                            <span class="slds-icon__container slds-icon-action-apex">
+                                                <img class="slds-icon slds-icon--large" src="/apexpages/slds/latest/assets/icons/action/new_event_120.png" />
+                                            </span>
+                                            <h3 class="slds-text-heading--medium" style="padding-top:15px;">Calendar</h3>
+                                        </div>
+                                    </a>
+                                </td>
+                                
+                                <td class="linkTile slds-button slds-button--neutral">
+                                    <a onclick="navigateToURL('{! URLFOR($Page.Milestone1_GettingStarted) }');">
+                                        <div>
+                                            <h2 class="slds-text-heading--large" style="padding-bottom:15px; padding-top:15px;">View</h2>
+                                            <span class="slds-icon__container slds-icon-action-apex">
+                                                <img class="slds-icon slds-icon--large" src="/apexpages/slds/latest/assets/icons/action/info_120.png" />
+                                            </span>
+                                            <h3 class="slds-text-heading--medium" style="padding-top:15px;">Help Page</h3>
+                                        </div>
+                                    </a>
+                                </td>
+
+                                <td class="linkTile slds-button slds-button--neutral">
+                                    <apex:outputLink target="_blank" value="https://passagetechnology.force.com/Services">
+                                        <div>
+                                            <h2 class="slds-text-heading--large" style="padding-bottom:15px; padding-top:15px;">Get Custom Dev</h2>
+                                            <span class="slds-icon__container slds-icon-action-apex">
+                                                <img class="slds-icon slds-icon--large" src="/apexpages/slds/latest/assets/icons/action/apex_120.png" />
+                                            </span>
+                                            <h3 class="slds-text-heading--medium" style="padding-top:15px;">For Your Org</h3>
+                                        </div>
+                                    </apex:outputLink>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </section>
+
+                <footer>
+                    <hr/>
+                    <div style="padding-left:15px;">Want to give us feedback?  Need assistance?  Contact 
+                        <a href="mailto:support@passagetech.com">support@passagetech.com</a>.
+                    </div>
+                </footer>
+            </div>
+        </body >
+
+        <br />
+
+    </html>
+</apex:page>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email used in auto-response for email-to-case cases</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Support: Email-to-Case Auto-Response</name>
+    <style>none</style>
+    <subject>New case with {!Organization.Name} Support - Case #{!Case.CaseNumber}</subject>
+    <textOnly>Dear {!Case.SuppliedName},
+
+Thank you for submitting your question to us online. Case #{!Case.CaseNumber}: &quot;{!Case.Subject}&quot; has been created and a {!Organization.Name} Customer Advocate will respond to you shortly.
+
+Thank you, {!Organization.Name} Support
+
+
+
+
+{!Case.Email_Thread}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

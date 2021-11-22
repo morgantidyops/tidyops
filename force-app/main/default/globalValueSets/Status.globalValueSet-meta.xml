@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Active</fullName>
+        <default>false</default>
+        <label>Active</label>
+    </customValue>
+    <customValue>
+        <fullName>Inactive</fullName>
+        <default>false</default>
+        <label>Inactive</label>
+    </customValue>
+    <customValue>
+        <fullName>Deleted</fullName>
+        <default>false</default>
+        <label>Deleted</label>
+    </customValue>
+    <description>Typical Status values</description>
+    <masterLabel>Environment Status</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Name__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>If there is no related Contact or User, enter the team member&#39;s name here</inlineHelpText>
+    <label>Name</label>
+    <length>165</length>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <description>Functional: 
+•Verifies application functional conformance with user facing requirements. 
+•Primarily manual and back-box based 
+•Focuses on user transaction / use cases 
+
+Non-functional: 
+•Verifies technical or non-functional requirements such as: 
+-Platform Compatibility 
+-Usability 
+-Standards compliance 
+-Failover / high availability</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Functional: 
+•Verifies application functional conformance with user req&#39;s 
+•Focuses on user transaction / use cases 
+
+Non-functional: 
+•Verifies technical or non-functional requirements such as: 
+-Platform Compatibility 
+-Usability 
+-Compliance</inlineHelpText>
+    <label>Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Functional</fullName>
+                <default>false</default>
+                <label>Functional</label>
+            </value>
+            <value>
+                <fullName>Non-functional</fullName>
+                <default>false</default>
+                <label>Non-functional</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

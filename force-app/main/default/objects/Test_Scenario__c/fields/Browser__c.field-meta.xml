@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Browser__c</fullName>
+    <description>Browser from parent Test Scenario</description>
+    <externalId>false</externalId>
+    <formula>TEXT(Test_Script__r.Browser__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Browser from parent Test Scenario</inlineHelpText>
+    <label>Browser</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>
